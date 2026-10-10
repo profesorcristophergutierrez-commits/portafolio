@@ -435,6 +435,11 @@
       "titulo": "Diseño gráfico y audiovisual para el aprendizaje",
       "texto": "Imágenes vectoriales, video y animación al servicio de la enseñanza.",
       "alt": "Ilustración animada: formas vectoriales, una curva de Bézier y una línea de tiempo de montaje de video"
+    },
+    {
+      "titulo": "Informes y reportes periódicos",
+      "texto": "Informes de diseño y reportes de avance de cada participante.",
+      "alt": "Ilustración animada: informes periódicos con el avance de cada participante que sube periodo a periodo"
     }
   ]
 }
