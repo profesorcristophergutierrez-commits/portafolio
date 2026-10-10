@@ -1,0 +1,8 @@
+# Videos completos: solo se publican muestras breves
+media/*
+!media/reel.mp4
+# Archivos internos
+index_v5_respaldo.html
+PENDIENTES.md
+.DS_Store
+publicar_github.sh

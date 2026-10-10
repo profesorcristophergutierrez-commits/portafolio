@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retroalimentación efectiva para jefaturas</title>
+<style>
+  :root { --fondo: #F3F5FA; --tinta: #14161A; --cobalto: #1F3A93; color-scheme: light; }
+  body { margin: 0; background: var(--fondo); color: var(--tinta); font-family: "Helvetica Neue", Arial, sans-serif; }
+  .marco { max-width: 960px; margin: 0 auto; padding: 16px; }
+  .marco p { font-size: 14px; color: #4A4F5A; margin: 0 0 10px; }
+  #h5p-container { background: #fff; border-radius: 8px; }
+</style>
+</head>
+<body>
+<div class="marco">
+  <p>Muestra de diseño instruccional · Libro interactivo H5P · Cristopher Gutiérrez González</p>
+  <div id="h5p-container"></div>
+</div>
+<script src="player/main.bundle.js"></script>
+<script>
+  new H5PStandalone.H5P(document.getElementById("h5p-container"), {
+    h5pJsonPath: "retroalimentacion",
+    frameJs: "player/frame.bundle.js",
+    frameCss: "player/styles/h5p.css",
+    fullScreen: true,
+    frame: false,
+    copyright: false,
+    export: false,
+    icon: false
+  });
+</script>
+</body>
+</html>
