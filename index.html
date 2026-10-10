@@ -63,10 +63,18 @@
 
   /* Apertura */
   .apertura { padding-top: 72px; padding-bottom: 64px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: end; }
-  .reel { margin: 0; }
-  .reel video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #E9E6E0; }
-  .reel figcaption { margin-top: 10px; color: var(--gris); font-size: 0.92rem; }
-  .reel .accion { font-size: 0.92rem; margin-left: 6px; }
+  .carrusel { margin: 0; }
+  .sl { margin: 0; }
+  .sl img { width: 100%; height: auto; aspect-ratio: 16 / 9; background: #EEF1F8; border-radius: 4px; }
+  .sl figcaption { margin-top: 14px; }
+  .sl strong { display: block; font-weight: 600; font-size: 1.12rem; }
+  .sl span { display: block; color: var(--gris); font-size: 0.95rem; max-width: 46ch; margin-top: 2px; }
+  .car-ctl { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; }
+  .puntos { display: flex; gap: 8px; }
+  .puntos button { width: 34px; height: 34px; padding: 0; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .puntos button::before { content: ""; width: 26px; height: 3px; background: var(--linea); transition: background .3s; }
+  .puntos button[aria-current="true"]::before { background: var(--tinta); }
+  .car-ctl .accion { font-size: 0.92rem; }
   .apertura .quien { display: flex; align-items: center; gap: 22px; margin: 0 0 40px; color: var(--tinta-2); font-size: 1.02rem; line-height: 1.4; }
   .quien img { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; }
   .quien b { display: block; font-weight: 600; font-size: 1.25rem; color: var(--tinta); }
@@ -238,10 +246,16 @@
         <a href="https://www.linkedin.com/in/cristopher-guti%C3%A9rrez-gonz%C3%A1lez-b8936b148/" rel="noopener">LinkedIn</a>
       </div>
     </div>
-    <figure class="reel">
-      <video id="reel" src="media/reel.mp4" poster="images/poster_reel.jpg" muted loop playsinline preload="metadata" aria-label="Reel con fragmentos de videos de cursos y casos"></video>
-      <figcaption>Fragmentos de videos de cursos y casos, 2023 a 2026. <button type="button" class="accion" id="pausa" aria-pressed="false">Pausar</button></figcaption>
-    </figure>
+    <div class="carrusel" role="group" aria-roledescription="carrusel" aria-label="Competencias principales">
+      <figure class="sl"><img src="hero/hero_1.jpg" data-fijo="hero/hero_1.jpg" data-gif="hero/hero_1.gif" width="800" height="450" alt="Ilustración animada: documentos de investigación que se examinan, se seleccionan y se ordenan"><figcaption><strong>Curaduría desde la investigación</strong><span>Selección de fuentes y evidencia que fundamentan cada contenido.</span></figcaption></figure>
+      <figure class="sl" hidden><img src="hero/hero_2.jpg" data-fijo="hero/hero_2.jpg" data-gif="hero/hero_2.gif" width="800" height="450" alt="Ilustración animada: una misma pantalla de curso que adopta tres paletas de color e identidades distintas"><figcaption><strong>Coherencia con la identidad institucional</strong><span>Cada recurso adopta la identidad visual de la empresa u organismo.</span></figcaption></figure>
+      <figure class="sl" hidden><img src="hero/hero_3.jpg" data-fijo="hero/hero_3.jpg" data-gif="hero/hero_3.gif" width="800" height="450" alt="Ilustración animada: barras de datos que crecen y un ciclo de medición, retroalimentación y mejora"><figcaption><strong>Mejora continua desde la evidencia</strong><span>Seguimiento y retroalimentación constructiva para perfeccionar el diseño.</span></figcaption></figure>
+      <figure class="sl" hidden><img src="hero/hero_4.jpg" data-fijo="hero/hero_4.jpg" data-gif="hero/hero_4.gif" width="800" height="450" alt="Ilustración animada: formas vectoriales, una curva de Bézier y una línea de tiempo de montaje de video"><figcaption><strong>Diseño gráfico y audiovisual para el aprendizaje</strong><span>Imágenes vectoriales, video y animación al servicio de la enseñanza.</span></figcaption></figure>
+      <div class="car-ctl">
+        <div class="puntos" role="group" aria-label="Elegir lámina"><button type="button" aria-label="Lámina 1: Curaduría desde la investigación"></button><button type="button" aria-label="Lámina 2: Coherencia con la identidad institucional"></button><button type="button" aria-label="Lámina 3: Mejora continua desde la evidencia"></button><button type="button" aria-label="Lámina 4: Diseño gráfico y audiovisual para el aprendizaje"></button></div>
+        <button type="button" class="accion" id="car-pausa" aria-pressed="false">Pausar</button>
+      </div>
+    </div>
   </section>
 
   <section class="ancho cifras" aria-label="Trayectoria en cifras">
@@ -360,7 +374,7 @@
 
   // Animación 1a: entrada en secuencia al cargar
   let indice = 0;
-  document.querySelectorAll(".cabeza, .apertura p, .apertura .vinculos, .reel, .cifras li, .filtros, .grilla .pieza:nth-child(-n+3)").forEach(el => {
+  document.querySelectorAll(".cabeza, .apertura p, .apertura .vinculos, .carrusel, .cifras li, .filtros, .grilla .pieza:nth-child(-n+3)").forEach(el => {
     el.classList.add("anim"); el.dataset.entra = ""; el.style.setProperty("--n", indice++);
   });
   requestAnimationFrame(() => requestAnimationFrame(() => document.querySelectorAll("[data-entra]").forEach(el => el.classList.add("visto"))));
@@ -387,16 +401,20 @@
     io.observe(b);
   });
 
-  // Reel de la apertura: se reproduce a la vista, salvo que la persona prefiera menos movimiento
-  const reel = document.getElementById("reel"), pausa = document.getElementById("pausa");
-  let pausadoPorPersona = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  function marcarPausa() { pausa.textContent = reel.paused ? "Reproducir" : "Pausar"; pausa.setAttribute("aria-pressed", String(reel.paused)); }
-  pausa.addEventListener("click", () => { if (reel.paused) { pausadoPorPersona = false; reel.play().catch(() => {}); } else { pausadoPorPersona = true; reel.pause(); } });
-  reel.addEventListener("play", marcarPausa); reel.addEventListener("pause", marcarPausa);
-  if ("IntersectionObserver" in window) {
-    new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting && !pausadoPorPersona) reel.play().catch(() => {}); else reel.pause(); }), { threshold: 0.4 }).observe(reel);
+  // Carrusel de la portada: ilustraciones animadas (GIF); se detiene si la persona prefiere menos movimiento
+  const laminas = [...document.querySelectorAll(".sl")], puntosC = [...document.querySelectorAll(".puntos button")], pausaC = document.getElementById("car-pausa");
+  let actual = 0, detenido = !movimiento, reloj = null;
+  function mostrarLamina(i) {
+    actual = (i + laminas.length) % laminas.length;
+    laminas.forEach((l, k) => { l.hidden = k !== actual; });
+    puntosC.forEach((b, k) => { if (k === actual) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); });
+    const im = laminas[actual].querySelector("img"); im.src = movimiento && !detenido ? im.dataset.gif + "?r=" + Date.now() : im.dataset.fijo;
+    clearTimeout(reloj); if (!detenido) reloj = setTimeout(() => mostrarLamina(actual + 1), 10500);
   }
-  marcarPausa();
+  puntosC.forEach((b, k) => b.addEventListener("click", () => mostrarLamina(k)));
+  pausaC.addEventListener("click", () => { detenido = !detenido; pausaC.textContent = detenido ? "Reproducir" : "Pausar"; pausaC.setAttribute("aria-pressed", String(detenido)); mostrarLamina(actual); });
+  if (!movimiento) { pausaC.textContent = "Reproducir"; pausaC.setAttribute("aria-pressed", "true"); }
+  mostrarLamina(0);
 
   // Filtros
   const botonesFiltro = document.querySelectorAll(".filtros button"), piezas = document.querySelectorAll(".pieza");

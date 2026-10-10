@@ -59,6 +59,10 @@ def pagina():
     cifras = "\n".join(
         f'<li><b data-cuenta="{c["valor"]}" data-sufijo="{e(c.get("sufijo", ""))}">{c["valor"]}{e(c.get("sufijo", ""))}</b><span class="barra" aria-hidden="true"></span><p>{e(c["texto"])}</p></li>'
         for c in D["cifras"])
+    carrusel = "\n".join(
+        f'      <figure class="sl"{" hidden" if i else ""}><img src="hero/hero_{i + 1}.jpg" data-fijo="hero/hero_{i + 1}.jpg" data-gif="hero/hero_{i + 1}.gif" width="800" height="450" alt="{e(x["alt"])}"><figcaption><strong>{e(x["titulo"])}</strong><span>{e(x["texto"])}</span></figcaption></figure>'
+        for i, x in enumerate(D["carrusel"]))
+    puntos = "".join(f'<button type="button" aria-label="Lámina {i + 1}: {e(x["titulo"])}"></button>' for i, x in enumerate(D["carrusel"]))
     filtros = "".join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if k == "todas" else "false"}">{e(v)}</button>' for k, v in D["filtros"])
     piezas = "\n".join(tarjeta(p) for p in D["destacadas"])
     mas = "\n".join(fila_mas(p) for p in D["mas"])
@@ -74,7 +78,7 @@ def pagina():
         "{{TITULO_PAGINA}}": e(S["nombre"] + ", diseño instruccional"),
         "{{DESCRIPCION}}": e(S["descripcion"]), "{{URL}}": e(S["url"]), "{{NOMBRE}}": e(S["nombre"]),
         "{{TITULAR}}": e(S["titulo"]), "{{ROL}}": e(S["rol"]), "{{BAJADA}}": e(S["bajada"]), "{{CORREO}}": e(S["correo"]),
-        "{{LINKEDIN}}": e(S["linkedin"]), "{{CV}}": e(S["cv"]), "{{FILTROS}}": filtros, "{{PIEZAS}}": piezas, "{{CIFRAS}}": cifras, "{{CASOS}}": tarjetas_casos(LISTA_CASOS),
+        "{{LINKEDIN}}": e(S["linkedin"]), "{{CV}}": e(S["cv"]), "{{FILTROS}}": filtros, "{{PIEZAS}}": piezas, "{{CIFRAS}}": cifras, "{{CARRUSEL}}": carrusel, "{{PUNTOS}}": puntos, "{{CASOS}}": tarjetas_casos(LISTA_CASOS),
         "{{MAS}}": mas, "{{PROYECTOS}}": proyectos, "{{PASOS}}": pasos, "{{INSTITUCIONES}}": inst, "{{LD}}": ld,
     }
     for k, v in reemplazos.items():

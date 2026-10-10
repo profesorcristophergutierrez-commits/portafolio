@@ -414,5 +414,27 @@
       "valor": 6,
       "texto": "años diseñando formación en educación superior"
     }
+  ],
+  "carrusel": [
+    {
+      "titulo": "Curaduría desde la investigación",
+      "texto": "Selección de fuentes y evidencia que fundamentan cada contenido.",
+      "alt": "Ilustración animada: documentos de investigación que se examinan, se seleccionan y se ordenan"
+    },
+    {
+      "titulo": "Coherencia con la identidad institucional",
+      "texto": "Cada recurso adopta la identidad visual de la empresa u organismo.",
+      "alt": "Ilustración animada: una misma pantalla de curso que adopta tres paletas de color e identidades distintas"
+    },
+    {
+      "titulo": "Mejora continua desde la evidencia",
+      "texto": "Seguimiento y retroalimentación constructiva para perfeccionar el diseño.",
+      "alt": "Ilustración animada: barras de datos que crecen y un ciclo de medición, retroalimentación y mejora"
+    },
+    {
+      "titulo": "Diseño gráfico y audiovisual para el aprendizaje",
+      "texto": "Imágenes vectoriales, video y animación al servicio de la enseñanza.",
+      "alt": "Ilustración animada: formas vectoriales, una curva de Bézier y una línea de tiempo de montaje de video"
+    }
   ]
 }
