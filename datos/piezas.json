@@ -1,0 +1,398 @@
+{
+  "sitio": {
+    "url": "https://profesorcristophergutierrez-commits.github.io/portafolio/",
+    "nombre": "Cristopher Gutiérrez González",
+    "titulo": "Diseño cursos en línea, videos con IA y recursos interactivos.",
+    "bajada": "Diseñador instruccional y curriculista en Talca, Chile, con magíster en Currículum y Evaluación. Trabajo con universidades, organismos de capacitación y empresas: del objetivo de aprendizaje al curso montado en Moodle.",
+    "descripcion": "Portafolio de diseño instruccional de Cristopher Gutiérrez González: cursos en línea, videos con IA, recursos interactivos H5P y materiales de capacitación.",
+    "correo": "profesorcristophergutierrez@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/cristopher-guti%C3%A9rrez-gonz%C3%A1lez-b8936b148/",
+    "cv": "files/CV_Cristopher_Gutierrez.pdf"
+  },
+  "filtros": [
+    [
+      "todas",
+      "Todas"
+    ],
+    [
+      "interactivos",
+      "Interactivos"
+    ],
+    [
+      "videos",
+      "Videos con IA"
+    ],
+    [
+      "capacitacion",
+      "Capacitación"
+    ],
+    [
+      "difusion",
+      "Difusión y documentos"
+    ]
+  ],
+  "destacadas": [
+    {
+      "id": "libro_h5p",
+      "filtro": "interactivos",
+      "categoria": "Libro interactivo H5P",
+      "titulo": "Retroalimentación efectiva para jefaturas",
+      "detalle": "Capacitación corporativa con cuatro capítulos y tres preguntas de práctica.",
+      "accion": "Probar el libro",
+      "tipo": "iframe",
+      "fuente": "h5p/libro.html",
+      "alt": "Notebook sobre un escritorio con el libro interactivo abierto en el capítulo 1"
+    },
+    {
+      "id": "spikes",
+      "filtro": "interactivos",
+      "categoria": "Escenario ramificado",
+      "titulo": "Comunicar una noticia difícil",
+      "detalle": "Diez decisiones y tres finales con el protocolo SPIKES, hecho en Genially.",
+      "accion": "Jugar en Genially",
+      "tipo": "enlace",
+      "fuente": "https://view.genially.com/68b9934c97d0232e2d37df1e",
+      "alt": "Tableta en un soporte de madera con la portada del escenario SPIKES"
+    },
+    {
+      "id": "cicaa",
+      "filtro": "interactivos",
+      "categoria": "Actividad interactiva",
+      "titulo": "Ordena la entrevista clínica",
+      "detalle": "Práctica del modelo CICAA para el curso de Medicina, con retroalimentación inmediata.",
+      "accion": "Probar la actividad",
+      "tipo": "juego",
+      "alt": "Teléfono en un soporte con la actividad de ordenar las etapas de la entrevista clínica"
+    },
+    {
+      "id": "reel_cna",
+      "filtro": "videos",
+      "categoria": "Reel con avatares de IA",
+      "titulo": "El par evaluador pregunta",
+      "detalle": "Serie de cuatro reels para preparar la acreditación institucional, 2026.",
+      "accion": "Ver muestra de 18 s",
+      "tipo": "video",
+      "fuente": "muestras/reel_cna.mp4",
+      "alt": "Teléfono sobre un escritorio reproduciendo el reel con un avatar"
+    },
+    {
+      "id": "medica",
+      "filtro": "videos",
+      "categoria": "Caso clínico con IA",
+      "titulo": "Médica virtual para entrenar la comunicación",
+      "detalle": "Cuatro casos con pacientes y médicos virtuales para Medicina, 2025.",
+      "accion": "Ver muestra de 15 s",
+      "tipo": "video",
+      "fuente": "muestras/caso_medicina.mp4",
+      "alt": "Monitor de escritorio con la médica virtual del caso clínico"
+    },
+    {
+      "id": "parvularia",
+      "filtro": "videos",
+      "categoria": "Caso con IA",
+      "titulo": "La directora y la educadora",
+      "detalle": "Caso de liderazgo pedagógico para Educación Parvularia, 2026.",
+      "accion": "Ver muestra de 15 s",
+      "tipo": "video",
+      "fuente": "muestras/caso_parvularia.mp4",
+      "alt": "Notebook con el video del caso, la directora Beatriz en una sala de clases"
+    },
+    {
+      "id": "copilot",
+      "filtro": "capacitacion",
+      "categoria": "Kit de capacitación",
+      "titulo": "Taller de Microsoft Copilot",
+      "detalle": "Láminas, guía del facilitador y tarjetas de práctica por nivel.",
+      "accion": "Ver las seis piezas",
+      "tipo": "galeria",
+      "galeria": [
+        [
+          "images/copilot_1.jpg",
+          "Portada del taller de Copilot"
+        ],
+        [
+          "images/copilot_6.jpg",
+          "La herramienta responde; la decisión pedagógica es tuya"
+        ],
+        [
+          "images/copilot_9.jpg",
+          "Copilot como laboratorio pedagógico"
+        ],
+        [
+          "images/copilot_11.jpg",
+          "De la necesidad al prompt y al borrador"
+        ],
+        [
+          "images/copilot_guia.jpg",
+          "Guía de modelaje para el facilitador"
+        ],
+        [
+          "images/copilot_tarjetas.jpg",
+          "Tarjetas de práctica por nivel"
+        ]
+      ],
+      "alt": "Tableta sobre un escritorio con la guía del facilitador del taller"
+    },
+    {
+      "id": "diplomado",
+      "filtro": "capacitacion",
+      "categoria": "Curso en Moodle",
+      "titulo": "Diplomado en Docencia Universitaria",
+      "detalle": "Coordinación y diseño de un diplomado de 120 horas, 2023 a 2024.",
+      "accion": "Ver tres pantallas",
+      "tipo": "galeria",
+      "galeria": [
+        [
+          "images/ddu_unidad.jpg",
+          "Unidad del diplomado con video y banners"
+        ],
+        [
+          "images/ddu_sintesis.jpg",
+          "Síntesis interactiva de la semana"
+        ],
+        [
+          "images/ddu_h5p.jpg",
+          "Actividad formativa H5P"
+        ]
+      ],
+      "alt": "Computador de escritorio con una unidad del diplomado en Moodle"
+    },
+    {
+      "id": "ruta",
+      "filtro": "capacitacion",
+      "categoria": "Diseño de curso",
+      "titulo": "Del problema a la ruta de aprendizaje",
+      "detalle": "Planificación de un curso e-learning de 24 horas con ADDIE y carta Gantt, 2023.",
+      "accion": "Ver cinco láminas",
+      "tipo": "galeria",
+      "galeria": [
+        [
+          "images/pj_ruta.jpg",
+          "Ruta de aprendizaje por módulo"
+        ],
+        [
+          "images/pj_problema.jpg",
+          "Problema que aborda el curso"
+        ],
+        [
+          "images/pj_modelo_addie.jpg",
+          "Modelo de diseño instruccional"
+        ],
+        [
+          "images/pj_aplicacion_addie.jpg",
+          "Aplicación de ADDIE"
+        ],
+        [
+          "images/pj_planificacion.jpg",
+          "Carta Gantt del desarrollo"
+        ]
+      ],
+      "alt": "Hoja impresa con la ruta de aprendizaje del curso sobre un escritorio"
+    },
+    {
+      "id": "afiche_ia",
+      "filtro": "difusion",
+      "categoria": "Difusión",
+      "titulo": "IA generativa para docentes",
+      "detalle": "Taller propio, con afiche e historia para Instagram.",
+      "accion": "Ver las dos piezas",
+      "tipo": "galeria",
+      "galeria": [
+        [
+          "charlas/afiche_taller_ia.jpg",
+          "Afiche del taller"
+        ],
+        [
+          "charlas/historia_taller_ia.jpg",
+          "Historia para Instagram"
+        ]
+      ],
+      "alt": "Afiche enmarcado del taller apoyado en la pared"
+    },
+    {
+      "id": "charla_ia",
+      "filtro": "difusion",
+      "categoria": "Charla",
+      "titulo": "Un día de clases con IA",
+      "detalle": "Charla sobre inteligencia artificial en el sistema escolar, con ejemplos para planificar.",
+      "accion": "Ver cuatro láminas",
+      "tipo": "galeria",
+      "galeria": [
+        [
+          "charlas/charla_1.jpg",
+          "Portada: Un día de clases con IA"
+        ],
+        [
+          "charlas/charla_3.jpg",
+          "Línea de tiempo de la jornada"
+        ],
+        [
+          "charlas/charla_4.jpg",
+          "Prompt para planificar"
+        ],
+        [
+          "charlas/charla_11.jpg",
+          "Respuesta de la IA comentada"
+        ]
+      ],
+      "alt": "Notebook con la portada de la charla Un día de clases con IA"
+    },
+    {
+      "id": "guion",
+      "filtro": "difusion",
+      "categoria": "Documentos de diseño",
+      "titulo": "Guiones, casos y rúbricas",
+      "detalle": "Lo que hay detrás de un curso: guion de video, evaluación auténtica y lectura propia.",
+      "accion": "Ver cuatro documentos",
+      "tipo": "galeria",
+      "galeria": [
+        [
+          "images/pj_guion.jpg",
+          "Guion del video de presentación"
+        ],
+        [
+          "images/med_rubrica.jpg",
+          "Evaluación de noticias difíciles"
+        ],
+        [
+          "images/pj_estudio_caso.jpg",
+          "Evaluación con estudio de caso"
+        ],
+        [
+          "images/pj_lectura.jpg",
+          "Lectura maestra de autoría propia"
+        ]
+      ],
+      "alt": "Hoja impresa con el guion sobre un escritorio, junto a unos lentes y un lápiz"
+    }
+  ],
+  "mas": [
+    {
+      "titulo": "Navegando el cambio: innovación educativa en la era digital",
+      "detalle": "Panelista internacional, Universidad de Panamá",
+      "accion": "Ver afiche",
+      "tipo": "galeria",
+      "galeria": [
+        [
+          "charlas/afiche_panama.jpg",
+          "Afiche del conversatorio"
+        ]
+      ]
+    },
+    {
+      "titulo": "Plan de Formación Docente",
+      "detalle": "Relator de tres talleres, Centro de Formación Técnica San Agustín",
+      "accion": "Ver afiches",
+      "tipo": "galeria",
+      "galeria": [
+        [
+          "charlas/afiche_cft_innovacion.jpg",
+          "Estrategias innovativas en el aprendizaje"
+        ],
+        [
+          "charlas/afiche_cft_acompanamiento.jpg",
+          "Monitoreo y acompañamiento del aprendizaje"
+        ],
+        [
+          "charlas/afiche_cft_pensamiento.jpg",
+          "Estrategias para el desarrollo del pensamiento"
+        ]
+      ]
+    },
+    {
+      "titulo": "Curso e-learning para profesores jefes",
+      "detalle": "Diseño ADDIE de un curso de 24 horas, 2023",
+      "accion": "Ver muestra",
+      "tipo": "video",
+      "fuente": "muestras/curso_pj.mp4"
+    },
+    {
+      "titulo": "El modelo CICAA en tres minutos",
+      "detalle": "Video explicativo para Medicina, 2025",
+      "accion": "Ver muestra",
+      "tipo": "video",
+      "fuente": "muestras/cicaa.mp4"
+    },
+    {
+      "titulo": "Evaluar por resultados de aprendizaje",
+      "detalle": "Video con avatar para Inglés de Formación General, 2026",
+      "accion": "Ver muestra",
+      "tipo": "video",
+      "fuente": "muestras/rda.mp4"
+    },
+    {
+      "titulo": "Lineamientos curriculares",
+      "detalle": "Video institucional de Formación General, 2026",
+      "accion": "Ver muestra",
+      "tipo": "video",
+      "fuente": "muestras/informativo_dfg.mp4"
+    },
+    {
+      "titulo": "IA generativa y codocencia en Medicina",
+      "detalle": "Ponencia en congreso iberoamericano, 2026",
+      "accion": "Ver láminas",
+      "tipo": "galeria",
+      "galeria": [
+        [
+          "images/med_secuencia.jpg",
+          "Secuencia didáctica"
+        ],
+        [
+          "images/med_resultado.jpg",
+          "Resultado de aprendizaje y objetivos"
+        ],
+        [
+          "images/med_caso.jpg",
+          "Descripción de la experiencia"
+        ]
+      ]
+    },
+    {
+      "titulo": "Cuento ilustrado creado con IA",
+      "detalle": "Recurso de la charla para docentes de educación básica",
+      "accion": "Ver muestra",
+      "tipo": "video",
+      "fuente": "muestras/charla_cuento.mp4"
+    },
+    {
+      "titulo": "Juego de tablas de multiplicar creado con IA",
+      "detalle": "Recurso de la misma charla",
+      "accion": "Ver muestra",
+      "tipo": "video",
+      "fuente": "muestras/charla_juego.mp4"
+    }
+  ],
+  "proyectos": [
+    {
+      "titulo": "Curso e-learning para un organismo de capacitación",
+      "donde": "Capacitación docente, 2023",
+      "texto": "Curso asincrónico de 24 horas para profesores jefes: diseño ADDIE, cuatro módulos, video de presentación, lecturas y evaluación con estudio de caso."
+    },
+    {
+      "titulo": "IA y codocencia en Medicina",
+      "donde": "Universidad Católica del Maule, 2025",
+      "texto": "Casos clínicos con médicos virtuales y evaluación auténtica en video: 85 % de los desempeños en nivel alto en un curso de 82 estudiantes."
+    },
+    {
+      "titulo": "Formación docente universitaria",
+      "donde": "Universidad de Chile y Universidad Católica del Maule, 2023 a 2026",
+      "texto": "Siete cursos abiertos en Moodle para la Universidad de Chile y tres diplomados de 120 horas con evaluación de impacto."
+    }
+  ],
+  "pasos": [
+    "Análisis del público y del contexto",
+    "Resultados de aprendizaje evaluables",
+    "Secuencia de actividades y evaluación",
+    "Guiones, videos y recursos interactivos",
+    "Montaje en Moodle",
+    "Evaluación de impacto y mejora"
+  ],
+  "instituciones": [
+    "Universidad de Chile",
+    "Universidad Católica del Maule",
+    "Instituto de Calidad y Medioambiente de Chile",
+    "Centro de Formación Técnica San Agustín",
+    "educarchile",
+    "Altamira Capacitación Profesional"
+  ]
+}

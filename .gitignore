@@ -2,7 +2,12 @@
 media/*
 !media/reel.mp4
 # Archivos internos
-index_v5_respaldo.html
+index_v*.html
 PENDIENTES.md
 .DS_Store
 publicar_github.sh
+portadas/
+images/poster_caso.jpg
+images/poster_cicaa.jpg
+images/poster_curso.jpg
+images/poster_medicina.jpg

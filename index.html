@@ -3,480 +3,335 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cristopher Gutiérrez González</title>
-<meta name="description" content="Portafolio de diseño instruccional de Cristopher Gutiérrez González: videos con IA, interactivos, charlas y cursos en línea.">
+<title>Cristopher Gutiérrez González, diseño instruccional</title>
+<meta name="description" content="Portafolio de diseño instruccional de Cristopher Gutiérrez González: cursos en línea, videos con IA, recursos interactivos H5P y materiales de capacitación.">
+<link rel="canonical" href="https://profesorcristophergutierrez-commits.github.io/portafolio/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:title" content="Cristopher Gutiérrez González, diseño instruccional">
+<meta property="og:description" content="Portafolio de diseño instruccional de Cristopher Gutiérrez González: cursos en línea, videos con IA, recursos interactivos H5P y materiales de capacitación.">
+<meta property="og:url" content="https://profesorcristophergutierrez-commits.github.io/portafolio/">
+<meta property="og:image" content="https://profesorcristophergutierrez-commits.github.io/portafolio/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Portadas del portafolio: un notebook, un teléfono y una tableta con piezas de cursos sobre un escritorio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Cristopher Gutiérrez González", "jobTitle": "Diseñador instruccional", "email": "mailto:profesorcristophergutierrez@gmail.com", "url": "https://profesorcristophergutierrez-commits.github.io/portafolio/", "address": {"@type": "PostalAddress", "addressLocality": "Talca", "addressCountry": "CL"}, "sameAs": ["https://www.linkedin.com/in/cristopher-guti%C3%A9rrez-gonz%C3%A1lez-b8936b148/"]}</script>
 <style>
-  /* Muro de piezas: las obras mandan, el texto acompaña. Blanco papel, tinta negra, un solo acento cobalto en los enlaces. */
+  /* Serie fotográfica: cada pieza real dentro de un objeto sobre el mismo escritorio. Tinta negra, un acento cobalto para las acciones. */
   :root {
-    --fondo: #FAFAF9;
-    --tinta: #111111;
-    --gris: #6B6E73;
+    --fondo: #FAFAF8;
+    --tinta: #141414;
+    --tinta-2: #3A3D42;
+    --gris: #5E6268;
+    --linea: #DDDDD8;
     --cobalto: #1F3A93;
-    --celeste: #E9EEF8;
-    --linea: #DADCE0;
-    --jost: "Jost", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    --letra: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --fondo: #121418; --tinta: #EDEDED; --gris: #A2A6AD; --cobalto: #93A9F2; --celeste: #1C2435; --linea: #2E323A;
-      color-scheme: dark;
-    }
+    :root:not([data-theme="light"]) { --fondo: #131416; --tinta: #EDEDEA; --tinta-2: #C9CBCF; --gris: #A3A7AD; --linea: #2C2E32; --cobalto: #9DB1F5; color-scheme: dark; }
   }
-  :root[data-theme="dark"] {
-    --fondo: #121418; --tinta: #EDEDED; --gris: #A2A6AD; --cobalto: #93A9F2; --celeste: #1C2435; --linea: #2E323A;
-    color-scheme: dark;
-  }
+  :root[data-theme="dark"] { --fondo: #131416; --tinta: #EDEDEA; --tinta-2: #C9CBCF; --gris: #A3A7AD; --linea: #2C2E32; --cobalto: #9DB1F5; color-scheme: dark; }
+
   * { box-sizing: border-box; }
   [hidden] { display: none !important; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  body {
-    margin: 0; background: var(--fondo); color: var(--tinta);
-    font-family: var(--jost); font-weight: 300; font-size: 18px; line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  img, video { display: block; max-width: 100%; }
-  a { color: var(--cobalto); text-decoration: none; }
-  a:hover { text-decoration: underline; text-underline-offset: 3px; }
-  :focus-visible { outline: 2px solid var(--cobalto); outline-offset: 4px; }
+  body { margin: 0; background: var(--fondo); color: var(--tinta); font: 400 17px/1.55 var(--letra); -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: var(--cobalto); }
   button { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--cobalto); outline-offset: 3px; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .saltar { position: absolute; left: 16px; top: -60px; background: var(--tinta); color: var(--fondo); padding: 8px 14px; z-index: 30; }
+  .saltar:focus { top: 12px; }
 
-  .ancho { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+  .ancho { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
 
-  /* Menú: tres trazos centrados */
-  .cabeza { display: flex; justify-content: center; padding: 34px 0 10px; }
-  .hamburguesa { background: none; border: 0; padding: 12px; cursor: pointer; }
-  .hamburguesa span { display: block; width: 40px; height: 2px; background: var(--tinta); margin: 7px 0; }
-  .menu {
-    position: fixed; inset: 0; z-index: 20; background: var(--fondo);
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
-  }
-  .menu a { font-size: clamp(1.6rem, 4vw, 2.4rem); color: var(--tinta); }
-  .menu a:hover { color: var(--cobalto); text-decoration: none; }
-  .menu .cerrar-menu { position: absolute; top: 30px; background: none; border: 0; font-size: 1rem; color: var(--gris); cursor: pointer; padding: 12px; }
+  /* Cabecera */
+  .cabeza { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-top: 28px; }
+  .marca { font-weight: 600; font-size: 1.02rem; color: var(--tinta); text-decoration: none; }
+  .cabeza nav { display: flex; gap: 22px; }
+  .cabeza nav a { color: var(--tinta); text-decoration: none; font-weight: 500; font-size: 0.98rem; }
+  .cabeza nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
-  /* Apertura: el nombre como firma y una presentación breve */
-  .apertura { display: grid; grid-template-columns: 1fr 1fr; gap: 9vw; align-items: start; padding: 40px 40px 64px; }
-  .apertura h1 {
-    margin: 0; font-weight: 300; font-size: clamp(2.6rem, 6.2vw, 5.4rem);
-    line-height: 0.98; letter-spacing: -0.025em;
-  }
-  .apertura h1 span { display: block; padding-left: 0.9em; }
-  .presentacion { max-width: 34em; margin: 0.4em 0 0; font-size: 1.06rem; line-height: 1.75; }
+  /* Apertura */
+  .apertura { padding-top: 72px; padding-bottom: 64px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: end; }
+  .reel { margin: 0; }
+  .reel video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #E9E6E0; }
+  .reel figcaption { margin-top: 10px; color: var(--gris); font-size: 0.92rem; }
+  .reel .accion { font-size: 0.92rem; margin-left: 6px; }
+  .apertura h1 { margin: 0; font-weight: 600; font-size: clamp(2.3rem, 6vw, 4.7rem); line-height: 1.02; letter-spacing: -0.032em; max-width: 15ch; }
+  .apertura p { margin: 26px 0 0; max-width: 46ch; font-size: 1.16rem; line-height: 1.55; color: var(--tinta-2); }
+  .vinculos { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; margin-top: 30px; }
+  .boton { display: inline-block; background: var(--tinta); color: var(--fondo); text-decoration: none; font-weight: 500; padding: 13px 22px; border-radius: 2px; }
+  .boton:hover { background: var(--cobalto); color: #fff; }
+  .vinculos a:not(.boton) { font-weight: 500; text-underline-offset: 4px; }
 
-  /* Muro: dos columnas desalineadas; en teléfono, una sola */
-  .grupo { padding-top: 40px; padding-bottom: 96px; }
-  .grupo-cab { margin-bottom: 36px; }
-  .grupo-cab h2 { margin: 0; font-weight: 400; font-size: 1.7rem; line-height: 1.2; letter-spacing: -0.01em; }
-  .grupo-cab p { margin: 0.25em 0 0; color: var(--gris); font-size: 1rem; max-width: 30em; }
-  .muro { display: grid; grid-template-columns: 1fr 1fr; gap: 0 9vw; }
-  .col { display: flex; flex-direction: column; gap: 88px; }
-  .col.b { padding-top: 150px; }
+  /* Filtros */
+  .filtros { display: flex; flex-wrap: wrap; gap: 6px 24px; margin: 0 0 30px; padding: 0; }
+  .filtros button { background: none; border: 0; border-bottom: 2px solid transparent; padding: 6px 0; cursor: pointer; font-weight: 500; color: var(--gris); }
+  .filtros button[aria-pressed="true"] { color: var(--tinta); border-bottom-color: var(--tinta); }
+  .filtros button:hover { color: var(--tinta); }
 
-  .pieza { margin: 0; }
-  .pieza.angosta { width: 76%; }
-  .pieza.vertical { width: 62%; }
-  .pieza.der { margin-left: auto; }
-  .medio { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; text-align: left; }
-  .medio img, .medio video { width: 100%; height: auto; background: var(--linea); }
-  .pieza figcaption { margin-top: 14px; font-size: 0.95rem; line-height: 1.45; }
-  .pieza figcaption strong { display: block; font-weight: 500; font-size: 1.02rem; }
-  .pieza figcaption span { color: var(--gris); }
+  /* Grilla de piezas */
+  .grilla { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px 24px; }
+  .pieza { display: flex; flex-direction: column; align-items: flex-start; }
+  .lamina { position: relative; display: block; width: 100%; aspect-ratio: 928 / 1152; padding: 0; border: 0; background: #E9E6E0; cursor: pointer; overflow: hidden; text-align: left; text-decoration: none; }
+  .lamina picture, .lamina img { width: 100%; height: 100%; }
+  .lamina img { object-fit: cover; }
+  .rotulo { position: absolute; left: 7%; right: 7%; top: 6.5%; color: #151515; }
+  .rotulo .cat { display: block; font-size: 0.86rem; font-weight: 500; }
+  .rotulo .tit { display: block; margin-top: 0.45em; font-size: clamp(1.4rem, 2.15vw, 1.8rem); line-height: 1.06; font-weight: 600; letter-spacing: -0.018em; max-width: 13ch; }
+  .detalle { margin: 16px 0 6px; color: var(--gris); font-size: 0.96rem; line-height: 1.45; max-width: 40ch; }
+  .accion { background: none; border: 0; padding: 0; cursor: pointer; color: var(--cobalto); font-weight: 500; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; text-align: left; }
+  .accion:hover { text-decoration-thickness: 2px; }
 
-  /* Bloques que se usan ahí mismo (juego y escena) */
-  .bloque { background: var(--celeste); padding: 30px 28px 26px; }
-  .bloque h3 { margin: 0 0 6px; font-weight: 500; font-size: 1.2rem; line-height: 1.3; }
-  .bloque .nota { margin: 0 0 18px; color: var(--gris); font-size: 0.95rem; }
-  .fichas { display: flex; flex-wrap: wrap; gap: 8px; }
-  .ficha, .accion { border: 1px solid var(--tinta); background: transparent; padding: 7px 14px; cursor: pointer; font-weight: 400; font-size: 0.95rem; }
-  .ficha:hover:not(:disabled), .accion:hover { background: var(--tinta); color: var(--fondo); }
-  .ficha:disabled { opacity: 0.3; cursor: default; }
-  .orden { margin: 18px 0 0; padding-left: 1.4em; min-height: 1.6em; font-size: 0.98rem; }
-  .orden li { padding: 2px 0; }
-  .orden li small { display: block; color: var(--gris); font-size: 0.85rem; }
-  .orden li.bien::marker { color: var(--cobalto); }
-  .orden li.mal { color: var(--gris); }
-  .retro { min-height: 1.5em; margin: 10px 0 14px; font-size: 0.95rem; }
-  .acciones { display: flex; gap: 8px; flex-wrap: wrap; }
+  section { scroll-margin-top: 20px; }
+  .bloque { padding-top: 112px; }
+  .bloque h2 { margin: 0 0 22px; font-weight: 600; font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.02em; line-height: 1.1; }
 
-  a.escena { display: block; color: var(--tinta); }
-  a.escena:hover { text-decoration: none; }
-  .escena .contexto { color: var(--gris); font-size: 0.92rem; margin: 0 0 10px; }
-  .escena .pregunta { font-size: 1.25rem; line-height: 1.4; margin: 0 0 18px; }
-  .escena .opcion { display: block; border-top: 1px solid var(--tinta); padding: 10px 0; font-size: 0.98rem; }
-  .escena .ir { display: inline-block; margin-top: 12px; color: var(--cobalto); }
-  a.escena:hover .ir { text-decoration: underline; text-underline-offset: 3px; }
+  /* Más trabajos */
+  .mas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; }
+  .mas li { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 16px 0; border-top: 1px solid var(--linea); }
+  .mas strong { display: block; font-weight: 500; }
+  .mas span { color: var(--gris); font-size: 0.95rem; }
+  .mas strong { color: var(--tinta); font-size: 1.02rem; }
+  .mas .accion { white-space: nowrap; font-size: 0.95rem; }
 
-  /* Franja a todo el ancho */
-  .franja { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 0 0 14px; }
-  .franja .medio video { aspect-ratio: 16 / 9; object-fit: cover; }
-  .franja-pie { color: var(--gris); font-size: 0.95rem; margin-top: 0; margin-bottom: 96px; }
-
-  /* Verso sobre imagen desenfocada */
-  .verso { position: relative; overflow: hidden; padding: 120px 20px; margin: 0 0 96px; }
-  .verso::before {
-    content: ""; position: absolute; inset: -40px;
-    background: url("charlas/charla_1.jpg") center / cover; filter: blur(22px) saturate(1.1);
-  }
-  .verso figure { position: relative; margin: 0 auto; max-width: 560px; background: var(--fondo); padding: 44px 40px; text-align: center; }
-  .verso blockquote { margin: 0; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.3; }
-  .verso figcaption { margin-top: 16px; color: var(--gris); font-size: 0.92rem; }
-
-  /* Trabajo: proyectos, método e instituciones, en texto breve */
-  .trabajo { display: grid; grid-template-columns: 1fr 1fr; gap: 9vw; padding-bottom: 96px; }
-  .trabajo h2 { margin: 0 0 18px; font-weight: 400; font-size: 1.7rem; line-height: 1.2; }
-  .caso { margin: 0 0 26px; }
-  .caso h3 { margin: 0; font-weight: 500; font-size: 1.05rem; }
-  .caso p { margin: 2px 0 0; font-size: 1rem; }
-  .caso .donde { color: var(--gris); font-size: 0.92rem; }
-  .pasos { margin: 0 0 40px; padding-left: 1.3em; font-size: 1rem; }
-  .pasos li { padding: 3px 0; }
-  .pasos li::marker { color: var(--gris); }
-  .instituciones { margin: 0; color: var(--gris); font-size: 1rem; line-height: 1.8; }
+  /* Proyectos y método */
+  .dos { display: grid; grid-template-columns: 1.2fr 1fr; gap: 72px; }
+  .caso { padding: 18px 0; border-top: 1px solid var(--linea); }
+  .caso h3 { margin: 0; font-weight: 600; font-size: 1.12rem; }
+  .caso .donde { margin: 2px 0 6px; color: var(--gris); font-size: 0.93rem; }
+  .caso p { margin: 0; max-width: 58ch; }
+  .pasos { margin: 0 0 44px; padding-left: 1.4em; }
+  .pasos li { padding: 4px 0; }
+  .pasos li::marker { color: var(--gris); font-weight: 500; }
+  .instituciones { list-style: none; margin: 0; padding: 0; color: var(--tinta-2); line-height: 1.9; }
 
   /* Pie */
-  .pie { border-top: 1px solid var(--linea); padding-top: 56px; padding-bottom: 48px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
-  .pie img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; }
+  .pie { margin-top: 112px; border-top: 1px solid var(--linea); padding-top: 48px; padding-bottom: 56px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+  .pie img { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; }
+  .pie h2 { margin: 0 0 6px; font-weight: 600; font-size: 1.5rem; letter-spacing: -0.015em; }
   .pie p { margin: 0; }
-  .pie .enlaces { display: flex; flex-wrap: wrap; gap: 6px 26px; margin-top: 6px; }
-  .pie small { grid-column: 1 / -1; color: var(--gris); font-size: 0.85rem; }
+  .pie .vinculos { margin-top: 14px; }
+  .pie small { grid-column: 1 / -1; color: var(--gris); font-size: 0.86rem; margin-top: 18px; }
 
-  /* Visor */
-  dialog.visor { border: 0; padding: 18px; background: transparent; max-width: min(1100px, 96vw); width: 100%; }
-  dialog.visor::backdrop { background: rgba(8, 10, 14, 0.86); }
-  dialog.visor img, dialog.visor video { max-height: 80vh; width: auto; max-width: 100%; margin: 0 auto; background: #fff; }
-  dialog.visor iframe { width: 100%; height: 80vh; border: 0; background: #fff; }
-  dialog.visor p { color: #fff; text-align: center; margin: 10px 0 0; font-size: 0.95rem; }
-  .visor-barra { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
-  .visor-barra button { background: none; border: 1px solid #fff; color: #fff; padding: 6px 16px; cursor: pointer; font-size: 0.95rem; }
-  .visor-barra button:hover { background: #fff; color: #111; }
+  /* Visor y actividad */
+  dialog { border: 0; padding: 0; background: transparent; color: #fff; max-width: min(1120px, 96vw); width: 100%; max-height: 96vh; }
+  dialog::backdrop { background: rgba(10, 11, 13, 0.88); }
+  .barra { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 0 0 10px; }
+  .barra button { background: none; border: 1px solid rgba(255,255,255,.8); color: #fff; padding: 7px 16px; cursor: pointer; border-radius: 2px; }
+  .barra button:hover { background: #fff; color: #111; }
+  #visor img, #visor video { max-height: 80vh; width: auto; max-width: 100%; margin: 0 auto; background: #fff; }
+  #visor iframe { display: block; width: 100%; height: 80vh; border: 0; background: #fff; }
+  .leyenda { text-align: center; margin: 12px 0 0; font-size: 0.95rem; color: #E6E6E6; }
+  #juego { max-width: 560px; }
+  .juego { background: #fff; color: #151515; padding: 30px 28px 26px; }
+  .juego h2 { margin: 0 0 4px; font-size: 1.4rem; font-weight: 600; }
+  .juego .nota { margin: 0 0 18px; color: #5E6268; }
+  .fichas { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ficha, .juego .control { border: 1px solid #151515; background: #fff; color: #151515; padding: 8px 15px; cursor: pointer; font-weight: 500; border-radius: 2px; }
+  .ficha:hover:not(:disabled), .juego .control:hover { background: #151515; color: #fff; }
+  .ficha:disabled { opacity: 0.3; cursor: default; }
+  .orden { margin: 18px 0 0; padding-left: 1.4em; min-height: 1.6em; }
+  .orden li { padding: 3px 0; }
+  .orden small { display: block; color: #5E6268; }
+  .orden li.bien::marker { color: #1F3A93; }
+  .orden li.mal { color: #8A2D2D; }
+  .retro { min-height: 1.5em; margin: 12px 0 16px; }
+  .controles { display: flex; gap: 8px; flex-wrap: wrap; }
 
-  @media (max-width: 760px) {
-    body { font-size: 17px; }
-    .ancho, .apertura { padding-left: 20px; padding-right: 20px; }
+  @media (max-width: 999px) {
+    .apertura { grid-template-columns: 1fr; gap: 40px; }
+    .grilla { grid-template-columns: 1fr 1fr; }
+    .mas { grid-template-columns: 1fr; }
+    .dos { grid-template-columns: 1fr; gap: 56px; }
+  }
+  @media (max-width: 639px) {
+    body { font-size: 16.5px; }
+    .ancho { padding: 0 18px; }
     .cabeza { padding-top: 18px; }
-    .apertura, .trabajo { grid-template-columns: 1fr; gap: 22px; }
-    .apertura { padding-top: 16px; padding-bottom: 40px; }
-    .apertura h1 span { padding-left: 0.7em; }
-    .grupo { padding-top: 24px; padding-bottom: 64px; }
-    .muro { display: flex; flex-direction: column; gap: 56px; }
-    .col { display: contents; }
-    .pieza.angosta { width: 88%; }
-    .pieza.vertical { width: 72%; }
-    .franja { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 20px; gap: 8px; }
-    .franja .pieza { flex: 0 0 80vw; scroll-snap-align: center; }
-    .franja-pie { margin-bottom: 64px; }
-    .verso { padding: 72px 20px; margin-bottom: 64px; }
-    .verso figure { padding: 32px 22px; }
-    .pie { grid-template-columns: 1fr; }
+    .cabeza nav { gap: 16px; }
+    .cabeza nav a.opcional { display: none; }
+    .apertura { padding-top: 44px; padding-bottom: 44px; }
+    .apertura p { font-size: 1.06rem; }
+    .grilla { grid-template-columns: 1fr; gap: 44px; }
+    .rotulo .tit { font-size: 1.6rem; }
+    .bloque { padding-top: 80px; }
+    .mas li { flex-direction: column; gap: 6px; }
+    .pie { grid-template-columns: 1fr; margin-top: 80px; }
+    .juego { padding: 24px 18px; }
   }
 </style>
 </head>
 <body>
+<a class="saltar" href="#piezas">Saltar a las piezas</a>
 
-<header class="cabeza">
-  <button class="hamburguesa" type="button" id="abrir-menu" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+<header class="ancho cabeza">
+  <a class="marca" href="#">Cristopher Gutiérrez González</a>
+  <nav aria-label="Secciones">
+    <a href="#piezas">Piezas</a>
+    <a class="opcional" href="#proyectos">Proyectos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 </header>
 
-<nav class="menu" id="menu" aria-label="Secciones" hidden>
-  <button class="cerrar-menu" type="button" id="cerrar-menu">Cerrar</button>
-  <a href="#videos">Videos con IA</a>
-  <a href="#interactivos">Interactivos</a>
-  <a href="#charlas">Charlas y talleres</a>
-  <a href="#cursos">Cursos y documentos</a>
-  <a href="#trabajo">Cómo trabajo</a>
-  <a href="#contacto">Contacto</a>
-</nav>
-
 <main>
-  <section class="apertura" style="max-width:1240px;margin:0 auto">
-    <h1>Cristopher <span>Gutiérrez González</span></h1>
-    <p class="presentacion">Diseñador instruccional y curriculista en Talca, Chile, con magíster en Currículum y Evaluación. Diseño cursos en línea completos para universidades, organismos de capacitación y empresas: objetivos, guiones, <a href="#videos">videos con avatares de inteligencia artificial</a>, <a href="#interactivos">recursos interactivos</a>, evaluación y montaje en Moodle.</p>
-  </section>
-
-  <!-- Videos con IA -->
-  <section class="ancho grupo" id="videos" aria-labelledby="t-videos">
-    <div class="grupo-cab"><h2 id="t-videos">Videos con IA</h2><p>Muestras breves que se reproducen sin sonido. Tócalas para verlas en grande.</p></div>
-    <div class="muro">
-      <div class="col a">
-        <figure class="pieza" style="order:1">
-          <button class="medio" type="button" data-video="media/reel.mp4" data-titulo="Reel de cursos y casos">
-            <video src="media/reel.mp4" poster="images/poster_reel.jpg" autoplay muted loop playsinline aria-label="Reel con fragmentos de videos de cursos y casos"></video>
-          </button>
-          <figcaption><strong>Reel de cursos y casos</strong><span>Fragmentos de videos diseñados entre 2023 y 2026</span></figcaption>
-        </figure>
-        <figure class="pieza angosta" style="order:3">
-          <button class="medio" type="button" data-video="muestras/caso_medicina.mp4" data-titulo="Médica virtual para entrenar comunicación">
-            <video muted loop playsinline preload="none" poster="portadas/caso_medicina.jpg" data-src="muestras/caso_medicina.mp4" aria-label="Muestra del caso clínico con médica virtual"></video>
-          </button>
-          <figcaption><strong>Médica virtual para entrenar comunicación</strong><span>Caso clínico con IA para Medicina, cuatro casos, 2025</span></figcaption>
-        </figure>
-        <figure class="pieza" style="order:5">
-          <button class="medio" type="button" data-video="muestras/curso_pj.mp4" data-titulo="Curso e-learning para profesores jefes">
-            <video muted loop playsinline preload="none" poster="portadas/curso_pj.jpg" data-src="muestras/curso_pj.mp4" aria-label="Muestra del video de presentación del curso"></video>
-          </button>
-          <figcaption><strong>Curso e-learning para profesores jefes</strong><span>Video de presentación de un curso de 24 horas, 2023</span></figcaption>
-        </figure>
-      </div>
-      <div class="col b">
-        <figure class="pieza vertical der" style="order:2">
-          <button class="medio" type="button" data-video="muestras/reel_cna.mp4" data-titulo="Acreditación: el par evaluador pregunta">
-            <video muted loop playsinline preload="none" poster="portadas/reel_cna.jpg" data-src="muestras/reel_cna.mp4" aria-label="Muestra del reel con avatares sobre acreditación"></video>
-          </button>
-          <figcaption><strong>Acreditación: el par evaluador pregunta</strong><span>Serie de cuatro reels con avatares, 2026</span></figcaption>
-        </figure>
-        <figure class="pieza" style="order:4">
-          <button class="medio" type="button" data-video="muestras/cicaa.mp4" data-titulo="El modelo CICAA en tres minutos">
-            <video muted loop playsinline preload="none" poster="portadas/cicaa.jpg" data-src="muestras/cicaa.mp4" aria-label="Muestra del video explicativo del modelo CICAA"></video>
-          </button>
-          <figcaption><strong>El modelo CICAA en tres minutos</strong><span>Video explicativo para Medicina, 2025</span></figcaption>
-        </figure>
-        <figure class="pieza angosta der" style="order:6">
-          <button class="medio" type="button" data-video="muestras/informativo_dfg.mp4" data-titulo="Lineamientos curriculares">
-            <video muted loop playsinline preload="none" poster="portadas/informativo_dfg.jpg" data-src="muestras/informativo_dfg.mp4" aria-label="Muestra del video institucional sobre lineamientos curriculares"></video>
-          </button>
-          <figcaption><strong>Lineamientos curriculares</strong><span>Video institucional de Formación General, 2026</span></figcaption>
-        </figure>
+  <section class="ancho apertura" aria-labelledby="titular">
+    <div>
+      <h1 id="titular">Diseño cursos en línea, videos con IA y recursos interactivos.</h1>
+      <p>Diseñador instruccional y curriculista en Talca, Chile, con magíster en Currículum y Evaluación. Trabajo con universidades, organismos de capacitación y empresas: del objetivo de aprendizaje al curso montado en Moodle.</p>
+      <div class="vinculos">
+        <a class="boton" href="mailto:profesorcristophergutierrez@gmail.com">Escribirme</a>
+        <a href="files/CV_Cristopher_Gutierrez.pdf">Currículum en PDF</a>
+        <a href="https://www.linkedin.com/in/cristopher-guti%C3%A9rrez-gonz%C3%A1lez-b8936b148/" rel="noopener">LinkedIn</a>
       </div>
     </div>
-  </section>
-
-  <!-- Franja a todo el ancho -->
-  <div class="franja" aria-label="Más muestras de video">
-    <figure class="pieza"><button class="medio" type="button" data-video="muestras/caso_parvularia.mp4" data-titulo="La directora y la educadora"><video muted loop playsinline preload="none" poster="portadas/caso_parvularia.jpg" data-src="muestras/caso_parvularia.mp4" aria-label="Muestra del caso La directora y la educadora"></video></button></figure>
-    <figure class="pieza"><button class="medio" type="button" data-video="muestras/rda.mp4" data-titulo="Evaluar por resultados de aprendizaje"><video muted loop playsinline preload="none" poster="portadas/rda.jpg" data-src="muestras/rda.mp4" aria-label="Muestra del video con avatar sobre resultados de aprendizaje"></video></button></figure>
-    <figure class="pieza"><button class="medio" type="button" data-video="muestras/charla_cuento.mp4" data-titulo="Cuento ilustrado creado con IA"><video muted loop playsinline preload="none" poster="portadas/charla_cuento.jpg" data-src="muestras/charla_cuento.mp4" aria-label="Muestra del cuento ilustrado creado con IA"></video></button></figure>
-    <figure class="pieza"><button class="medio" type="button" data-video="muestras/charla_juego.mp4" data-titulo="Juego de tablas de multiplicar"><video muted loop playsinline preload="none" poster="portadas/charla_juego.jpg" data-src="muestras/charla_juego.mp4" aria-label="Muestra del juego de tablas de multiplicar"></video></button></figure>
-  </div>
-  <p class="ancho franja-pie">Un caso de Educación Parvularia, un video con avatar sobre resultados de aprendizaje, y un cuento y un juego creados con IA para una charla.</p>
-
-  <!-- Interactivos -->
-  <section class="ancho grupo" id="interactivos" aria-labelledby="t-interactivos">
-    <div class="grupo-cab"><h2 id="t-interactivos">Interactivos</h2><p>Se pueden probar aquí mismo.</p></div>
-    <div class="muro">
-      <div class="col a">
-        <figure class="pieza" style="order:1">
-          <button class="medio" type="button" data-iframe="h5p/libro.html" data-titulo="Retroalimentación efectiva para jefaturas">
-            <img src="portadas/libro_h5p.jpg" alt="Libro interactivo H5P sobre retroalimentación efectiva, capítulo 1" loading="lazy">
-          </button>
-          <figcaption><strong>Retroalimentación efectiva para jefaturas</strong><span>Libro interactivo H5P para capacitación corporativa, con cuatro capítulos y tres preguntas. Tócalo para abrirlo.</span></figcaption>
-        </figure>
-        <figure class="pieza angosta" style="order:3">
-          <a class="bloque escena" href="https://view.genially.com/68b9934c97d0232e2d37df1e" rel="noopener">
-            <p class="contexto">Escena 3 de 10, protocolo SPIKES</p>
-            <p class="pregunta">Claudia dice: «Prefiero que mi hermana se quede». ¿Qué haces?</p>
-            <span class="opcion">Sugieres hablar primero a solas y luego invitar a la hermana.</span>
-            <span class="opcion">Respetas su decisión y permites que la hermana permanezca.</span>
-            <span class="ir">Jugar en Genially</span>
-          </a>
-          <figcaption><strong>Escenario ramificado</strong><span>Diez decisiones y tres finales para comunicar noticias difíciles</span></figcaption>
-        </figure>
-      </div>
-      <div class="col b">
-        <figure class="pieza" style="order:2">
-          <div class="bloque" id="interactivo">
-            <h3 id="t-juego">Ordena las etapas de la entrevista clínica</h3>
-            <p class="nota">Toca las etapas en el orden correcto y revisa.</p>
-            <div class="fichas" id="fichas"></div>
-            <ol class="orden" id="orden" aria-live="polite"></ol>
-            <p class="retro" id="retro" role="status"></p>
-            <div class="acciones"><button class="accion" type="button" id="revisar">Revisar</button><button class="accion" type="button" id="reiniciar">Reiniciar</button></div>
-          </div>
-          <figcaption><strong>Modelo CICAA</strong><span>Actividad de práctica del curso de Medicina</span></figcaption>
-        </figure>
-        <figure class="pieza" style="order:4">
-          <button class="medio" type="button" data-galeria="images/ddu_h5p.jpg::Actividad H5P de arrastrar palabras" data-titulo="Arrastrar conceptos a su definición">
-            <img src="images/ddu_h5p.jpg" alt="Actividad H5P de arrastrar palabras" loading="lazy">
-          </button>
-          <figcaption><strong>Arrastrar conceptos a su definición</strong><span>Actividad H5P del Diplomado en Docencia Universitaria</span></figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- Charlas y talleres -->
-  <section class="ancho grupo" id="charlas" aria-labelledby="t-charlas">
-    <div class="grupo-cab"><h2 id="t-charlas">Charlas y talleres</h2><p>Láminas y afiches de difusión.</p></div>
-    <div class="muro">
-      <div class="col a">
-        <figure class="pieza angosta" style="order:1">
-          <button class="medio" type="button" data-galeria="charlas/afiche_taller_ia.jpg::Afiche del taller|charlas/historia_taller_ia.jpg::Historia para Instagram" data-titulo="IA generativa para docentes">
-            <img src="charlas/afiche_taller_ia.jpg" alt="Afiche del taller IA generativa para docentes" loading="lazy">
-          </button>
-          <figcaption><strong>IA generativa para docentes</strong><span>Taller propio, con afiche e historia para Instagram</span></figcaption>
-        </figure>
-        <figure class="pieza" style="order:3">
-          <button class="medio" type="button" data-galeria="charlas/afiche_panama.jpg::Afiche del conversatorio Navegando el cambio" data-titulo="Navegando el cambio">
-            <img src="charlas/afiche_panama.jpg" alt="Afiche del conversatorio Navegando el cambio" loading="lazy">
-          </button>
-          <figcaption><strong>Navegando el cambio: innovación educativa en la era digital</strong><span>Panelista internacional, Universidad de Panamá</span></figcaption>
-        </figure>
-      </div>
-      <div class="col b">
-        <figure class="pieza" style="order:2">
-          <button class="medio" type="button" data-galeria="charlas/charla_1.jpg::Portada: Un día de clases con IA|charlas/charla_3.jpg::Línea de tiempo de la jornada|charlas/charla_4.jpg::Prompt para planificar|charlas/charla_11.jpg::Respuesta de la IA comentada" data-titulo="Un día de clases con IA">
-            <img src="charlas/charla_1.jpg" alt="Portada de la charla Un día de clases con IA" loading="lazy">
-          </button>
-          <figcaption><strong>Un día de clases con IA</strong><span>Charla sobre IA en el sistema escolar, cuatro de trece láminas</span></figcaption>
-        </figure>
-        <figure class="pieza angosta der" style="order:4">
-          <button class="medio" type="button" data-galeria="charlas/afiche_cft_innovacion.jpg::Estrategias innovativas en el aprendizaje|charlas/afiche_cft_acompanamiento.jpg::Monitoreo y acompañamiento del aprendizaje|charlas/afiche_cft_pensamiento.jpg::Estrategias para el desarrollo del pensamiento" data-titulo="Plan de Formación Docente">
-            <img src="charlas/afiche_cft_innovacion.jpg" alt="Afiche del taller Estrategias innovativas en el aprendizaje" loading="lazy">
-          </button>
-          <figcaption><strong>Plan de Formación Docente</strong><span>Relator de tres talleres, Centro de Formación Técnica San Agustín</span></figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- Verso -->
-  <section class="verso" aria-label="Verso">
-    <figure>
-      <blockquote>«Germina la vida en el surco»</blockquote>
-      <figcaption>Jorge González Bastías, poeta del Maule. <i>Vera rústica</i>, 1933.</figcaption>
+    <figure class="reel">
+      <video id="reel" src="media/reel.mp4" poster="images/poster_reel.jpg" muted loop playsinline preload="metadata" aria-label="Reel con fragmentos de videos de cursos y casos"></video>
+      <figcaption>Fragmentos de videos de cursos y casos, 2023 a 2026. <button type="button" class="accion" id="pausa" aria-pressed="false">Pausar</button></figcaption>
     </figure>
   </section>
 
-  <!-- Cursos y documentos -->
-  <section class="ancho grupo" id="cursos" aria-labelledby="t-cursos">
-    <div class="grupo-cab"><h2 id="t-cursos">Cursos y documentos de diseño</h2><p>Lo que hay detrás de un curso: ruta, guiones, evaluación y materiales.</p></div>
-    <div class="muro">
-      <div class="col a">
-        <figure class="pieza" style="order:1">
-          <button class="medio" type="button" data-galeria="images/copilot_1.jpg::Portada del taller de Copilot|images/copilot_6.jpg::La herramienta responde; la decisión pedagógica es tuya|images/copilot_9.jpg::Copilot como laboratorio pedagógico|images/copilot_11.jpg::De la necesidad al prompt y al borrador|images/copilot_guia.jpg::Guía de modelaje para el facilitador|images/copilot_tarjetas.jpg::Tarjetas de práctica por nivel" data-titulo="Taller de Microsoft Copilot">
-            <img src="images/copilot_1.jpg" alt="Portada del taller de Copilot" loading="lazy">
-          </button>
-          <figcaption><strong>Taller de Microsoft Copilot</strong><span>Kit de capacitación: láminas, guía del facilitador y tarjetas</span></figcaption>
-        </figure>
-        <figure class="pieza vertical" style="order:3">
-          <button class="medio" type="button" data-galeria="images/pj_guion.jpg::Guion del video de presentación" data-titulo="Guion del video de presentación">
-            <img src="images/pj_guion.jpg" alt="Guion del video de presentación" loading="lazy">
-          </button>
-          <figcaption><strong>Guion del video de presentación</strong><span>Locución y estructura</span></figcaption>
-        </figure>
-        <figure class="pieza" style="order:5">
-          <button class="medio" type="button" data-galeria="images/med_secuencia.jpg::Secuencia didáctica|images/med_resultado.jpg::Resultado de aprendizaje y objetivos|images/med_caso.jpg::Descripción de la experiencia" data-titulo="IA generativa y codocencia en Medicina">
-            <img src="images/med_secuencia.jpg" alt="Secuencia didáctica" loading="lazy">
-          </button>
-          <figcaption><strong>IA generativa y codocencia en Medicina</strong><span>Ponencia en congreso iberoamericano, 2026</span></figcaption>
-        </figure>
-      </div>
-      <div class="col b">
-        <figure class="pieza" style="order:2">
-          <button class="medio" type="button" data-galeria="images/ddu_unidad.jpg::Unidad del diplomado con video y banners|images/ddu_sintesis.jpg::Síntesis interactiva de la semana|images/ddu_h5p.jpg::Actividad formativa H5P" data-titulo="Diplomado en Docencia Universitaria">
-            <img src="images/ddu_unidad.jpg" alt="Unidad del diplomado con video y banners" loading="lazy">
-          </button>
-          <figcaption><strong>Diplomado en Docencia Universitaria</strong><span>Curso en Moodle, coordinación y diseño, 2023 a 2024</span></figcaption>
-        </figure>
-        <figure class="pieza angosta der" style="order:4">
-          <button class="medio" type="button" data-galeria="images/pj_ruta.jpg::Ruta de aprendizaje por módulo|images/pj_problema.jpg::Problema que aborda el curso|images/pj_modelo_addie.jpg::Modelo de diseño instruccional|images/pj_aplicacion_addie.jpg::Aplicación de ADDIE|images/pj_planificacion.jpg::Carta Gantt del desarrollo" data-titulo="Del problema a la ruta de aprendizaje">
-            <img src="images/pj_ruta.jpg" alt="Ruta de aprendizaje por módulo" loading="lazy">
-          </button>
-          <figcaption><strong>Del problema a la ruta de aprendizaje</strong><span>Diseño de un curso con ADDIE y carta Gantt</span></figcaption>
-        </figure>
-        <figure class="pieza vertical der" style="order:6">
-          <button class="medio" type="button" data-galeria="images/med_rubrica.jpg::Evaluación de noticias difíciles|images/pj_estudio_caso.jpg::Evaluación con estudio de caso|images/pj_lectura.jpg::Lectura maestra de autoría propia" data-titulo="Casos, guiones y rúbricas">
-            <img src="images/med_rubrica.jpg" alt="Rúbrica de evaluación de noticias difíciles" loading="lazy">
-          </button>
-          <figcaption><strong>Casos, guiones y rúbricas</strong><span>Tres documentos de evaluación auténtica</span></figcaption>
-        </figure>
-      </div>
+  <section class="ancho" id="piezas" aria-label="Piezas">
+    <div class="filtros" role="group" aria-label="Filtrar piezas"><button type="button" data-f="todas" aria-pressed="true">Todas</button><button type="button" data-f="interactivos" aria-pressed="false">Interactivos</button><button type="button" data-f="videos" aria-pressed="false">Videos con IA</button><button type="button" data-f="capacitacion" aria-pressed="false">Capacitación</button><button type="button" data-f="difusion" aria-pressed="false">Difusión y documentos</button></div>
+    <div class="grilla">
+<article class="pieza" data-filtro="interactivos"><button class="lamina" type="button" data-iframe="h5p/libro.html" data-titulo="Retroalimentación efectiva para jefaturas"><picture><source type="image/webp" srcset="portadas_v2/libro_h5p-464.webp 464w, portadas_v2/libro_h5p-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/libro_h5p-928.jpg" width="928" height="1152" alt="Notebook sobre un escritorio con el libro interactivo abierto en el capítulo 1" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Libro interactivo H5P</span><span class="tit">Retroalimentación efectiva para jefaturas</span></span></button><p class="detalle">Capacitación corporativa con cuatro capítulos y tres preguntas de práctica.</p><button class="accion" type="button" data-iframe="h5p/libro.html" data-titulo="Retroalimentación efectiva para jefaturas">Probar el libro</button></article>
+<article class="pieza" data-filtro="interactivos"><a class="lamina" href="https://view.genially.com/68b9934c97d0232e2d37df1e" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="portadas_v2/spikes-464.webp 464w, portadas_v2/spikes-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/spikes-928.jpg" width="928" height="1152" alt="Tableta en un soporte de madera con la portada del escenario SPIKES" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Escenario ramificado</span><span class="tit">Comunicar una noticia difícil</span></span></a><p class="detalle">Diez decisiones y tres finales con el protocolo SPIKES, hecho en Genially.</p><a class="accion" href="https://view.genially.com/68b9934c97d0232e2d37df1e" target="_blank" rel="noopener">Jugar en Genially<span class="sr"> (se abre en otra pestaña)</span></a></article>
+<article class="pieza" data-filtro="interactivos"><button class="lamina" type="button" data-juego data-titulo="Ordena la entrevista clínica"><picture><source type="image/webp" srcset="portadas_v2/cicaa-464.webp 464w, portadas_v2/cicaa-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/cicaa-928.jpg" width="928" height="1152" alt="Teléfono en un soporte con la actividad de ordenar las etapas de la entrevista clínica" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Actividad interactiva</span><span class="tit">Ordena la entrevista clínica</span></span></button><p class="detalle">Práctica del modelo CICAA para el curso de Medicina, con retroalimentación inmediata.</p><button class="accion" type="button" data-juego data-titulo="Ordena la entrevista clínica">Probar la actividad</button></article>
+<article class="pieza" data-filtro="videos"><button class="lamina" type="button" data-video="muestras/reel_cna.mp4" data-titulo="El par evaluador pregunta"><picture><source type="image/webp" srcset="portadas_v2/reel_cna-464.webp 464w, portadas_v2/reel_cna-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/reel_cna-928.jpg" width="928" height="1152" alt="Teléfono sobre un escritorio reproduciendo el reel con un avatar" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Reel con avatares de IA</span><span class="tit">El par evaluador pregunta</span></span></button><p class="detalle">Serie de cuatro reels para preparar la acreditación institucional, 2026.</p><button class="accion" type="button" data-video="muestras/reel_cna.mp4" data-titulo="El par evaluador pregunta">Ver muestra de 18 s</button></article>
+<article class="pieza" data-filtro="videos"><button class="lamina" type="button" data-video="muestras/caso_medicina.mp4" data-titulo="Médica virtual para entrenar la comunicación"><picture><source type="image/webp" srcset="portadas_v2/medica-464.webp 464w, portadas_v2/medica-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/medica-928.jpg" width="928" height="1152" alt="Monitor de escritorio con la médica virtual del caso clínico" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Caso clínico con IA</span><span class="tit">Médica virtual para entrenar la comunicación</span></span></button><p class="detalle">Cuatro casos con pacientes y médicos virtuales para Medicina, 2025.</p><button class="accion" type="button" data-video="muestras/caso_medicina.mp4" data-titulo="Médica virtual para entrenar la comunicación">Ver muestra de 15 s</button></article>
+<article class="pieza" data-filtro="videos"><button class="lamina" type="button" data-video="muestras/caso_parvularia.mp4" data-titulo="La directora y la educadora"><picture><source type="image/webp" srcset="portadas_v2/parvularia-464.webp 464w, portadas_v2/parvularia-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/parvularia-928.jpg" width="928" height="1152" alt="Notebook con el video del caso, la directora Beatriz en una sala de clases" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Caso con IA</span><span class="tit">La directora y la educadora</span></span></button><p class="detalle">Caso de liderazgo pedagógico para Educación Parvularia, 2026.</p><button class="accion" type="button" data-video="muestras/caso_parvularia.mp4" data-titulo="La directora y la educadora">Ver muestra de 15 s</button></article>
+<article class="pieza" data-filtro="capacitacion"><button class="lamina" type="button" data-galeria="images/copilot_1.jpg::Portada del taller de Copilot|images/copilot_6.jpg::La herramienta responde; la decisión pedagógica es tuya|images/copilot_9.jpg::Copilot como laboratorio pedagógico|images/copilot_11.jpg::De la necesidad al prompt y al borrador|images/copilot_guia.jpg::Guía de modelaje para el facilitador|images/copilot_tarjetas.jpg::Tarjetas de práctica por nivel" data-titulo="Taller de Microsoft Copilot"><picture><source type="image/webp" srcset="portadas_v2/copilot-464.webp 464w, portadas_v2/copilot-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/copilot-928.jpg" width="928" height="1152" alt="Tableta sobre un escritorio con la guía del facilitador del taller" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Kit de capacitación</span><span class="tit">Taller de Microsoft Copilot</span></span></button><p class="detalle">Láminas, guía del facilitador y tarjetas de práctica por nivel.</p><button class="accion" type="button" data-galeria="images/copilot_1.jpg::Portada del taller de Copilot|images/copilot_6.jpg::La herramienta responde; la decisión pedagógica es tuya|images/copilot_9.jpg::Copilot como laboratorio pedagógico|images/copilot_11.jpg::De la necesidad al prompt y al borrador|images/copilot_guia.jpg::Guía de modelaje para el facilitador|images/copilot_tarjetas.jpg::Tarjetas de práctica por nivel" data-titulo="Taller de Microsoft Copilot">Ver las seis piezas</button></article>
+<article class="pieza" data-filtro="capacitacion"><button class="lamina" type="button" data-galeria="images/ddu_unidad.jpg::Unidad del diplomado con video y banners|images/ddu_sintesis.jpg::Síntesis interactiva de la semana|images/ddu_h5p.jpg::Actividad formativa H5P" data-titulo="Diplomado en Docencia Universitaria"><picture><source type="image/webp" srcset="portadas_v2/diplomado-464.webp 464w, portadas_v2/diplomado-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/diplomado-928.jpg" width="928" height="1152" alt="Computador de escritorio con una unidad del diplomado en Moodle" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Curso en Moodle</span><span class="tit">Diplomado en Docencia Universitaria</span></span></button><p class="detalle">Coordinación y diseño de un diplomado de 120 horas, 2023 a 2024.</p><button class="accion" type="button" data-galeria="images/ddu_unidad.jpg::Unidad del diplomado con video y banners|images/ddu_sintesis.jpg::Síntesis interactiva de la semana|images/ddu_h5p.jpg::Actividad formativa H5P" data-titulo="Diplomado en Docencia Universitaria">Ver tres pantallas</button></article>
+<article class="pieza" data-filtro="capacitacion"><button class="lamina" type="button" data-galeria="images/pj_ruta.jpg::Ruta de aprendizaje por módulo|images/pj_problema.jpg::Problema que aborda el curso|images/pj_modelo_addie.jpg::Modelo de diseño instruccional|images/pj_aplicacion_addie.jpg::Aplicación de ADDIE|images/pj_planificacion.jpg::Carta Gantt del desarrollo" data-titulo="Del problema a la ruta de aprendizaje"><picture><source type="image/webp" srcset="portadas_v2/ruta-464.webp 464w, portadas_v2/ruta-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/ruta-928.jpg" width="928" height="1152" alt="Hoja impresa con la ruta de aprendizaje del curso sobre un escritorio" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Diseño de curso</span><span class="tit">Del problema a la ruta de aprendizaje</span></span></button><p class="detalle">Planificación de un curso e-learning de 24 horas con ADDIE y carta Gantt, 2023.</p><button class="accion" type="button" data-galeria="images/pj_ruta.jpg::Ruta de aprendizaje por módulo|images/pj_problema.jpg::Problema que aborda el curso|images/pj_modelo_addie.jpg::Modelo de diseño instruccional|images/pj_aplicacion_addie.jpg::Aplicación de ADDIE|images/pj_planificacion.jpg::Carta Gantt del desarrollo" data-titulo="Del problema a la ruta de aprendizaje">Ver cinco láminas</button></article>
+<article class="pieza" data-filtro="difusion"><button class="lamina" type="button" data-galeria="charlas/afiche_taller_ia.jpg::Afiche del taller|charlas/historia_taller_ia.jpg::Historia para Instagram" data-titulo="IA generativa para docentes"><picture><source type="image/webp" srcset="portadas_v2/afiche_ia-464.webp 464w, portadas_v2/afiche_ia-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/afiche_ia-928.jpg" width="928" height="1152" alt="Afiche enmarcado del taller apoyado en la pared" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Difusión</span><span class="tit">IA generativa para docentes</span></span></button><p class="detalle">Taller propio, con afiche e historia para Instagram.</p><button class="accion" type="button" data-galeria="charlas/afiche_taller_ia.jpg::Afiche del taller|charlas/historia_taller_ia.jpg::Historia para Instagram" data-titulo="IA generativa para docentes">Ver las dos piezas</button></article>
+<article class="pieza" data-filtro="difusion"><button class="lamina" type="button" data-galeria="charlas/charla_1.jpg::Portada: Un día de clases con IA|charlas/charla_3.jpg::Línea de tiempo de la jornada|charlas/charla_4.jpg::Prompt para planificar|charlas/charla_11.jpg::Respuesta de la IA comentada" data-titulo="Un día de clases con IA"><picture><source type="image/webp" srcset="portadas_v2/charla_ia-464.webp 464w, portadas_v2/charla_ia-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/charla_ia-928.jpg" width="928" height="1152" alt="Notebook con la portada de la charla Un día de clases con IA" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Charla</span><span class="tit">Un día de clases con IA</span></span></button><p class="detalle">Charla sobre inteligencia artificial en el sistema escolar, con ejemplos para planificar.</p><button class="accion" type="button" data-galeria="charlas/charla_1.jpg::Portada: Un día de clases con IA|charlas/charla_3.jpg::Línea de tiempo de la jornada|charlas/charla_4.jpg::Prompt para planificar|charlas/charla_11.jpg::Respuesta de la IA comentada" data-titulo="Un día de clases con IA">Ver cuatro láminas</button></article>
+<article class="pieza" data-filtro="difusion"><button class="lamina" type="button" data-galeria="images/pj_guion.jpg::Guion del video de presentación|images/med_rubrica.jpg::Evaluación de noticias difíciles|images/pj_estudio_caso.jpg::Evaluación con estudio de caso|images/pj_lectura.jpg::Lectura maestra de autoría propia" data-titulo="Guiones, casos y rúbricas"><picture><source type="image/webp" srcset="portadas_v2/guion-464.webp 464w, portadas_v2/guion-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/guion-928.jpg" width="928" height="1152" alt="Hoja impresa con el guion sobre un escritorio, junto a unos lentes y un lápiz" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Documentos de diseño</span><span class="tit">Guiones, casos y rúbricas</span></span></button><p class="detalle">Lo que hay detrás de un curso: guion de video, evaluación auténtica y lectura propia.</p><button class="accion" type="button" data-galeria="images/pj_guion.jpg::Guion del video de presentación|images/med_rubrica.jpg::Evaluación de noticias difíciles|images/pj_estudio_caso.jpg::Evaluación con estudio de caso|images/pj_lectura.jpg::Lectura maestra de autoría propia" data-titulo="Guiones, casos y rúbricas">Ver cuatro documentos</button></article>
     </div>
   </section>
 
-  <!-- Proyectos y método -->
-  <section class="ancho trabajo" id="trabajo" aria-label="Proyectos y cómo trabajo">
+  <section class="ancho bloque" id="mas" aria-labelledby="t-mas">
+    <h2 id="t-mas">Más trabajos</h2>
+    <ul class="mas">
+<li><span><strong>Navegando el cambio: innovación educativa en la era digital</strong>Panelista internacional, Universidad de Panamá</span><button class="accion" type="button" data-galeria="charlas/afiche_panama.jpg::Afiche del conversatorio" data-titulo="Navegando el cambio: innovación educativa en la era digital">Ver afiche</button></li>
+<li><span><strong>Plan de Formación Docente</strong>Relator de tres talleres, Centro de Formación Técnica San Agustín</span><button class="accion" type="button" data-galeria="charlas/afiche_cft_innovacion.jpg::Estrategias innovativas en el aprendizaje|charlas/afiche_cft_acompanamiento.jpg::Monitoreo y acompañamiento del aprendizaje|charlas/afiche_cft_pensamiento.jpg::Estrategias para el desarrollo del pensamiento" data-titulo="Plan de Formación Docente">Ver afiches</button></li>
+<li><span><strong>Curso e-learning para profesores jefes</strong>Diseño ADDIE de un curso de 24 horas, 2023</span><button class="accion" type="button" data-video="muestras/curso_pj.mp4" data-titulo="Curso e-learning para profesores jefes">Ver muestra</button></li>
+<li><span><strong>El modelo CICAA en tres minutos</strong>Video explicativo para Medicina, 2025</span><button class="accion" type="button" data-video="muestras/cicaa.mp4" data-titulo="El modelo CICAA en tres minutos">Ver muestra</button></li>
+<li><span><strong>Evaluar por resultados de aprendizaje</strong>Video con avatar para Inglés de Formación General, 2026</span><button class="accion" type="button" data-video="muestras/rda.mp4" data-titulo="Evaluar por resultados de aprendizaje">Ver muestra</button></li>
+<li><span><strong>Lineamientos curriculares</strong>Video institucional de Formación General, 2026</span><button class="accion" type="button" data-video="muestras/informativo_dfg.mp4" data-titulo="Lineamientos curriculares">Ver muestra</button></li>
+<li><span><strong>IA generativa y codocencia en Medicina</strong>Ponencia en congreso iberoamericano, 2026</span><button class="accion" type="button" data-galeria="images/med_secuencia.jpg::Secuencia didáctica|images/med_resultado.jpg::Resultado de aprendizaje y objetivos|images/med_caso.jpg::Descripción de la experiencia" data-titulo="IA generativa y codocencia en Medicina">Ver láminas</button></li>
+<li><span><strong>Cuento ilustrado creado con IA</strong>Recurso de la charla para docentes de educación básica</span><button class="accion" type="button" data-video="muestras/charla_cuento.mp4" data-titulo="Cuento ilustrado creado con IA">Ver muestra</button></li>
+<li><span><strong>Juego de tablas de multiplicar creado con IA</strong>Recurso de la misma charla</span><button class="accion" type="button" data-video="muestras/charla_juego.mp4" data-titulo="Juego de tablas de multiplicar creado con IA">Ver muestra</button></li>
+    </ul>
+  </section>
+
+  <section class="ancho bloque dos" id="proyectos" aria-label="Proyectos y forma de trabajo">
     <div>
       <h2>Proyectos</h2>
-      <article class="caso"><h3>Curso e-learning para un organismo de capacitación</h3><p class="donde">Capacitación docente, 2023</p><p>Curso asincrónico de 24 horas para profesores jefes: diseño ADDIE, cuatro módulos, video de presentación, lecturas y evaluación con estudio de caso.</p></article>
-      <article class="caso"><h3>IA y codocencia en Medicina</h3><p class="donde">Universidad Católica del Maule, 2025</p><p>Casos clínicos con médicos virtuales y evaluación auténtica en video: 85 % de los desempeños en nivel alto en un curso de 82 estudiantes.</p></article>
-      <article class="caso"><h3>Formación docente universitaria</h3><p class="donde">Universidad de Chile y Universidad Católica del Maule, 2023 a 2026</p><p>Siete cursos abiertos en Moodle para la Universidad de Chile y tres diplomados de 120 horas con evaluación de impacto.</p></article>
+      <article class="caso"><h3>Curso e-learning para un organismo de capacitación</h3><p class="donde">Capacitación docente, 2023</p><p>Curso asincrónico de 24 horas para profesores jefes: diseño ADDIE, cuatro módulos, video de presentación, lecturas y evaluación con estudio de caso.</p></article><article class="caso"><h3>IA y codocencia en Medicina</h3><p class="donde">Universidad Católica del Maule, 2025</p><p>Casos clínicos con médicos virtuales y evaluación auténtica en video: 85 % de los desempeños en nivel alto en un curso de 82 estudiantes.</p></article><article class="caso"><h3>Formación docente universitaria</h3><p class="donde">Universidad de Chile y Universidad Católica del Maule, 2023 a 2026</p><p>Siete cursos abiertos en Moodle para la Universidad de Chile y tres diplomados de 120 horas con evaluación de impacto.</p></article>
     </div>
     <div>
       <h2>Cómo trabajo</h2>
-      <ol class="pasos">
-        <li>Análisis del público y del contexto</li>
-        <li>Resultados de aprendizaje evaluables</li>
-        <li>Secuencia de actividades y evaluación</li>
-        <li>Guiones, videos y recursos interactivos</li>
-        <li>Montaje en Moodle</li>
-        <li>Evaluación de impacto y mejora</li>
-      </ol>
+      <ol class="pasos"><li>Análisis del público y del contexto</li><li>Resultados de aprendizaje evaluables</li><li>Secuencia de actividades y evaluación</li><li>Guiones, videos y recursos interactivos</li><li>Montaje en Moodle</li><li>Evaluación de impacto y mejora</li></ol>
       <h2>He trabajado con</h2>
-      <p class="instituciones">Universidad de Chile<br>Universidad Católica del Maule<br>Instituto de Calidad y Medioambiente de Chile<br>Centro de Formación Técnica San Agustín<br>educarchile<br>Altamira Capacitación Profesional</p>
+      <ul class="instituciones"><li>Universidad de Chile</li><li>Universidad Católica del Maule</li><li>Instituto de Calidad y Medioambiente de Chile</li><li>Centro de Formación Técnica San Agustín</li><li>educarchile</li><li>Altamira Capacitación Profesional</li></ul>
     </div>
   </section>
-
-  <footer class="ancho pie" id="contacto">
-    <img src="images/foto_cristopher.jpg" alt="Fotografía de Cristopher Gutiérrez González">
-    <div>
-      <p>¿Diseñamos tu próximo curso? Escríbeme a <a href="mailto:profesorcristophergutierrez@gmail.com">profesorcristophergutierrez@gmail.com</a></p>
-      <p class="enlaces"><a href="files/CV_Cristopher_Gutierrez.pdf">Currículum en PDF</a><a href="https://www.linkedin.com/in/cristopher-guti%C3%A9rrez-gonz%C3%A1lez-b8936b148/" rel="noopener">LinkedIn</a></p>
-    </div>
-    <small>Cristopher Gutiérrez González, 2026. Verso de Jorge González Bastías, obra en dominio público (edición digitalizada por Memoria Chilena).</small>
-  </footer>
 </main>
 
-<dialog class="visor" id="visor" aria-label="Visor">
-  <div class="visor-barra">
-    <span><button type="button" id="visor-prev" hidden>Anterior</button> <button type="button" id="visor-next" hidden>Siguiente</button></span>
-    <button type="button" id="cerrar-visor">Cerrar</button>
+<footer class="ancho pie" id="contacto">
+  <img src="images/foto_cristopher.jpg" width="104" height="104" alt="Fotografía de Cristopher Gutiérrez González" loading="lazy">
+  <div>
+    <h2>¿Diseñamos tu próximo curso?</h2>
+    <p>Escríbeme a <a href="mailto:profesorcristophergutierrez@gmail.com">profesorcristophergutierrez@gmail.com</a></p>
+    <div class="vinculos"><a href="files/CV_Cristopher_Gutierrez.pdf">Currículum en PDF</a><a href="https://www.linkedin.com/in/cristopher-guti%C3%A9rrez-gonz%C3%A1lez-b8936b148/" rel="noopener">LinkedIn</a></div>
   </div>
-  <img id="visor-img" src="" alt="">
-  <video id="visor-video" controls playsinline hidden></video>
-  <iframe id="visor-iframe" title="Recurso interactivo" hidden></iframe>
-  <p id="visor-pie"></p>
+  <small>«Germina la vida en el surco», Jorge González Bastías, poeta del Maule (<i>Vera rústica</i>, 1933, dominio público). Escenas fotográficas generadas con IA; las pantallas muestran piezas reales.</small>
+</footer>
+
+<dialog id="visor" aria-label="Visor de piezas">
+  <div class="barra">
+    <span><button type="button" id="anterior" hidden>Anterior</button> <button type="button" id="siguiente" hidden>Siguiente</button></span>
+    <button type="button" class="cerrar">Cerrar</button>
+  </div>
+  <img id="v-img" src="data:," alt="" hidden>
+  <video id="v-video" controls playsinline hidden></video>
+  <iframe id="v-iframe" title="Recurso interactivo" hidden></iframe>
+  <p class="leyenda" id="v-leyenda"></p>
+</dialog>
+
+<dialog id="juego" aria-labelledby="t-juego">
+  <div class="barra"><span></span><button type="button" class="cerrar">Cerrar</button></div>
+  <div class="juego">
+    <h2 id="t-juego">Ordena las etapas de la entrevista clínica</h2>
+    <p class="nota">Toca las etapas en el orden correcto y luego revisa.</p>
+    <div class="fichas" id="fichas"></div>
+    <ol class="orden" id="orden" aria-live="polite"></ol>
+    <p class="retro" id="retro" role="status"></p>
+    <div class="controles"><button class="control" type="button" id="revisar">Revisar</button><button class="control" type="button" id="reiniciar">Reiniciar</button></div>
+  </div>
 </dialog>
 
 <script>
-  // Menú
-  const menu = document.getElementById("menu"), abrirMenu = document.getElementById("abrir-menu");
-  function cerrarMenu() { menu.hidden = true; abrirMenu.setAttribute("aria-expanded", "false"); }
-  abrirMenu.addEventListener("click", () => { menu.hidden = false; abrirMenu.setAttribute("aria-expanded", "true"); menu.querySelector("a").focus(); });
-  document.getElementById("cerrar-menu").addEventListener("click", () => { cerrarMenu(); abrirMenu.focus(); });
-  menu.querySelectorAll("a").forEach(a => a.addEventListener("click", cerrarMenu));
-  document.addEventListener("keydown", e => { if (e.key === "Escape" && !menu.hidden) { cerrarMenu(); abrirMenu.focus(); } });
+  // Reel de la apertura: se reproduce a la vista, salvo que la persona prefiera menos movimiento
+  const reel = document.getElementById("reel"), pausa = document.getElementById("pausa");
+  let pausadoPorPersona = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function marcarPausa() { pausa.textContent = reel.paused ? "Reproducir" : "Pausar"; pausa.setAttribute("aria-pressed", String(reel.paused)); }
+  pausa.addEventListener("click", () => { if (reel.paused) { pausadoPorPersona = false; reel.play().catch(() => {}); } else { pausadoPorPersona = true; reel.pause(); } });
+  reel.addEventListener("play", marcarPausa); reel.addEventListener("pause", marcarPausa);
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting && !pausadoPorPersona) reel.play().catch(() => {}); else reel.pause(); }), { threshold: 0.4 }).observe(reel);
+  }
+  marcarPausa();
 
-  // Visor: galerías, muestras de video e interactivos
-  const visor = document.getElementById("visor"), vImg = document.getElementById("visor-img"), vVid = document.getElementById("visor-video"),
-        vIfr = document.getElementById("visor-iframe"), vPie = document.getElementById("visor-pie"),
-        vPrev = document.getElementById("visor-prev"), vNext = document.getElementById("visor-next");
-  let galeria = [], pos = 0;
-  function mostrar() { const [src, pie] = galeria[pos]; vImg.src = src; vImg.alt = pie; vPie.textContent = pie + (galeria.length > 1 ? " (" + (pos + 1) + " de " + galeria.length + ")" : ""); }
-  function abrir() { if (visor.showModal && !visor.open) visor.showModal(); }
-  function navegacion(ver) { vPrev.hidden = !ver; vNext.hidden = !ver; }
-  document.querySelectorAll("[data-galeria]").forEach(b => b.addEventListener("click", () => {
-    galeria = b.dataset.galeria.split("|").map(x => x.split("::")); pos = 0;
-    vVid.pause(); vVid.hidden = true; vIfr.hidden = true; vImg.hidden = false; navegacion(galeria.length > 1); mostrar(); abrir();
+  // Filtros
+  const botonesFiltro = document.querySelectorAll(".filtros button"), piezas = document.querySelectorAll(".pieza");
+  botonesFiltro.forEach(b => b.addEventListener("click", () => {
+    botonesFiltro.forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    piezas.forEach(p => { p.hidden = b.dataset.f !== "todas" && p.dataset.filtro !== b.dataset.f; });
   }));
-  document.querySelectorAll("[data-iframe]").forEach(b => b.addEventListener("click", () => {
-    vImg.hidden = true; vVid.hidden = true; navegacion(false); vIfr.hidden = false; vIfr.src = b.dataset.iframe; vPie.textContent = b.dataset.titulo; abrir();
+
+  // Visor
+  const visor = document.getElementById("visor"), vImg = document.getElementById("v-img"), vVid = document.getElementById("v-video"),
+        vIfr = document.getElementById("v-iframe"), vLey = document.getElementById("v-leyenda"),
+        vAnt = document.getElementById("anterior"), vSig = document.getElementById("siguiente");
+  let galeria = [], pos = 0, origen = null;
+  function abrir(d) { if (!d.open) d.showModal(); d.querySelector(".cerrar").focus(); }
+  function solo(el) { [vImg, vVid, vIfr].forEach(x => x.hidden = x !== el); vAnt.hidden = vSig.hidden = !(el === vImg && galeria.length > 1); }
+  function mostrar() { const [src, pie] = galeria[pos]; vImg.src = src; vImg.alt = pie; vLey.textContent = pie + (galeria.length > 1 ? " (" + (pos + 1) + " de " + galeria.length + ")" : ""); }
+  document.querySelectorAll("[data-galeria]").forEach(b => b.addEventListener("click", () => {
+    origen = b; galeria = b.dataset.galeria.split("|").map(x => x.split("::")); pos = 0; solo(vImg); mostrar(); abrir(visor);
   }));
   document.querySelectorAll("[data-video]").forEach(b => b.addEventListener("click", () => {
-    vImg.hidden = true; vIfr.hidden = true; navegacion(false); vVid.hidden = false; vVid.src = b.dataset.video; vPie.textContent = b.dataset.titulo; abrir(); vVid.play().catch(() => {});
+    origen = b; galeria = []; solo(vVid); vVid.src = b.dataset.video; vLey.textContent = b.dataset.titulo + ", muestra breve"; abrir(visor); vVid.play().catch(() => {});
   }));
-  vPrev.addEventListener("click", () => { pos = (pos - 1 + galeria.length) % galeria.length; mostrar(); });
-  vNext.addEventListener("click", () => { pos = (pos + 1) % galeria.length; mostrar(); });
-  document.getElementById("cerrar-visor").addEventListener("click", () => visor.close());
-  visor.addEventListener("click", e => { if (e.target === visor) visor.close(); });
-  visor.addEventListener("close", () => { vVid.pause(); if (!vIfr.hidden) vIfr.src = "about:blank"; });
+  document.querySelectorAll("[data-iframe]").forEach(b => b.addEventListener("click", () => {
+    origen = b; galeria = []; solo(vIfr); vIfr.src = b.dataset.iframe; vLey.textContent = b.dataset.titulo; abrir(visor);
+  }));
+  vAnt.addEventListener("click", () => { pos = (pos - 1 + galeria.length) % galeria.length; mostrar(); });
+  vSig.addEventListener("click", () => { pos = (pos + 1) % galeria.length; mostrar(); });
+  document.querySelectorAll("dialog").forEach(d => {
+    d.querySelector(".cerrar").addEventListener("click", () => d.close());
+    d.addEventListener("click", ev => { if (ev.target === d) d.close(); });
+    d.addEventListener("close", () => { vVid.pause(); vVid.removeAttribute("src"); if (!vIfr.hidden) vIfr.src = "about:blank"; if (origen) origen.focus(); });
+  });
+  document.addEventListener("keydown", ev => {
+    if (!visor.open || vImg.hidden || galeria.length < 2) return;
+    if (ev.key === "ArrowRight") vSig.click(); if (ev.key === "ArrowLeft") vAnt.click();
+  });
 
-  // Muestras: se reproducen solas al quedar a la vista
-  const reducir = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if ("IntersectionObserver" in window && !reducir) {
-    const io = new IntersectionObserver(es => es.forEach(e => {
-      const v = e.target;
-      if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); } else { v.pause(); }
-    }), { threshold: 0.5 });
-    document.querySelectorAll(".medio video[data-src]").forEach(v => io.observe(v));
-  }
-  if (reducir) document.querySelectorAll("video[autoplay]").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
-
-  // Interactivo CICAA
+  // Actividad CICAA
+  const juego = document.getElementById("juego");
+  document.querySelectorAll("[data-juego]").forEach(b => b.addEventListener("click", () => { origen = b; iniciar(); abrir(juego); }));
   const correcto = [
     ["Conectar", "generar confianza y respeto"],
     ["Identificar", "síntomas, emociones y contexto"],
@@ -500,13 +355,12 @@
     let aciertos = 0;
     [...orden.children].forEach((li, i) => {
       const ok = elegidas[i] === correcto[i][0]; if (ok) aciertos++;
-      li.className = ok ? "bien" : "mal";
-      li.innerHTML = ""; li.append(elegidas[i]); const s = document.createElement("small"); s.textContent = ok ? correcto[i][1] : "Aquí va: " + correcto[i][0]; li.appendChild(s);
+      li.className = ok ? "bien" : "mal"; li.textContent = elegidas[i];
+      const s = document.createElement("small"); s.textContent = ok ? correcto[i][1] : "Aquí va: " + correcto[i][0]; li.appendChild(s);
     });
     retro.textContent = aciertos === 5 ? "Correcto: así se organiza una entrevista clínica centrada en el paciente." : aciertos + " de 5 en su lugar. Revisa la etapa sugerida y vuelve a intentarlo.";
   });
   document.getElementById("reiniciar").addEventListener("click", iniciar);
-  iniciar();
 </script>
 </body>
 </html>
