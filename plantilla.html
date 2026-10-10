@@ -67,6 +67,8 @@
   .reel video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #E9E6E0; }
   .reel figcaption { margin-top: 10px; color: var(--gris); font-size: 0.92rem; }
   .reel .accion { font-size: 0.92rem; margin-left: 6px; }
+  .quien { margin: 0 0 26px; color: var(--tinta-2); font-size: 1.02rem; line-height: 1.45; }
+  .quien b { display: block; font-weight: 600; font-size: 1.25rem; color: var(--tinta); }
   .apertura h1 { margin: 0; font-weight: 600; font-size: clamp(2.3rem, 6vw, 4.7rem); line-height: 1.02; letter-spacing: -0.032em; max-width: 15ch; }
   .apertura p { margin: 26px 0 0; max-width: 46ch; font-size: 1.16rem; line-height: 1.55; color: var(--tinta-2); }
   .vinculos { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; margin-top: 30px; }
@@ -200,6 +202,7 @@
     .cabeza nav a.opcional { display: none; }
     .apertura { padding-top: 44px; padding-bottom: 44px; }
     .apertura p { font-size: 1.06rem; }
+    .quien { font-size: 0.98rem; margin-bottom: 20px; }
     .grilla { grid-template-columns: 1fr; gap: 44px; }
     .rotulo .tit { font-size: 1.6rem; }
     .bloque { padding-top: 80px; }
@@ -213,7 +216,7 @@
 <a class="saltar" href="#piezas">Saltar a las piezas</a>
 
 <header class="ancho cabeza">
-  <a class="marca" href="#">{{NOMBRE}}</a>
+  <a class="marca" href="#">Portafolio</a>
   <nav aria-label="Secciones">
     <a href="#piezas">Piezas</a>
     <a class="opcional" href="#casos">Casos</a>
@@ -224,10 +227,11 @@
 <main>
   <section class="ancho apertura" aria-labelledby="titular">
     <div>
+      <p class="quien"><b>{{NOMBRE}}</b>{{ROL}}</p>
       <h1 id="titular">{{TITULAR}}</h1>
       <p>{{BAJADA}}</p>
       <div class="vinculos">
-        <a class="boton" href="mailto:{{CORREO}}">Escribirme</a>
+        <a class="boton" href="mailto:{{CORREO}}">Contacto</a>
         <a href="{{CV}}">Currículum en PDF</a>
         <a href="{{LINKEDIN}}" rel="noopener">LinkedIn</a>
       </div>
