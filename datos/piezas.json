@@ -394,5 +394,24 @@
     "Centro de Formación Técnica San Agustín",
     "educarchile",
     "Altamira Capacitación Profesional"
+  ],
+  "cifras": [
+    {
+      "valor": 7,
+      "texto": "cursos abiertos diseñados para la Universidad de Chile (2026)"
+    },
+    {
+      "valor": 3,
+      "texto": "diplomados de 120 horas en docencia universitaria"
+    },
+    {
+      "valor": 85,
+      "sufijo": " %",
+      "texto": "de desempeños en nivel alto con casos de IA en Medicina (82 estudiantes)"
+    },
+    {
+      "valor": 6,
+      "texto": "años diseñando formación en educación superior"
+    }
   ]
 }

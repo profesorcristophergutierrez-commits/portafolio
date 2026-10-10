@@ -149,15 +149,39 @@
   .retro { min-height: 1.5em; margin: 12px 0 16px; }
   .controles { display: flex; gap: 8px; flex-wrap: wrap; }
 
+  /* Animación 1: entrada en secuencia al cargar y aparición suave al hacer scroll (solo cuando hay JavaScript) */
+  .js .anim { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .js .anim[data-entra] { transition-delay: calc(300ms + var(--n, 0) * 120ms); }
+  .js .anim.visto { opacity: 1; transform: none; }
+
+  /* Animación 2: el titular entra palabra por palabra */
+  .js .palabra { display: inline-block; opacity: 0; transform: translateY(36px); animation: palabra 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; animation-delay: calc(var(--i) * 70ms); }
+  @keyframes palabra { to { opacity: 1; transform: none; } }
+
+  /* Animación 3: cifras con barra que crece y número que cuenta */
+  .cifras { padding-top: 8px; padding-bottom: 80px; }
+  .cifras ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .cifras b { display: block; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1; color: var(--tinta); font-variant-numeric: tabular-nums; }
+  .cifras .barra { display: block; height: 3px; width: 0; margin: 14px 0 12px; background: var(--cobalto); transition: width 1.2s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .cifras .visto .barra { width: 100%; }
+  .cifras p { margin: 0; color: var(--gris); font-size: 0.95rem; line-height: 1.4; max-width: 24ch; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js .anim { opacity: 1; transform: none; transition: none; }
+    .js .palabra { opacity: 1; transform: none; animation: none; }
+    .cifras .barra { width: 100%; transition: none; }
+  }
+
   @media (max-width: 999px) {
     .apertura { grid-template-columns: 1fr; gap: 40px; }
+    .cifras ul { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
     .grilla { grid-template-columns: 1fr 1fr; }
     .mas { grid-template-columns: 1fr; }
     .dos { grid-template-columns: 1fr; gap: 56px; }
   }
   @media (max-width: 639px) {
     body { font-size: 16.5px; }
-    .ancho { padding: 0 18px; }
+    .ancho { padding-left: 18px; padding-right: 18px; }
     .cabeza { padding-top: 18px; }
     .cabeza nav { gap: 16px; }
     .cabeza nav a.opcional { display: none; }
@@ -199,6 +223,15 @@
       <video id="reel" src="media/reel.mp4" poster="images/poster_reel.jpg" muted loop playsinline preload="metadata" aria-label="Reel con fragmentos de videos de cursos y casos"></video>
       <figcaption>Fragmentos de videos de cursos y casos, 2023 a 2026. <button type="button" class="accion" id="pausa" aria-pressed="false">Pausar</button></figcaption>
     </figure>
+  </section>
+
+  <section class="ancho cifras" aria-label="Trayectoria en cifras">
+    <ul>
+<li><b data-cuenta="7" data-sufijo="">7</b><span class="barra" aria-hidden="true"></span><p>cursos abiertos diseñados para la Universidad de Chile (2026)</p></li>
+<li><b data-cuenta="3" data-sufijo="">3</b><span class="barra" aria-hidden="true"></span><p>diplomados de 120 horas en docencia universitaria</p></li>
+<li><b data-cuenta="85" data-sufijo=" %">85 %</b><span class="barra" aria-hidden="true"></span><p>de desempeños en nivel alto con casos de IA en Medicina (82 estudiantes)</p></li>
+<li><b data-cuenta="6" data-sufijo="">6</b><span class="barra" aria-hidden="true"></span><p>años diseñando formación en educación superior</p></li>
+    </ul>
   </section>
 
   <section class="ancho" id="piezas" aria-label="Piezas">
@@ -282,6 +315,49 @@
 </dialog>
 
 <script>
+  // Animaciones: se desactivan si la persona prefiere menos movimiento
+  const movimiento = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.documentElement.classList.add("js");
+
+  // Animación 2: titular palabra por palabra (el texto completo queda en aria-label para lectores de pantalla)
+  const titular = document.getElementById("titular");
+  if (movimiento) {
+    const texto = titular.textContent.trim(); titular.setAttribute("aria-label", texto); titular.textContent = "";
+    texto.split(/\s+/).forEach((palabra, i) => {
+      const s = document.createElement("span"); s.className = "palabra"; s.style.setProperty("--i", i); s.setAttribute("aria-hidden", "true"); s.textContent = palabra;
+      titular.append(s, " ");
+    });
+  }
+
+  // Animación 1a: entrada en secuencia al cargar
+  let indice = 0;
+  document.querySelectorAll(".cabeza, .apertura p, .apertura .vinculos, .reel, .cifras li, .filtros, .grilla .pieza:nth-child(-n+3)").forEach(el => {
+    el.classList.add("anim"); el.dataset.entra = ""; el.style.setProperty("--n", indice++);
+  });
+  requestAnimationFrame(() => requestAnimationFrame(() => document.querySelectorAll("[data-entra]").forEach(el => el.classList.add("visto"))));
+
+  // Animación 1b: aparición suave al hacer scroll, una sola vez por bloque
+  const alScroll = document.querySelectorAll(".grilla .pieza:nth-child(n+4), .bloque, .pie");
+  alScroll.forEach(el => el.classList.add("anim"));
+  if (movimiento && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visto"); io.unobserve(e.target); } }), { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+    alScroll.forEach(el => io.observe(el));
+  } else { alScroll.forEach(el => el.classList.add("visto")); }
+
+  // Animación 3: los números cuentan hacia arriba al entrar en pantalla
+  document.querySelectorAll("[data-cuenta]").forEach(b => {
+    const fin = Number(b.dataset.cuenta), sufijo = b.dataset.sufijo || "";
+    if (!movimiento || !("IntersectionObserver" in window)) { b.textContent = fin + sufijo; return; }
+    b.textContent = "0" + sufijo;
+    const io = new IntersectionObserver(es => {
+      if (!es[0].isIntersecting) return; io.disconnect();
+      const t0 = performance.now();
+      const paso = t => { const p = Math.min(1, (t - t0) / 1200), suave = 1 - Math.pow(1 - p, 3); b.textContent = Math.round(fin * suave) + sufijo; if (p < 1) requestAnimationFrame(paso); };
+      requestAnimationFrame(paso);
+    }, { threshold: 0.4 });
+    io.observe(b);
+  });
+
   // Reel de la apertura: se reproduce a la vista, salvo que la persona prefiera menos movimiento
   const reel = document.getElementById("reel"), pausa = document.getElementById("pausa");
   let pausadoPorPersona = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

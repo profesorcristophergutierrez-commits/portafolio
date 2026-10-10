@@ -56,6 +56,9 @@ def fila_mas(p):
 
 
 def pagina():
+    cifras = "\n".join(
+        f'<li><b data-cuenta="{c["valor"]}" data-sufijo="{e(c.get("sufijo", ""))}">{c["valor"]}{e(c.get("sufijo", ""))}</b><span class="barra" aria-hidden="true"></span><p>{e(c["texto"])}</p></li>'
+        for c in D["cifras"])
     filtros = "".join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if k == "todas" else "false"}">{e(v)}</button>' for k, v in D["filtros"])
     piezas = "\n".join(tarjeta(p) for p in D["destacadas"])
     mas = "\n".join(fila_mas(p) for p in D["mas"])
@@ -71,7 +74,7 @@ def pagina():
         "{{TITULO_PAGINA}}": e(S["nombre"] + ", diseño instruccional"),
         "{{DESCRIPCION}}": e(S["descripcion"]), "{{URL}}": e(S["url"]), "{{NOMBRE}}": e(S["nombre"]),
         "{{TITULAR}}": e(S["titulo"]), "{{BAJADA}}": e(S["bajada"]), "{{CORREO}}": e(S["correo"]),
-        "{{LINKEDIN}}": e(S["linkedin"]), "{{CV}}": e(S["cv"]), "{{FILTROS}}": filtros, "{{PIEZAS}}": piezas,
+        "{{LINKEDIN}}": e(S["linkedin"]), "{{CV}}": e(S["cv"]), "{{FILTROS}}": filtros, "{{PIEZAS}}": piezas, "{{CIFRAS}}": cifras,
         "{{MAS}}": mas, "{{PROYECTOS}}": proyectos, "{{PASOS}}": pasos, "{{INSTITUCIONES}}": inst, "{{LD}}": ld,
     }
     for k, v in reemplazos.items():
