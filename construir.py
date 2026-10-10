@@ -74,7 +74,7 @@ def pagina():
         "{{TITULO_PAGINA}}": e(S["nombre"] + ", diseño instruccional"),
         "{{DESCRIPCION}}": e(S["descripcion"]), "{{URL}}": e(S["url"]), "{{NOMBRE}}": e(S["nombre"]),
         "{{TITULAR}}": e(S["titulo"]), "{{BAJADA}}": e(S["bajada"]), "{{CORREO}}": e(S["correo"]),
-        "{{LINKEDIN}}": e(S["linkedin"]), "{{CV}}": e(S["cv"]), "{{FILTROS}}": filtros, "{{PIEZAS}}": piezas, "{{CIFRAS}}": cifras,
+        "{{LINKEDIN}}": e(S["linkedin"]), "{{CV}}": e(S["cv"]), "{{FILTROS}}": filtros, "{{PIEZAS}}": piezas, "{{CIFRAS}}": cifras, "{{CASOS}}": tarjetas_casos(LISTA_CASOS),
         "{{MAS}}": mas, "{{PROYECTOS}}": proyectos, "{{PASOS}}": pasos, "{{INSTITUCIONES}}": inst, "{{LD}}": ld,
     }
     for k, v in reemplazos.items():
@@ -83,7 +83,69 @@ def pagina():
     (RAIZ / "index.html").write_text(plantilla, encoding="utf-8")
 
 
+# Estudios de caso: datos/casos/*.json → casos/<id>.html
+def casos():
+    carpeta = RAIZ / "datos/casos"
+    lista = sorted((json.loads(f.read_text(encoding="utf-8")) for f in carpeta.glob("*.json")), key=lambda c: c["orden"])
+    por_id = {c["id"]: c for c in lista}
+    plantilla = (RAIZ / "plantilla_caso.html").read_text(encoding="utf-8")
+    for c in lista:
+        sig = por_id.get(c.get("siguiente"), lista[0])
+        pasos = []
+        for p in c["pasos"]:
+            cuerpo = "".join(f"<p>{e(x)}</p>" for x in p.get("parrafos", []))
+            if "etapas" in p:
+                cuerpo += '<ol class="etapas">' + "".join(f"<li><b>{e(a)}</b><span>{e(b)}</span></li>" for a, b in p["etapas"]) + "</ol>"
+            if "recursos" in p:
+                cuerpo += '<div class="recursos">' + "".join(recurso(r) for r in p["recursos"]) + "</div>"
+            if "tarjeta" in p:
+                t = p["tarjeta"]
+                cuerpo += (f'<div class="tarjeta"><small>{e(t["encabezado"])}</small><p>{t["html"]}</p>'
+                           f'<div class="leyenda">' + "".join(f'<span class="{k}">{e(v)}</span>' for k, v in t.get("leyenda", [])) + "</div></div>")
+            if "cifras" in p:
+                cuerpo += '<ul class="cifras">' + "".join(
+                    f'<li><b data-cuenta="{n}" data-sufijo="{e(suf)}">{n}{e(suf)}</b><span class="barra" aria-hidden="true"></span><p>{e(txt)}</p></li>'
+                    for n, suf, txt in p["cifras"]) + "</ul>"
+                if p.get("fuente"): cuerpo += f'<p class="fuente">{e(p["fuente"])}</p>'
+            pasos.append(f'<section class="ancho paso" aria-labelledby="p{p["num"]}"><h2 id="p{p["num"]}"><small>{e(p["num"])}</small>{e(p["titulo"])}</h2><div class="cuerpo">{cuerpo}</div></section>')
+        logos = "".join(f'<img src="{e(src)}" alt="{e(alt)}" loading="lazy">' for src, alt in c.get("logos", []))
+        ficha = "".join(f"<li><b>{e(a)}</b><span>{e(b)}</span></li>" for a, b in c["ficha"])
+        url = S["url"] + f"casos/{c['id']}.html"
+        pista = f'<track kind="subtitles" srclang="es" label="Español" src="{e(c["pista"])}" default>' if c.get("pista") else ""
+        html_ = plantilla
+        for k, v in {
+            "{{TITULO_PAGINA}}": e(c["titulo"] + ", caso de diseño instruccional"), "{{DESCRIPCION}}": e(c["descripcion"]), "{{URL}}": e(url),
+            "{{OG}}": e(S["url"] + "casos/" + c["poster"]), "{{CONTEXTO}}": e(c["contexto"]), "{{TITULO}}": e(c["titulo"]), "{{RESUMEN}}": e(c["resumen"]),
+            "{{LOGOS}}": logos, "{{FICHA}}": ficha, "{{POSTER}}": e(c["poster"]), "{{VIDEO}}": e(c["video"]), "{{PISTA}}": pista, "{{VIDEO_PIE}}": e(c["video_pie"]),
+            "{{PASOS}}": "\n".join(pasos), "{{SIG_URL}}": e(sig["id"] + ".html"), "{{SIG_TITULO}}": e(sig["titulo"]),
+        }.items():
+            html_ = html_.replace(k, v)
+        assert "{{" not in html_, f"Marcador sin reemplazar en {c['id']}"
+        (RAIZ / "casos" / f"{c['id']}.html").write_text(html_, encoding="utf-8")
+    return lista
+
+
+def recurso(r):
+    pie = f'<b>{e(r["titulo"])}</b><p>{e(r["texto"])}</p>'
+    clase = "medio doc" if r.get("doc") else "medio"
+    img = f'<img src="{e(r["portada"])}" alt="{e(r["titulo"])}" loading="lazy">'
+    if r["tipo"] == "enlace":
+        return f'<article class="recurso"><a class="{clase}" href="{e(r["fuente"])}" target="_blank" rel="noopener">{img}</a>{pie}<a class="accion" href="{e(r["fuente"])}" target="_blank" rel="noopener">{e(r["accion"])}</a></article>'
+    if r["tipo"] == "video": attr = f'data-video="{e(r["fuente"])}"'
+    elif r["tipo"] == "iframe": attr = f'data-iframe="{e(r["fuente"])}"'
+    else: attr = 'data-galeria="' + e("|".join(f"{a}::{b}" for a, b in r["galeria"])) + '"'
+    return f'<article class="recurso"><button class="{clase}" type="button" {attr} data-titulo="{e(r["titulo"])}">{img}</button>{pie}<button class="accion" type="button" {attr} data-titulo="{e(r["titulo"])}">{e(r["accion"])}</button></article>'
+
+
+def tarjetas_casos(lista):
+    return "".join(
+        f'<a class="caso-tarjeta" href="casos/{c["id"]}.html"><img src="casos/{c["poster"]}" alt="" loading="lazy" width="1280" height="720">'
+        f'<span class="donde">{e(c["contexto"])}</span><strong>{e(c["titulo"])}</strong><span class="ver">Ver el caso y su video de proceso</span></a>'
+        for c in lista)
+
+
 if __name__ == "__main__":
     portadas()
+    LISTA_CASOS = casos()
     pagina()
-    print("Listo: index.html y portadas_v2/")
+    print(f"Listo: index.html, {len(LISTA_CASOS)} casos y portadas_v2/")

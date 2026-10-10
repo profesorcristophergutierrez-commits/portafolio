@@ -1,0 +1,43 @@
+{
+  "id": "otec",
+  "orden": 2,
+  "contexto": "Organización de capacitación · Curso e-learning · 2023",
+  "titulo": "Un curso e-learning de 24 horas para profesores jefes",
+  "resumen": "Diseño completo de un curso asincrónico con el modelo ADDIE: análisis del problema, ruta de aprendizaje en cuatro módulos, guiones, lectura maestra, video de presentación, montaje en Moodle y evaluación con estudio de caso.",
+  "descripcion": "Estudio de caso: diseño instruccional con ADDIE de un curso e-learning de 24 horas para profesores jefes, para una organización de capacitación (2023).",
+  "logos": [],
+  "ficha": [
+    ["Rol", "Diseñador instruccional: análisis, diseño, guiones, producción del video y montaje en Moodle"],
+    ["Público", "Profesoras y profesores jefes de colegios"],
+    ["Herramientas", "Modelo ADDIE, Moodle, video, carta Gantt"],
+    ["Entrega", "Ruta de aprendizaje, cuatro módulos con lectura, video y actividad; lectura maestra; evaluación con estudio de caso"],
+    ["Nota", "Por acuerdo con el cliente no se muestran su nombre ni los materiales completos; las piezas se presentan como muestras del diseño."]
+  ],
+  "video": "otec.mp4",
+  "poster": "otec_poster.jpg",
+  "pista": "otec.vtt",
+  "video_pie": "Video de proceso de un minuto, con voz sintética y subtítulos.",
+  "pasos": [
+    {"num": "01", "titulo": "El problema", "parrafos": [
+      "Una organización de capacitación necesitaba un curso en línea para profesores jefes: 24 horas, asincrónico y con la posibilidad de certificar. El punto de partida fue definir qué problema real de la jefatura de curso debía resolver el curso, y no solo qué contenidos cubrir."]},
+    {"num": "02", "titulo": "El diseño", "parrafos": [
+      "Apliqué el modelo ADDIE de principio a fin y lo documenté en láminas de diseño: el problema, el modelo, su aplicación al curso y la carta Gantt del desarrollo."],
+      "etapas": [["Análisis y diseño", "Problema, público y ruta de aprendizaje con objetivos por módulo"], ["Desarrollo", "Lecturas, lectura maestra, guion y producción del video de presentación"], ["Implementación y evaluación", "Montaje en Moodle y evaluación con estudio de caso"]]},
+    {"num": "03", "titulo": "Los recursos", "parrafos": [
+      "Cada módulo tiene su objetivo, una lectura, un video y una actividad aplicada. Las láminas de diseño muestran cómo se pasa del problema a la ruta de aprendizaje."],
+      "recursos": [
+        {"tipo": "video", "fuente": "../muestras/curso_pj.mp4", "portada": "../portadas/curso_pj.jpg", "titulo": "Video de presentación del curso", "texto": "Guion propio y producción del video que abre el curso.", "accion": "Ver muestra de 15 s"},
+        {"tipo": "galeria", "galeria": [["../images/pj_ruta.jpg", "Ruta de aprendizaje por módulo"], ["../images/pj_problema.jpg", "Problema que aborda el curso"], ["../images/pj_modelo_addie.jpg", "Modelo de diseño instruccional"], ["../images/pj_aplicacion_addie.jpg", "Aplicación de ADDIE al curso"], ["../images/pj_planificacion.jpg", "Carta Gantt del desarrollo"]], "portada": "../images/pj_ruta.jpg", "titulo": "Láminas de diseño", "texto": "Del problema a la ruta de aprendizaje, con ADDIE y carta Gantt.", "accion": "Ver cinco láminas"},
+        {"tipo": "galeria", "doc": true, "galeria": [["../images/pj_guion.jpg", "Guion del video de presentación"], ["../images/pj_lectura.jpg", "Lectura maestra de autoría propia"]], "portada": "../images/pj_guion.jpg", "titulo": "Guion y lectura maestra", "texto": "Qué se dice y qué se ve en el video; la lectura que ancla el módulo.", "accion": "Ver dos documentos"},
+        {"tipo": "galeria", "doc": true, "galeria": [["../images/pj_estudio_caso.jpg", "Evaluación con estudio de caso"]], "portada": "../images/pj_estudio_caso.jpg", "titulo": "Evaluación con estudio de caso", "texto": "Una situación real de jefatura de curso que se resuelve con lo aprendido.", "accion": "Ver el documento"}
+      ]},
+    {"num": "04", "titulo": "La evaluación", "parrafos": [
+      "La evaluación final es un estudio de caso: una situación de jefatura de curso con preguntas que exigen aplicar lo aprendido, no repetirlo. Cada módulo cierra además con una actividad aplicada que prepara ese caso."]},
+    {"num": "05", "titulo": "El resultado", "parrafos": [
+      "Un curso listo para montar y certificar, entregado con su planificación y sus materiales."],
+      "cifras": [[24, "", "horas de curso asincrónico"], [4, "", "módulos con lectura, video y actividad"], [5, "", "etapas del modelo ADDIE documentadas"]]},
+    {"num": "06", "titulo": "Qué me llevo", "parrafos": [
+      "Cuando el cliente es una organización de capacitación, el diseño tiene que ser legible para quien no lo hizo: por eso la ruta, el modelo y la carta Gantt se entregan como láminas que cualquiera del equipo puede seguir."]}
+  ],
+  "siguiente": "corporativo"
+}

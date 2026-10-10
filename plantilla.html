@@ -116,6 +116,19 @@
   .pasos li::marker { color: var(--gris); font-weight: 500; }
   .instituciones { list-style: none; margin: 0; padding: 0; color: var(--tinta-2); line-height: 1.9; }
 
+  /* Estudios de caso */
+  .intro-casos { margin: -8px 0 28px; color: var(--gris); max-width: 60ch; }
+  .casos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 24px; }
+  .caso-tarjeta { display: flex; flex-direction: column; color: var(--tinta); text-decoration: none; }
+  .caso-tarjeta img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--panel); border-radius: 4px; }
+  .caso-tarjeta .donde { margin-top: 14px; color: var(--gris); font-size: 0.9rem; }
+  .caso-tarjeta strong { font-weight: 600; font-size: 1.12rem; line-height: 1.25; margin-top: 4px; }
+  .caso-tarjeta .ver { margin-top: 8px; color: var(--cobalto); font-weight: 500; text-decoration: underline; text-underline-offset: 4px; }
+  .logos-inst { display: flex; flex-wrap: wrap; gap: 18px 36px; align-items: center; margin: 4px 0 22px; }
+  .logos-inst img { height: 46px; width: auto; }
+  @media (max-width: 999px) { .casos { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 639px) { .casos { grid-template-columns: 1fr; } .logos-inst img { height: 38px; } }
+
   /* Pie */
   .pie { margin-top: 112px; border-top: 1px solid var(--linea); padding-top: 48px; padding-bottom: 56px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
   .pie img { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; }
@@ -203,7 +216,7 @@
   <a class="marca" href="#">{{NOMBRE}}</a>
   <nav aria-label="Secciones">
     <a href="#piezas">Piezas</a>
-    <a class="opcional" href="#proyectos">Proyectos</a>
+    <a class="opcional" href="#casos">Casos</a>
     <a href="#contacto">Contacto</a>
   </nav>
 </header>
@@ -245,16 +258,26 @@
     </ul>
   </section>
 
-  <section class="ancho bloque dos" id="proyectos" aria-label="Proyectos y forma de trabajo">
+  <section class="ancho bloque" id="casos" aria-labelledby="t-casos">
+    <h2 id="t-casos">Estudios de caso</h2>
+    <p class="intro-casos">Cinco proyectos contados de principio a fin: el problema, el diseño, los recursos, la evaluación y el resultado. Cada uno abre con un video de proceso de un minuto.</p>
+    <div class="casos">{{CASOS}}</div>
+  </section>
+
+  <section class="ancho bloque dos" id="proyectos" aria-label="Forma de trabajo e instituciones">
     <div>
-      <h2>Proyectos</h2>
-      {{PROYECTOS}}
+      <h2>He trabajado con</h2>
+      <div class="logos-inst">
+        <img src="images/logo_ucm.png" alt="Universidad Católica del Maule" loading="lazy">
+        <img src="images/logo_uchile_uperdoc.png" alt="Universidad de Chile, Departamento de Pregrado y UPERDOC" loading="lazy">
+        <img src="images/logo_icm.png" alt="Instituto de Calidad y Medioambiente de Chile" loading="lazy">
+        <img src="images/logo_cft.png" alt="Centro de Formación Técnica San Agustín" loading="lazy">
+      </div>
+      <p class="instituciones">También con educarchile y Altamira Capacitación Profesional.</p>
     </div>
     <div>
       <h2>Cómo trabajo</h2>
       <ol class="pasos">{{PASOS}}</ol>
-      <h2>He trabajado con</h2>
-      <ul class="instituciones">{{INSTITUCIONES}}</ul>
     </div>
   </section>
 </main>

@@ -116,6 +116,19 @@
   .pasos li::marker { color: var(--gris); font-weight: 500; }
   .instituciones { list-style: none; margin: 0; padding: 0; color: var(--tinta-2); line-height: 1.9; }
 
+  /* Estudios de caso */
+  .intro-casos { margin: -8px 0 28px; color: var(--gris); max-width: 60ch; }
+  .casos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 24px; }
+  .caso-tarjeta { display: flex; flex-direction: column; color: var(--tinta); text-decoration: none; }
+  .caso-tarjeta img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--panel); border-radius: 4px; }
+  .caso-tarjeta .donde { margin-top: 14px; color: var(--gris); font-size: 0.9rem; }
+  .caso-tarjeta strong { font-weight: 600; font-size: 1.12rem; line-height: 1.25; margin-top: 4px; }
+  .caso-tarjeta .ver { margin-top: 8px; color: var(--cobalto); font-weight: 500; text-decoration: underline; text-underline-offset: 4px; }
+  .logos-inst { display: flex; flex-wrap: wrap; gap: 18px 36px; align-items: center; margin: 4px 0 22px; }
+  .logos-inst img { height: 46px; width: auto; }
+  @media (max-width: 999px) { .casos { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 639px) { .casos { grid-template-columns: 1fr; } .logos-inst img { height: 38px; } }
+
   /* Pie */
   .pie { margin-top: 112px; border-top: 1px solid var(--linea); padding-top: 48px; padding-bottom: 56px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
   .pie img { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; }
@@ -203,7 +216,7 @@
   <a class="marca" href="#">Cristopher Gutiérrez González</a>
   <nav aria-label="Secciones">
     <a href="#piezas">Piezas</a>
-    <a class="opcional" href="#proyectos">Proyectos</a>
+    <a class="opcional" href="#casos">Casos</a>
     <a href="#contacto">Contacto</a>
   </nav>
 </header>
@@ -267,16 +280,26 @@
     </ul>
   </section>
 
-  <section class="ancho bloque dos" id="proyectos" aria-label="Proyectos y forma de trabajo">
+  <section class="ancho bloque" id="casos" aria-labelledby="t-casos">
+    <h2 id="t-casos">Estudios de caso</h2>
+    <p class="intro-casos">Cinco proyectos contados de principio a fin: el problema, el diseño, los recursos, la evaluación y el resultado. Cada uno abre con un video de proceso de un minuto.</p>
+    <div class="casos"><a class="caso-tarjeta" href="casos/medicina.html"><img src="casos/medicina_poster.jpg" alt="" loading="lazy" width="1280" height="720"><span class="donde">Universidad Católica del Maule · Facultad de Medicina · 2025</span><strong>IA y codocencia para entrenar la comunicación clínica</strong><span class="ver">Ver el caso y su video de proceso</span></a><a class="caso-tarjeta" href="casos/otec.html"><img src="casos/otec_poster.jpg" alt="" loading="lazy" width="1280" height="720"><span class="donde">Organización de capacitación · Curso e-learning · 2023</span><strong>Un curso e-learning de 24 horas para profesores jefes</strong><span class="ver">Ver el caso y su video de proceso</span></a><a class="caso-tarjeta" href="casos/corporativo.html"><img src="casos/corporativo_poster.jpg" alt="" loading="lazy" width="1280" height="720"><span class="donde">Muestras propias · Capacitación corporativa · 2026</span><strong>Capacitación corporativa: un libro interactivo y un kit de taller</strong><span class="ver">Ver el caso y su video de proceso</span></a><a class="caso-tarjeta" href="casos/difusion.html"><img src="casos/difusion_poster.jpg" alt="" loading="lazy" width="1280" height="720"><span class="donde">Charlas, talleres y difusión · 2025 a 2026</span><strong>Difundir también es diseñar: charlas, talleres y reels</strong><span class="ver">Ver el caso y su video de proceso</span></a><a class="caso-tarjeta" href="casos/guiones.html"><img src="casos/guiones_poster.jpg" alt="" loading="lazy" width="1280" height="720"><span class="donde">Universidad Católica del Maule y cursos propios · 2023 a 2026</span><strong>Primero la palabra: guiones para video, podcast y casos</strong><span class="ver">Ver el caso y su video de proceso</span></a></div>
+  </section>
+
+  <section class="ancho bloque dos" id="proyectos" aria-label="Forma de trabajo e instituciones">
     <div>
-      <h2>Proyectos</h2>
-      <article class="caso"><h3>Curso e-learning para un organismo de capacitación</h3><p class="donde">Capacitación docente, 2023</p><p>Curso asincrónico de 24 horas para profesores jefes: diseño ADDIE, cuatro módulos, video de presentación, lecturas y evaluación con estudio de caso.</p></article><article class="caso"><h3>IA y codocencia en Medicina</h3><p class="donde">Universidad Católica del Maule, 2025</p><p>Casos clínicos con médicos virtuales y evaluación auténtica en video: 85 % de los desempeños en nivel alto en un curso de 82 estudiantes.</p></article><article class="caso"><h3>Formación docente universitaria</h3><p class="donde">Universidad de Chile y Universidad Católica del Maule, 2023 a 2026</p><p>Siete cursos abiertos en Moodle para la Universidad de Chile y tres diplomados de 120 horas con evaluación de impacto.</p></article>
+      <h2>He trabajado con</h2>
+      <div class="logos-inst">
+        <img src="images/logo_ucm.png" alt="Universidad Católica del Maule" loading="lazy">
+        <img src="images/logo_uchile_uperdoc.png" alt="Universidad de Chile, Departamento de Pregrado y UPERDOC" loading="lazy">
+        <img src="images/logo_icm.png" alt="Instituto de Calidad y Medioambiente de Chile" loading="lazy">
+        <img src="images/logo_cft.png" alt="Centro de Formación Técnica San Agustín" loading="lazy">
+      </div>
+      <p class="instituciones">También con educarchile y Altamira Capacitación Profesional.</p>
     </div>
     <div>
       <h2>Cómo trabajo</h2>
       <ol class="pasos"><li>Análisis del público y del contexto</li><li>Resultados de aprendizaje evaluables</li><li>Secuencia de actividades y evaluación</li><li>Guiones, videos y recursos interactivos</li><li>Montaje en Moodle</li><li>Evaluación de impacto y mejora</li></ol>
-      <h2>He trabajado con</h2>
-      <ul class="instituciones"><li>Universidad de Chile</li><li>Universidad Católica del Maule</li><li>Instituto de Calidad y Medioambiente de Chile</li><li>Centro de Formación Técnica San Agustín</li><li>educarchile</li><li>Altamira Capacitación Profesional</li></ul>
     </div>
   </section>
 </main>

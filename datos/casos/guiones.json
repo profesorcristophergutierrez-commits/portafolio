@@ -1,0 +1,42 @@
+{
+  "id": "guiones",
+  "orden": 5,
+  "contexto": "Universidad Católica del Maule y cursos propios · 2023 a 2026",
+  "titulo": "Primero la palabra: guiones para video, podcast y casos",
+  "resumen": "Guiones de entrevista para el video-podcast Ciencia para el Maule 2050 de la Universidad Católica del Maule, guiones de videos de presentación de cursos y cinco guiones de casos clínicos para Medicina.",
+  "descripcion": "Estudio de caso: escritura de guiones para video-podcast institucional, videos de cursos y casos clínicos.",
+  "logos": [["../images/logo_ucm.png", "Universidad Católica del Maule"]],
+  "ficha": [
+    ["Rol", "Guionista"],
+    ["Encargos", "Vicerrectoría de Investigación y Postgrado y Centro de Desarrollo e Innovación Docente (video-podcast); cursos propios; Facultad de Medicina"],
+    ["Formato", "Guion en tres partes con columna de recursos visuales; guion técnico de video; paquete de casos con guion del paciente y del médico"],
+    ["Entrega", "Tres guiones de entrevista, guiones de video por curso y cinco casos clínicos"]
+  ],
+  "video": "guiones.mp4",
+  "poster": "guiones_poster.jpg",
+  "pista": "guiones.vtt",
+  "video_pie": "Video de proceso de un minuto, con voz sintética y subtítulos.",
+  "pasos": [
+    {"num": "01", "titulo": "El problema", "parrafos": [
+      "Un video que se graba sin guion se graba dos veces. En un video-podcast con autoridades universitarias, en un video de curso o en un caso clínico, el guion fija el propósito de cada minuto antes de encender la cámara."]},
+    {"num": "02", "titulo": "El diseño", "parrafos": [
+      "Para Ciencia para el Maule 2050, el video-podcast de la Vicerrectoría de Investigación y Postgrado de la UCM, cada guion sigue la misma estructura y lleva una columna con sugerencias visuales."],
+      "etapas": [["Editorial", "Cortina gráfica, voz en off y una cita que abre el tema del capítulo"], ["Entrevista", "Presentación de la persona invitada y preguntas en secuencia, con citas que introducen cada bloque"], ["Cierre", "Una pregunta retórica para la audiencia, agradecimientos e invitación al siguiente capítulo"]]},
+    {"num": "03", "titulo": "Los recursos", "parrafos": [
+      "Tres formatos de guion para tres necesidades distintas."],
+      "recursos": [
+        {"tipo": "galeria", "doc": true, "galeria": [["../images/pj_guion.jpg", "Guion del video de presentación de un curso"]], "portada": "../images/pj_guion.jpg", "titulo": "Guion de video de curso", "texto": "Qué se dice, qué se ve y cuánto dura cada tramo.", "accion": "Ver el guion"},
+        {"tipo": "galeria", "doc": true, "galeria": [["../images/med_rubrica.jpg", "Paquete de casos clínicos: resumen, guion del paciente, informe traducido, guion del médico con errores y rúbrica"]], "portada": "../images/med_rubrica.jpg", "titulo": "Guiones de casos clínicos", "texto": "Cinco casos para Medicina, con el guion del paciente y el del médico que hay que corregir.", "accion": "Ver el documento"}
+      ]},
+    {"num": "04", "titulo": "La estructura en acción", "parrafos": [
+      "Fragmento de la editorial de un guion del video-podcast, con las ideas que la columna de recursos pide destacar en pantalla:"],
+      "tarjeta": {"encabezado": "Ciencia para el Maule 2050 · Guion 3 · Editorial", "html": "Se reflexionará sobre <span class=\"marca-logro\">las diferencias de género en algunas áreas del conocimiento</span> en un contexto de transformación global y desafíos emergentes. Se contextualizarán las principales problemáticas de la región, <span class=\"marca-paso\">estableciendo su vínculo con la labor académica e investigativa</span> de la universidad.", "leyenda": [["l1", "■ Idea que destacar"], ["l2", "■ Vínculo con la región"]]}},
+    {"num": "05", "titulo": "El resultado", "parrafos": [
+      "Guiones que se graban una sola vez y que cualquier equipo de producción puede seguir."],
+      "cifras": [[3, "", "guiones de entrevista para el video-podcast"], [5, "", "guiones de casos clínicos para Medicina"], [3, "", "partes en cada guion de entrevista"]],
+      "fuente": "El video-podcast Ciencia para el Maule 2050 es una iniciativa de la Vicerrectoría de Investigación y Postgrado y del Centro de Desarrollo e Innovación Docente de la UCM, presentada en 2026."},
+    {"num": "06", "titulo": "Qué me llevo", "parrafos": [
+      "Escribir el guion es la parte del diseño instruccional que más tiempo ahorra después: define el tono, los tiempos y lo que la imagen tiene que mostrar. Lo aplico igual en un podcast, en un curso y en un caso clínico."]}
+  ],
+  "siguiente": "medicina"
+}

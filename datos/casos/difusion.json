@@ -1,0 +1,44 @@
+{
+  "id": "difusion",
+  "orden": 4,
+  "contexto": "Charlas, talleres y difusión · 2025 a 2026",
+  "titulo": "Difundir también es diseñar: charlas, talleres y reels",
+  "resumen": "Una charla para docentes de educación básica construida como un sitio web que funciona sin internet, tres talleres para un centro de formación técnica, cuatro reels con avatares para la acreditación universitaria y las piezas gráficas de un taller propio.",
+  "descripcion": "Estudio de caso: charlas, talleres y piezas de difusión educativa; incluye la charla interactiva Un día de clases con IA.",
+  "logos": [["../images/logo_ucm.png", "Universidad Católica del Maule"], ["../images/logo_cft.png", "Centro de Formación Técnica San Agustín"]],
+  "ficha": [
+    ["Rol", "Diseño del contenido, de las piezas y de la presentación; relator"],
+    ["Público", "Docentes de educación básica, docentes de educación técnica y comunidad universitaria"],
+    ["Herramientas", "HTML con animaciones propias, imágenes generadas con IA, avatares en video, afiches"],
+    ["Entrega", "Charla interactiva de 13 láminas, 3 talleres, 4 reels y piezas para redes"]
+  ],
+  "video": "difusion.mp4",
+  "poster": "difusion_poster.jpg",
+  "pista": "difusion.vtt",
+  "video_pie": "Video de proceso de un minuto, con voz sintética y subtítulos. La pantalla muestra la charla real.",
+  "pasos": [
+    {"num": "01", "titulo": "El problema", "parrafos": [
+      "Una escuela básica pidió una charla de 30 minutos sobre inteligencia artificial para sus docentes. La sala no tenía internet, así que todos los ejemplos debían estar preparados y funcionar sin conexión."]},
+    {"num": "02", "titulo": "El diseño", "parrafos": [
+      "En vez de láminas sueltas, la charla recorre un día de clases de Lengua y Literatura de 8.º básico: en cada momento se muestra el prompt, lo que respondió la IA y una decisión pedagógica."],
+      "etapas": [["08:00 · Planificar", "Una secuencia de cuatro clases para un objetivo de aprendizaje"], ["10:00 y 12:00 · Crear y adaptar", "Un artículo modelo y dos versiones para distintos ritmos"], ["15:00 · Evaluar", "Una rúbrica y retroalimentación marcada a mano sobre el texto"]]},
+    {"num": "03", "titulo": "Los recursos", "parrafos": [
+      "La charla está construida como un sitio web con pasos por clic, animaciones propias e imágenes generadas con IA; se puede recorrer completa aquí."],
+      "recursos": [
+        {"tipo": "enlace", "fuente": "../charlas/alto_pangue/index.html", "portada": "../charlas/charla_1.jpg", "titulo": "Un día de clases con IA (charla completa)", "texto": "Trece láminas con pasos por clic. Avanza con las flechas del teclado o tocando la pantalla.", "accion": "Abrir la charla"},
+        {"tipo": "galeria", "galeria": [["../charlas/afiche_cft_innovacion.jpg", "Estrategias innovativas en el aprendizaje"], ["../charlas/afiche_cft_acompanamiento.jpg", "Monitoreo y acompañamiento del aprendizaje"], ["../charlas/afiche_cft_pensamiento.jpg", "Estrategias para el desarrollo del pensamiento"]], "portada": "../charlas/afiche_cft_innovacion.jpg", "titulo": "Plan de Formación Docente, CFT San Agustín", "texto": "Relator de tres talleres para el cuerpo docente.", "accion": "Ver los tres afiches"},
+        {"tipo": "video", "fuente": "../muestras/reel_cna.mp4", "portada": "../portadas/reel_cna.jpg", "titulo": "Reels con avatares para la acreditación", "texto": "Serie de cuatro reels que responden preguntas de la comunidad universitaria, 2026.", "accion": "Ver muestra de 18 s"},
+        {"tipo": "galeria", "galeria": [["../charlas/afiche_taller_ia.jpg", "Afiche del taller IA generativa para docentes"], ["../charlas/historia_taller_ia.jpg", "Historia para Instagram"], ["../charlas/afiche_panama.jpg", "Afiche del conversatorio Navegando el cambio, Universidad de Panamá"]], "portada": "../charlas/afiche_taller_ia.jpg", "titulo": "Piezas gráficas", "texto": "Afiche e historia de un taller propio, y el conversatorio internacional en que participé como panelista.", "accion": "Ver tres piezas"},
+        {"tipo": "video", "fuente": "../muestras/charla_cuento.mp4", "portada": "../portadas/charla_cuento.jpg", "titulo": "Cuento ilustrado creado con IA", "texto": "Recurso de la charla: un cuento para 2.º básico hecho con el prompt que se muestra en pantalla.", "accion": "Ver muestra de 20 s"},
+        {"tipo": "video", "fuente": "../muestras/charla_juego.mp4", "portada": "../portadas/charla_juego.jpg", "titulo": "Juego de tablas de multiplicar", "texto": "Recurso de la charla: un juego para 3.º básico creado con IA.", "accion": "Ver muestra de 20 s"}
+      ]},
+    {"num": "04", "titulo": "La evaluación", "parrafos": [
+      "La charla termina con las limitaciones de la IA en educación y con ideas clave que aparecen una por clic. Antes de presentarla se revisó cada lámina sin internet: legibilidad, contraste y tiempos."]},
+    {"num": "05", "titulo": "El resultado", "parrafos": [
+      "Piezas que se entienden a la primera y que el público puede volver a usar."],
+      "cifras": [[13, "", "láminas en una charla de 30 minutos"], [3, "", "talleres del Plan de Formación Docente"], [4, "", "reels con avatares para la acreditación"]]},
+    {"num": "06", "titulo": "Qué me llevo", "parrafos": [
+      "Una charla se diseña como un curso corto: con un hilo, ejemplos reales y un cierre que deja algo para hacer mañana. El mismo método sirve para una inducción corporativa o una presentación comercial."]}
+  ],
+  "siguiente": "guiones"
+}

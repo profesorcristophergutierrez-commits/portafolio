@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Un curso e-learning de 24 horas para profesores jefes, caso de diseño instruccional</title>
+<meta name="description" content="Estudio de caso: diseño instruccional con ADDIE de un curso e-learning de 24 horas para profesores jefes, para una organización de capacitación (2023).">
+<link rel="canonical" href="https://profesorcristophergutierrez-commits.github.io/portafolio/casos/otec.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_CL">
+<meta property="og:title" content="Un curso e-learning de 24 horas para profesores jefes, caso de diseño instruccional">
+<meta property="og:description" content="Estudio de caso: diseño instruccional con ADDIE de un curso e-learning de 24 horas para profesores jefes, para una organización de capacitación (2023).">
+<meta property="og:url" content="https://profesorcristophergutierrez-commits.github.io/portafolio/casos/otec.html">
+<meta property="og:image" content="https://profesorcristophergutierrez-commits.github.io/portafolio/casos/otec_poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF8">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Estudio de caso: mismo sistema que la portada. Un relato en seis pasos con el video de proceso al inicio. */
+  :root { --fondo: #FAFAF8; --tinta: #141414; --tinta-2: #3A3D42; --gris: #5E6268; --linea: #DDDDD8; --panel: #F1F0EC; --cobalto: #1F3A93; --verde: #2E7D4F; --letra: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif; color-scheme: light; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --fondo: #131416; --tinta: #EDEDEA; --tinta-2: #C9CBCF; --gris: #A3A7AD; --linea: #2C2E32; --panel: #1C1E22; --cobalto: #9DB1F5; --verde: #7FC79C; color-scheme: dark; } }
+  :root[data-theme="dark"] { --fondo: #131416; --tinta: #EDEDEA; --tinta-2: #C9CBCF; --gris: #A3A7AD; --linea: #2C2E32; --panel: #1C1E22; --cobalto: #9DB1F5; --verde: #7FC79C; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--fondo); color: var(--tinta); font: 400 17px/1.55 var(--letra); -webkit-font-smoothing: antialiased; }
+  img, video { display: block; max-width: 100%; height: auto; }
+  a { color: var(--cobalto); }
+  button { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--cobalto); outline-offset: 3px; }
+  .ancho { max-width: 1280px; margin: 0 auto; padding-left: 40px; padding-right: 40px; }
+  .cabeza { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-top: 28px; }
+  .marca { font-weight: 600; font-size: 1.02rem; color: var(--tinta); text-decoration: none; }
+  .cabeza nav { display: flex; gap: 22px; }
+  .cabeza nav a { color: var(--tinta); text-decoration: none; font-weight: 500; font-size: 0.98rem; }
+  .cabeza nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  .apertura { padding-top: 64px; padding-bottom: 40px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: end; }
+  .migas { color: var(--gris); font-size: 0.95rem; margin: 0 0 18px; }
+  .migas a { color: var(--gris); }
+  h1 { margin: 0; font-weight: 600; font-size: clamp(2.1rem, 5vw, 4rem); line-height: 1.04; letter-spacing: -0.03em; max-width: 18ch; }
+  .resumen { margin: 22px 0 0; max-width: 52ch; font-size: 1.14rem; color: var(--tinta-2); }
+  .ficha { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--linea); }
+  .ficha li { display: grid; grid-template-columns: 130px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--linea); font-size: 0.98rem; }
+  .ficha b { font-weight: 500; color: var(--gris); }
+  .logos { display: flex; flex-wrap: wrap; gap: 14px 32px; align-items: center; margin-top: 22px; }
+  .logos img { height: 44px; width: auto; }
+
+  .video { padding-top: 32px; }
+  .video video { width: 100%; aspect-ratio: 16 / 9; background: #111; border-radius: 4px; }
+  .video p { margin: 12px 0 0; color: var(--gris); font-size: 0.95rem; }
+
+  .paso { padding-top: 96px; display: grid; grid-template-columns: 300px 1fr; gap: 48px; }
+  .paso h2 { margin: 0; font-weight: 600; font-size: 1.6rem; letter-spacing: -0.02em; line-height: 1.15; }
+  .paso h2 small { display: block; font-weight: 500; font-size: 0.95rem; color: var(--gris); margin-bottom: 8px; }
+  .paso .cuerpo > p { margin: 0 0 16px; max-width: 64ch; font-size: 1.08rem; }
+  .paso .cuerpo > p:last-child { margin-bottom: 0; }
+
+  .etapas { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; counter-reset: etapa; }
+  .etapas li { border-top: 3px solid var(--cobalto); padding-top: 14px; counter-increment: etapa; }
+  .etapas li::before { content: counter(etapa); display: block; font-weight: 600; color: var(--cobalto); font-size: 1.1rem; margin-bottom: 4px; }
+  .etapas b { display: block; font-weight: 600; font-size: 1.08rem; }
+  .etapas span { display: block; color: var(--gris); font-size: 0.95rem; line-height: 1.4; margin-top: 4px; }
+
+  .recursos { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 28px; margin-top: 8px; }
+  .recurso { display: flex; flex-direction: column; align-items: flex-start; }
+  .recurso .medio { width: 100%; background: var(--panel); border-radius: 4px; overflow: hidden; aspect-ratio: 16 / 9; }
+  .recurso .medio img, .recurso .medio video { width: 100%; height: 100%; object-fit: cover; }
+  .recurso .medio.doc { aspect-ratio: auto; background: none; }
+  .recurso .medio.doc img { object-fit: contain; height: auto; }
+  .recurso b { display: block; font-weight: 600; margin-top: 14px; }
+  .recurso p { margin: 4px 0 8px; color: var(--gris); font-size: 0.95rem; max-width: 44ch; }
+  .accion { background: none; border: 0; padding: 0; cursor: pointer; color: var(--cobalto); font-weight: 500; text-decoration: underline; text-underline-offset: 4px; text-align: left; }
+
+  .tarjeta { background: #fff; color: #151515; border: 1px solid var(--linea); border-radius: 8px; padding: 28px 32px; max-width: 720px; box-shadow: 0 18px 40px rgba(0,0,0,0.06); }
+  .tarjeta small { display: block; color: #5E6268; margin-bottom: 10px; font-size: 0.92rem; }
+  .tarjeta p { margin: 0; font-size: 1.12rem; line-height: 1.5; }
+  .marca-logro { background: rgba(46,125,79,0.26); border-radius: 3px; padding: 0 3px; }
+  .marca-paso { background: rgba(31,58,147,0.2); border-radius: 3px; padding: 0 3px; }
+  .leyenda { display: flex; gap: 24px; margin-top: 14px; font-size: 0.9rem; }
+  .leyenda .l1 { color: #2E7D4F; } .leyenda .l2 { color: #1F3A93; }
+
+  .cifras { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .cifras b { display: block; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .cifras .barra { display: block; height: 3px; width: 0; margin: 14px 0 12px; background: var(--cobalto); transition: width 1.2s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .cifras .visto .barra { width: 100%; }
+  .cifras p { margin: 0; color: var(--gris); font-size: 0.95rem; line-height: 1.4; max-width: 26ch; }
+  .fuente { margin: 20px 0 0; color: var(--gris); font-size: 0.9rem; }
+
+  .siguiente { margin-top: 112px; border-top: 1px solid var(--linea); padding-top: 36px; padding-bottom: 64px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: baseline; }
+  .siguiente a { font-weight: 500; }
+  .siguiente small { color: var(--gris); display: block; }
+
+  dialog { border: 0; padding: 0; background: transparent; color: #fff; max-width: min(1120px, 96vw); width: 100%; max-height: 96vh; }
+  dialog::backdrop { background: rgba(10, 11, 13, 0.88); }
+  .barra-visor { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 0 0 10px; }
+  .barra-visor button { background: none; border: 1px solid rgba(255,255,255,.8); color: #fff; padding: 7px 16px; cursor: pointer; border-radius: 2px; }
+  #visor img, #visor video { max-height: 80vh; width: auto; max-width: 100%; margin: 0 auto; background: #fff; }
+  #visor iframe { display: block; width: 100%; height: 80vh; border: 0; background: #fff; }
+  .pie-visor { text-align: center; margin: 12px 0 0; font-size: 0.95rem; color: #E6E6E6; }
+
+  .js .anim { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .js .anim.visto { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .js .anim { opacity: 1; transform: none; transition: none; } .cifras .barra { width: 100%; transition: none; } }
+
+  @media (max-width: 999px) {
+    .apertura { grid-template-columns: 1fr; gap: 36px; }
+    .paso { grid-template-columns: 1fr; gap: 20px; padding-top: 72px; }
+    .etapas, .cifras { grid-template-columns: 1fr; gap: 22px; }
+  }
+  @media (max-width: 639px) {
+    body { font-size: 16.5px; }
+    .ancho { padding-left: 18px; padding-right: 18px; }
+    .cabeza { padding-top: 18px; }
+    .apertura { padding-top: 40px; }
+    .recursos { grid-template-columns: 1fr; }
+    .ficha li { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+<header class="ancho cabeza">
+  <a class="marca" href="../">Cristopher Gutiérrez González</a>
+  <nav aria-label="Secciones"><a href="../#piezas">Piezas</a><a href="../#casos">Casos</a><a href="../#contacto">Contacto</a></nav>
+</header>
+
+<main>
+  <section class="ancho apertura">
+    <div>
+      <p class="migas"><a href="../#casos">Casos</a> · Organización de capacitación · Curso e-learning · 2023</p>
+      <h1>Un curso e-learning de 24 horas para profesores jefes</h1>
+      <p class="resumen">Diseño completo de un curso asincrónico con el modelo ADDIE: análisis del problema, ruta de aprendizaje en cuatro módulos, guiones, lectura maestra, video de presentación, montaje en Moodle y evaluación con estudio de caso.</p>
+      <div class="logos"></div>
+    </div>
+    <ul class="ficha"><li><b>Rol</b><span>Diseñador instruccional: análisis, diseño, guiones, producción del video y montaje en Moodle</span></li><li><b>Público</b><span>Profesoras y profesores jefes de colegios</span></li><li><b>Herramientas</b><span>Modelo ADDIE, Moodle, video, carta Gantt</span></li><li><b>Entrega</b><span>Ruta de aprendizaje, cuatro módulos con lectura, video y actividad; lectura maestra; evaluación con estudio de caso</span></li><li><b>Nota</b><span>Por acuerdo con el cliente no se muestran su nombre ni los materiales completos; las piezas se presentan como muestras del diseño.</span></li></ul>
+  </section>
+
+  <section class="ancho video" aria-label="Video de proceso">
+    <video controls playsinline preload="metadata" poster="otec_poster.jpg"><source src="otec.mp4" type="video/mp4"><track kind="subtitles" srclang="es" label="Español" src="otec.vtt" default></video>
+    <p>Video de proceso de un minuto, con voz sintética y subtítulos.</p>
+  </section>
+
+<section class="ancho paso" aria-labelledby="p01"><h2 id="p01"><small>01</small>El problema</h2><div class="cuerpo"><p>Una organización de capacitación necesitaba un curso en línea para profesores jefes: 24 horas, asincrónico y con la posibilidad de certificar. El punto de partida fue definir qué problema real de la jefatura de curso debía resolver el curso, y no solo qué contenidos cubrir.</p></div></section>
+<section class="ancho paso" aria-labelledby="p02"><h2 id="p02"><small>02</small>El diseño</h2><div class="cuerpo"><p>Apliqué el modelo ADDIE de principio a fin y lo documenté en láminas de diseño: el problema, el modelo, su aplicación al curso y la carta Gantt del desarrollo.</p><ol class="etapas"><li><b>Análisis y diseño</b><span>Problema, público y ruta de aprendizaje con objetivos por módulo</span></li><li><b>Desarrollo</b><span>Lecturas, lectura maestra, guion y producción del video de presentación</span></li><li><b>Implementación y evaluación</b><span>Montaje en Moodle y evaluación con estudio de caso</span></li></ol></div></section>
+<section class="ancho paso" aria-labelledby="p03"><h2 id="p03"><small>03</small>Los recursos</h2><div class="cuerpo"><p>Cada módulo tiene su objetivo, una lectura, un video y una actividad aplicada. Las láminas de diseño muestran cómo se pasa del problema a la ruta de aprendizaje.</p><div class="recursos"><article class="recurso"><button class="medio" type="button" data-video="../muestras/curso_pj.mp4" data-titulo="Video de presentación del curso"><img src="../portadas/curso_pj.jpg" alt="Video de presentación del curso" loading="lazy"></button><b>Video de presentación del curso</b><p>Guion propio y producción del video que abre el curso.</p><button class="accion" type="button" data-video="../muestras/curso_pj.mp4" data-titulo="Video de presentación del curso">Ver muestra de 15 s</button></article><article class="recurso"><button class="medio" type="button" data-galeria="../images/pj_ruta.jpg::Ruta de aprendizaje por módulo|../images/pj_problema.jpg::Problema que aborda el curso|../images/pj_modelo_addie.jpg::Modelo de diseño instruccional|../images/pj_aplicacion_addie.jpg::Aplicación de ADDIE al curso|../images/pj_planificacion.jpg::Carta Gantt del desarrollo" data-titulo="Láminas de diseño"><img src="../images/pj_ruta.jpg" alt="Láminas de diseño" loading="lazy"></button><b>Láminas de diseño</b><p>Del problema a la ruta de aprendizaje, con ADDIE y carta Gantt.</p><button class="accion" type="button" data-galeria="../images/pj_ruta.jpg::Ruta de aprendizaje por módulo|../images/pj_problema.jpg::Problema que aborda el curso|../images/pj_modelo_addie.jpg::Modelo de diseño instruccional|../images/pj_aplicacion_addie.jpg::Aplicación de ADDIE al curso|../images/pj_planificacion.jpg::Carta Gantt del desarrollo" data-titulo="Láminas de diseño">Ver cinco láminas</button></article><article class="recurso"><button class="medio doc" type="button" data-galeria="../images/pj_guion.jpg::Guion del video de presentación|../images/pj_lectura.jpg::Lectura maestra de autoría propia" data-titulo="Guion y lectura maestra"><img src="../images/pj_guion.jpg" alt="Guion y lectura maestra" loading="lazy"></button><b>Guion y lectura maestra</b><p>Qué se dice y qué se ve en el video; la lectura que ancla el módulo.</p><button class="accion" type="button" data-galeria="../images/pj_guion.jpg::Guion del video de presentación|../images/pj_lectura.jpg::Lectura maestra de autoría propia" data-titulo="Guion y lectura maestra">Ver dos documentos</button></article><article class="recurso"><button class="medio doc" type="button" data-galeria="../images/pj_estudio_caso.jpg::Evaluación con estudio de caso" data-titulo="Evaluación con estudio de caso"><img src="../images/pj_estudio_caso.jpg" alt="Evaluación con estudio de caso" loading="lazy"></button><b>Evaluación con estudio de caso</b><p>Una situación real de jefatura de curso que se resuelve con lo aprendido.</p><button class="accion" type="button" data-galeria="../images/pj_estudio_caso.jpg::Evaluación con estudio de caso" data-titulo="Evaluación con estudio de caso">Ver el documento</button></article></div></div></section>
+<section class="ancho paso" aria-labelledby="p04"><h2 id="p04"><small>04</small>La evaluación</h2><div class="cuerpo"><p>La evaluación final es un estudio de caso: una situación de jefatura de curso con preguntas que exigen aplicar lo aprendido, no repetirlo. Cada módulo cierra además con una actividad aplicada que prepara ese caso.</p></div></section>
+<section class="ancho paso" aria-labelledby="p05"><h2 id="p05"><small>05</small>El resultado</h2><div class="cuerpo"><p>Un curso listo para montar y certificar, entregado con su planificación y sus materiales.</p><ul class="cifras"><li><b data-cuenta="24" data-sufijo="">24</b><span class="barra" aria-hidden="true"></span><p>horas de curso asincrónico</p></li><li><b data-cuenta="4" data-sufijo="">4</b><span class="barra" aria-hidden="true"></span><p>módulos con lectura, video y actividad</p></li><li><b data-cuenta="5" data-sufijo="">5</b><span class="barra" aria-hidden="true"></span><p>etapas del modelo ADDIE documentadas</p></li></ul></div></section>
+<section class="ancho paso" aria-labelledby="p06"><h2 id="p06"><small>06</small>Qué me llevo</h2><div class="cuerpo"><p>Cuando el cliente es una organización de capacitación, el diseño tiene que ser legible para quien no lo hizo: por eso la ruta, el modelo y la carta Gantt se entregan como láminas que cualquiera del equipo puede seguir.</p></div></section>
+
+  <section class="ancho siguiente">
+    <div><small>Siguiente caso</small><a href="corporativo.html">Capacitación corporativa: un libro interactivo y un kit de taller</a></div>
+    <a href="../">Volver al portafolio</a>
+  </section>
+</main>
+
+<dialog id="visor" aria-label="Visor de piezas">
+  <div class="barra-visor"><span><button type="button" id="anterior" hidden>Anterior</button> <button type="button" id="siguiente" hidden>Siguiente</button></span><button type="button" class="cerrar">Cerrar</button></div>
+  <img id="v-img" src="data:," alt="" hidden>
+  <video id="v-video" controls playsinline hidden></video>
+  <iframe id="v-iframe" title="Recurso interactivo" hidden></iframe>
+  <p class="pie-visor" id="v-leyenda"></p>
+</dialog>
+
+<script>
+  const movimiento = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.documentElement.classList.add("js");
+  const bloques = document.querySelectorAll(".paso, .siguiente, .cifras li");
+  bloques.forEach(el => el.classList.add("anim"));
+  if (movimiento && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visto"); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    bloques.forEach(el => io.observe(el));
+  } else { bloques.forEach(el => el.classList.add("visto")); }
+  document.querySelectorAll("[data-cuenta]").forEach(b => {
+    const fin = Number(b.dataset.cuenta), sufijo = b.dataset.sufijo || "";
+    if (!movimiento || !("IntersectionObserver" in window)) { b.textContent = fin + sufijo; return; }
+    b.textContent = "0" + sufijo;
+    const io = new IntersectionObserver(es => { if (!es[0].isIntersecting) return; io.disconnect(); const t0 = performance.now();
+      const paso = t => { const p = Math.min(1, (t - t0) / 1200), s = 1 - Math.pow(1 - p, 3); b.textContent = Math.round(fin * s) + sufijo; if (p < 1) requestAnimationFrame(paso); }; requestAnimationFrame(paso); }, { threshold: 0.4 });
+    io.observe(b);
+  });
+
+  // Visor
+  const visor = document.getElementById("visor"), vImg = document.getElementById("v-img"), vVid = document.getElementById("v-video"), vIfr = document.getElementById("v-iframe"), vLey = document.getElementById("v-leyenda"), vAnt = document.getElementById("anterior"), vSig = document.getElementById("siguiente");
+  let galeria = [], pos = 0, origen = null;
+  function abrir() { if (!visor.open) visor.showModal(); visor.querySelector(".cerrar").focus(); }
+  function solo(el) { [vImg, vVid, vIfr].forEach(x => x.hidden = x !== el); vAnt.hidden = vSig.hidden = !(el === vImg && galeria.length > 1); }
+  function mostrar() { const [src, pie] = galeria[pos]; vImg.src = src; vImg.alt = pie; vLey.textContent = pie + (galeria.length > 1 ? " (" + (pos + 1) + " de " + galeria.length + ")" : ""); }
+  document.querySelectorAll("[data-galeria]").forEach(b => b.addEventListener("click", () => { origen = b; galeria = b.dataset.galeria.split("|").map(x => x.split("::")); pos = 0; solo(vImg); mostrar(); abrir(); }));
+  document.querySelectorAll("[data-video]").forEach(b => b.addEventListener("click", () => { origen = b; galeria = []; solo(vVid); vVid.src = b.dataset.video; vLey.textContent = b.dataset.titulo; abrir(); vVid.play().catch(() => {}); }));
+  document.querySelectorAll("[data-iframe]").forEach(b => b.addEventListener("click", () => { origen = b; galeria = []; solo(vIfr); vIfr.src = b.dataset.iframe; vLey.textContent = b.dataset.titulo; abrir(); }));
+  vAnt.addEventListener("click", () => { pos = (pos - 1 + galeria.length) % galeria.length; mostrar(); });
+  vSig.addEventListener("click", () => { pos = (pos + 1) % galeria.length; mostrar(); });
+  visor.querySelector(".cerrar").addEventListener("click", () => visor.close());
+  visor.addEventListener("click", ev => { if (ev.target === visor) visor.close(); });
+  visor.addEventListener("close", () => { vVid.pause(); vVid.removeAttribute("src"); if (!vIfr.hidden) vIfr.src = "about:blank"; if (origen) origen.focus(); });
+  document.addEventListener("keydown", ev => { if (!visor.open || vImg.hidden || galeria.length < 2) return; if (ev.key === "ArrowRight") vSig.click(); if (ev.key === "ArrowLeft") vAnt.click(); });
+</script>
+</body>
+</html>

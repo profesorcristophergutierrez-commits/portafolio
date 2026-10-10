@@ -1,0 +1,47 @@
+{
+  "id": "medicina",
+  "orden": 1,
+  "contexto": "Universidad Católica del Maule · Facultad de Medicina · 2025",
+  "titulo": "IA y codocencia para entrenar la comunicación clínica",
+  "resumen": "Primer año de Medicina: 82 estudiantes que aún no pueden atender pacientes reales aprenden a comunicar con empatía y claridad mediante avatares con inteligencia artificial, una secuencia en Moodle y una evaluación auténtica en video.",
+  "descripcion": "Estudio de caso: diseño instruccional con IA generativa y codocencia para entrenar la comunicación clínica en primer año de Medicina (UCM, 2025).",
+  "logos": [["../images/logo_ucm.png", "Universidad Católica del Maule"], ["../images/logo_fmed.png", "Facultad de Medicina"]],
+  "ficha": [
+    ["Rol", "Diseñador instruccional y codocente, junto a la profesora Yanina Tapia Castro"],
+    ["Público", "82 estudiantes de primer año, actividad curricular Información y Comunicación Médica"],
+    ["Herramientas", "HeyGen, ChatGPT, Moodle (UCM Virtual), Genially, H5P"],
+    ["Entrega", "Secuencia didáctica, casos con avatares, escenario ramificado, rúbrica y evaluación audiovisual"],
+    ["Difusión", "Ponencia en el III Congreso Iberoamericano de Educación en Ciencias de la Salud (2026) y publicación de innovación docente UCM"]
+  ],
+  "video": "medicina.mp4",
+  "poster": "medicina_poster.jpg",
+  "pista": "medicina.vtt",
+  "video_pie": "Video de proceso de 58 segundos, con voz sintética y subtítulos. Las pantallas muestran piezas reales del curso.",
+  "pasos": [
+    {"num": "01", "titulo": "El problema", "parrafos": [
+      "El diagnóstico inicial, hecho sobre 36 producciones grupales, mostró que el estudiantado entendía la comunicación como una habilidad complementaria y no como parte del acto médico: predominaba la transmisión de información por sobre la relación terapéutica.",
+      "En primer año no hay contacto con pacientes reales. Había que crear un espacio seguro para practicar, equivocarse y volver a intentarlo."]},
+    {"num": "02", "titulo": "El diseño", "parrafos": [
+      "Con la profesora Yanina Tapia diseñamos, en codocencia, una secuencia de tres etapas apoyada en UCM Virtual. Cada unidad sigue el ciclo activación, conceptualización, aplicación y cierre."],
+      "etapas": [["Diagnóstico", "Prueba inicial y análisis temático de las producciones, con codificación asistida por IA y validación manual"], ["Desarrollo teórico-práctico", "Modelos de comunicación clínica (CICAA, SPIKES) y práctica con pacientes y médicos virtuales"], ["Evaluación auténtica", "Reformulación audiovisual de un caso clínico, con rúbrica, autoevaluación y retroalimentación"]]},
+    {"num": "03", "titulo": "Los recursos", "parrafos": [
+      "Cada recurso cumple una función en la secuencia: los avatares muestran el error y el acierto, el video explica el modelo, el escenario obliga a decidir y el documento de evaluación fija los criterios."],
+      "recursos": [
+        {"tipo": "video", "fuente": "../muestras/caso_medicina.mp4", "portada": "../portadas/caso_medicina.jpg", "titulo": "Médica virtual, caso clínico", "texto": "Cuatro casos con avatares creados con HeyGen; el estudiantado analiza el discurso y lo reformula.", "accion": "Ver muestra de 15 s"},
+        {"tipo": "video", "fuente": "../muestras/cicaa.mp4", "portada": "../portadas/cicaa.jpg", "titulo": "El modelo CICAA en tres minutos", "texto": "Conectar, identificar, comprender, acordar y ayudar: el video que ordena la entrevista clínica.", "accion": "Ver muestra de 15 s"},
+        {"tipo": "enlace", "fuente": "https://view.genially.com/68b9934c97d0232e2d37df1e", "portada": "../fuentes_portadas/spikes.jpg", "titulo": "Escenario ramificado SPIKES", "texto": "Diez decisiones y tres finales para comunicar una noticia difícil, hecho en Genially.", "accion": "Jugar en Genially"},
+        {"tipo": "galeria", "doc": true, "galeria": [["../images/med_rubrica.jpg", "Paquete de evaluación: casos, consignas, guiones y rúbrica de video"], ["../images/med_secuencia.jpg", "Secuencia didáctica"], ["../images/med_resultado.jpg", "Resultado de aprendizaje y objetivos"]], "portada": "../images/med_rubrica.jpg", "titulo": "Evaluación sumativa: comunicación de noticias difíciles", "texto": "Cinco casos narrativos con guion del paciente, informe traducido, guion del médico con errores y rúbrica del video final.", "accion": "Ver tres documentos"}
+      ]},
+    {"num": "04", "titulo": "La evaluación", "parrafos": [
+      "Cada grupo grabó la reformulación de un caso clínico demostrando empatía, claridad, contención emocional y adecuación sociocultural. La rúbrica se acompañó de autoevaluación y de retroalimentación formativa escrita en UCM Virtual, como esta:"],
+      "tarjeta": {"encabezado": "Retroalimentación docente · UCM Virtual", "html": "Se evidencia el uso de <span class=\"marca-logro\">preguntas abiertas sobre lo que sabe el paciente</span>, acompañadas de escucha atenta. Identifico como oportunidad de mejora la <span class=\"marca-paso\">validación explícita de sus emociones</span>; aunque se evidencian fórmulas de empatía como «lo entiendo», se hace necesario profundizar en lo que lo inquieta para cumplir con una exploración integral.", "leyenda": [["l1", "■ Logro"], ["l2", "■ Paso siguiente"]]}},
+    {"num": "05", "titulo": "El resultado", "parrafos": [
+      "El análisis combinó estadística descriptiva y análisis temático, triangulando la evaluación diagnóstica, la prueba escrita y la evaluación audiovisual grupal."],
+      "cifras": [[100, " %", "de aprobación en la prueba escrita de la unidad 1"], [85, " %", "de los desempeños en nivel alto en empatía, claridad y manejo emocional"], [82, "", "estudiantes participaron; 36 producciones grupales analizadas"]],
+      "fuente": "Fuente: Tapia Castro, Y. y Gutiérrez González, C. (2025). IA generativa y codocencia en el entrenamiento de la comunicación médica y su humanización. Innovación docente, Facultad de Medicina, Universidad Católica del Maule."},
+    {"num": "06", "titulo": "Qué me llevo", "parrafos": [
+      "La IA sirve cuando crea escenarios controlados para equivocarse sin riesgo, y el acompañamiento humano (ayudantes e internos) es lo que convierte la práctica en aprendizaje. También aprendimos que la empatía puede «estetizarse» en una grabación: la retroalimentación debe apuntar a la autoconciencia ética, no solo al cumplimiento técnico.",
+      "Este mismo diseño se adapta a cualquier organización que necesite entrenar conversaciones difíciles: atención de público, jefaturas, salud o servicio."]}
+  ],
+  "siguiente": "otec"
+}
