@@ -20,9 +20,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   /* Estudio de caso: mismo sistema que la portada. Un relato en seis pasos con el video de proceso al inicio. */
-  :root { --fondo: #FAFAF8; --tinta: #141414; --tinta-2: #3A3D42; --gris: #5E6268; --linea: #DDDDD8; --panel: #F1F0EC; --cobalto: #1F3A93; --verde: #2E7D4F; --letra: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif; color-scheme: light; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --fondo: #131416; --tinta: #EDEDEA; --tinta-2: #C9CBCF; --gris: #A3A7AD; --linea: #2C2E32; --panel: #1C1E22; --cobalto: #9DB1F5; --verde: #7FC79C; color-scheme: dark; } }
-  :root[data-theme="dark"] { --fondo: #131416; --tinta: #EDEDEA; --tinta-2: #C9CBCF; --gris: #A3A7AD; --linea: #2C2E32; --panel: #1C1E22; --cobalto: #9DB1F5; --verde: #7FC79C; color-scheme: dark; }
+  :root { --fondo: #FAFAF8; --tinta: #141414; --tinta-2: #3A3D42; --gris: #5E6268; --linea: #DDDDD8; --panel: #F1F0EC; --cobalto: #141414; --verde: #4A4D52; --letra: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif; color-scheme: light; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --fondo: #131416; --tinta: #EDEDEA; --tinta-2: #C9CBCF; --gris: #A3A7AD; --linea: #2C2E32; --panel: #1C1E22; --cobalto: #EDEDEA; --verde: #B8BBC0; color-scheme: dark; } }
+  :root[data-theme="dark"] { --fondo: #131416; --tinta: #EDEDEA; --tinta-2: #C9CBCF; --gris: #A3A7AD; --linea: #2C2E32; --panel: #1C1E22; --cobalto: #EDEDEA; --verde: #B8BBC0; color-scheme: dark; }
   * { box-sizing: border-box; }
   [hidden] { display: none !important; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -79,10 +79,10 @@
   .tarjeta { background: #fff; color: #151515; border: 1px solid var(--linea); border-radius: 8px; padding: 28px 32px; max-width: 720px; box-shadow: 0 18px 40px rgba(0,0,0,0.06); }
   .tarjeta small { display: block; color: #5E6268; margin-bottom: 10px; font-size: 0.92rem; }
   .tarjeta p { margin: 0; font-size: 1.12rem; line-height: 1.5; }
-  .marca-logro { background: rgba(46,125,79,0.26); border-radius: 3px; padding: 0 3px; }
-  .marca-paso { background: rgba(31,58,147,0.2); border-radius: 3px; padding: 0 3px; }
+  .marca-logro { background: rgba(20,20,20,0.24); border-radius: 3px; padding: 0 3px; }
+  .marca-paso { background: rgba(20,20,20,0.10); border-radius: 3px; padding: 0 3px; }
   .leyenda { display: flex; gap: 24px; margin-top: 14px; font-size: 0.9rem; }
-  .leyenda .l1 { color: #2E7D4F; } .leyenda .l2 { color: #1F3A93; }
+  .leyenda .l1 { color: #4A4D52; } .leyenda .l2 { color: #141414; }
 
   .cifras { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
   .cifras b { display: block; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
