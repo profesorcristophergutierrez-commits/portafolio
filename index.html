@@ -67,7 +67,8 @@
   .reel video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #E9E6E0; }
   .reel figcaption { margin-top: 10px; color: var(--gris); font-size: 0.92rem; }
   .reel .accion { font-size: 0.92rem; margin-left: 6px; }
-  .quien { margin: 0 0 26px; color: var(--tinta-2); font-size: 1.02rem; line-height: 1.45; }
+  .quien { display: flex; align-items: center; gap: 16px; margin: 0 0 40px; color: var(--tinta-2); font-size: 1.02rem; line-height: 1.4; }
+  .quien img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; }
   .quien b { display: block; font-weight: 600; font-size: 1.25rem; color: var(--tinta); }
   .apertura h1 { margin: 0; font-weight: 600; font-size: clamp(2.3rem, 6vw, 4.7rem); line-height: 1.02; letter-spacing: -0.032em; max-width: 15ch; }
   .apertura p { margin: 26px 0 0; max-width: 46ch; font-size: 1.16rem; line-height: 1.55; color: var(--tinta-2); }
@@ -202,7 +203,8 @@
     .cabeza nav a.opcional { display: none; }
     .apertura { padding-top: 44px; padding-bottom: 44px; }
     .apertura p { font-size: 1.06rem; }
-    .quien { font-size: 0.98rem; margin-bottom: 20px; }
+    .quien { font-size: 0.95rem; margin-bottom: 28px; gap: 12px; }
+    .quien img { width: 60px; height: 60px; }
     .grilla { grid-template-columns: 1fr; gap: 44px; }
     .rotulo .tit { font-size: 1.6rem; }
     .bloque { padding-top: 80px; }
@@ -227,9 +229,9 @@
 <main>
   <section class="ancho apertura" aria-labelledby="titular">
     <div>
-      <p class="quien"><b>Cristopher Gutiérrez González</b>Diseñador instruccional y curriculista. Magíster en Currículum y Evaluación.</p>
+      <p class="quien"><img src="images/foto_linkedin.jpg" width="72" height="72" alt="Fotografía de Cristopher Gutiérrez González"><span><b>Cristopher Gutiérrez González</b>Diseñador instruccional y curriculista. Magíster en Currículum y Evaluación.</span></p>
       <h1 id="titular">Cursos en línea, videos con IA y recursos interactivos.</h1>
-      <p>Diseño instruccional para universidades, organismos de capacitación y empresas, desde el objetivo de aprendizaje hasta el montaje en plataforma.</p>
+      <p>Diseño instruccional para universidades, organismos de capacitación y empresas.</p>
       <div class="vinculos">
         <a class="boton" href="mailto:profesorcristophergutierrez@gmail.com">Contacto</a>
         <a href="files/CV_Cristopher_Gutierrez.pdf">Currículum en PDF</a>
