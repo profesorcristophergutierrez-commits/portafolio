@@ -455,5 +455,32 @@
     "texto": "Formación continua en calidad: curso introductorio de Quality Matters (2024) y participación en el 3er Encuentro Iberoamericano de Instituciones Miembros de Quality Matters (2024).",
     "enlace": "https://view.pok.tech/c/325a183e-26ce-4544-aaa1-b62cea0a6d86",
     "enlace_texto": "Ver credencial verificable"
-  }
+  },
+  "marcas": [
+    [
+      "images/marcas/logo_ucm.png",
+      "Universidad Católica del Maule"
+    ],
+    [
+      "images/marcas/logo_uchile_uperdoc.png",
+      "Universidad de Chile, Departamento de Pregrado y UPERDOC"
+    ],
+    [
+      "images/marcas/logo_icm.png",
+      "Instituto de Calidad y Medioambiente de Chile"
+    ],
+    [
+      "images/marcas/logo_cft.png",
+      "Centro de Formación Técnica San Agustín"
+    ],
+    [
+      "images/marcas/logo_educarchile.svg",
+      "educarchile"
+    ],
+    [
+      "images/marcas/logo_altamira.png",
+      "Altamira Capacitación"
+    ]
+  ],
+  "marcas_ucm": "En la Universidad Católica del Maule: Facultad de Medicina, Dirección de Formación General, Dirección General de Docencia, Centro de Desarrollo e Innovación Docente y Vicerrectoría de Investigación y Postgrado."
 }

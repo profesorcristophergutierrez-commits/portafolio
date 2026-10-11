@@ -69,6 +69,10 @@ def pagina():
     proyectos = "".join(f'<article class="caso"><h3>{e(c["titulo"])}</h3><p class="donde">{e(c["donde"])}</p><p>{e(c["texto"])}</p></article>' for c in D["proyectos"])
     pasos = "".join(f"<li>{e(x)}</li>" for x in D["pasos"])
     inst = "".join(f"<li>{e(x)}</li>" for x in D["instituciones"])
+    # Franja de logos: la secuencia se repite para que el desfile no tenga cortes; las copias se ocultan a lectores de pantalla
+    marcas = "".join(
+        f'<li{"" if k == 0 else " aria-hidden=" + chr(34) + "true" + chr(34)}><img src="{e(src)}" alt="{e(alt) if k == 0 else ""}" height="56" loading="lazy"></li>'
+        for k in range(4) for src, alt in D["marcas"])
     ld = json.dumps({"@context": "https://schema.org", "@type": "Person", "name": S["nombre"],
                      "jobTitle": "Diseñador instruccional", "email": "mailto:" + S["correo"], "telephone": S["telefono"], "url": S["url"],
                      "address": {"@type": "PostalAddress", "addressLocality": "Talca", "addressCountry": "CL"},
@@ -79,7 +83,7 @@ def pagina():
         "{{DESCRIPCION}}": e(S["descripcion"]), "{{URL}}": e(S["url"]), "{{NOMBRE}}": e(S["nombre"]),
         "{{TITULAR}}": e(S["titulo"]), "{{ROL}}": e(S["rol"]), "{{BAJADA}}": e(S["bajada"]), "{{CORREO}}": e(S["correo"]),
         "{{LINKEDIN}}": e(S["linkedin"]), "{{TELEFONO}}": e(S["telefono"]), "{{TELEFONO_TEXTO}}": e(S["telefono_texto"]), "{{PRINCIPIOS}}": e(S["principios"]), "{{FORMACION}}": e(D["formacion_calidad"]["texto"]), "{{FORMACION_ENLACE}}": e(D["formacion_calidad"]["enlace"]), "{{FORMACION_ENLACE_TEXTO}}": e(D["formacion_calidad"]["enlace_texto"]), "{{CV}}": e(S["cv"]), "{{FILTROS}}": filtros, "{{PIEZAS}}": piezas, "{{CIFRAS}}": cifras, "{{CARRUSEL}}": carrusel, "{{PUNTOS}}": puntos, "{{CASOS}}": tarjetas_casos(LISTA_CASOS),
-        "{{MAS}}": mas, "{{PROYECTOS}}": proyectos, "{{PASOS}}": pasos, "{{INSTITUCIONES}}": inst, "{{LD}}": ld,
+        "{{MAS}}": mas, "{{MARCAS}}": marcas, "{{MARCAS_UCM}}": e(D["marcas_ucm"]), "{{PROYECTOS}}": proyectos, "{{PASOS}}": pasos, "{{INSTITUCIONES}}": inst, "{{LD}}": ld,
     }
     for k, v in reemplazos.items():
         plantilla = plantilla.replace(k, v)

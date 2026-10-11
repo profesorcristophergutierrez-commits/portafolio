@@ -66,6 +66,23 @@
   .apertura .principios { margin: 0 0 16px; font-size: 1.12rem; font-weight: 600; line-height: 1.3; color: var(--tinta); }
   .formacion { margin: -18px 0 0; max-width: 52ch; font-size: 0.98rem; line-height: 1.55; color: var(--tinta-2); }
   .formacion a { white-space: nowrap; text-underline-offset: 3px; }
+  .marcas { padding-top: 8px; padding-bottom: 72px; }
+  .marcas-cab { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 26px; }
+  .marcas-cab h2 { margin: 0; font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 1.9rem); letter-spacing: -0.02em; line-height: 1.1; }
+  .marcas-cab .accion { font-size: 0.92rem; }
+  .marcas-ventana { overflow: hidden; background: #E4E4E1; border-radius: 4px; padding: 22px 0; }
+  .marcas-pista { display: flex; align-items: center; gap: 0; width: max-content; margin: 0; padding: 0; list-style: none; background: #E4E4E1; animation: marcas-desfile 44s linear infinite; }
+  .marcas-pista li { flex: 0 0 auto; padding: 0 44px; display: flex; align-items: center; }
+  .marcas-pista img { height: 52px; width: auto; max-width: 230px; object-fit: contain; filter: grayscale(1) contrast(1.3); mix-blend-mode: multiply; }
+  .marcas-ventana:hover .marcas-pista, .marcas.detenido .marcas-pista { animation-play-state: paused; }
+  @keyframes marcas-desfile { to { transform: translateX(-50%); } }
+  .marcas .instituciones { margin: 22px 0 0; max-width: 72ch; }
+  .marcas .instituciones + .instituciones { margin-top: 6px; }
+  @media (prefers-reduced-motion: reduce) {
+    .marcas-pista { animation: none; width: auto; flex-wrap: wrap; gap: 18px 0; }
+    .marcas-pista li[aria-hidden="true"], #marcas-pausa { display: none; }
+  }
+  @media (max-width: 639px) { .marcas-pista li { padding: 0 28px; } .marcas-pista img { height: 44px; } }
   .carrusel { margin: 0; }
   .sl { margin: 0; }
   .sl img { width: 100%; height: auto; aspect-ratio: 16 / 9; background: #EFEFED; border-radius: 4px; }
@@ -275,6 +292,17 @@
     </ul>
   </section>
 
+  <section class="ancho marcas" id="marcas" aria-labelledby="t-marcas">
+    <div class="marcas-cab">
+      <h2 id="t-marcas">He trabajado con</h2>
+      <button type="button" class="accion" id="marcas-pausa" aria-pressed="false">Pausar</button>
+    </div>
+    <div class="marcas-ventana">
+      <ul class="marcas-pista"><li><img src="images/marcas/logo_ucm.png" alt="Universidad Católica del Maule" height="56" loading="lazy"></li><li><img src="images/marcas/logo_uchile_uperdoc.png" alt="Universidad de Chile, Departamento de Pregrado y UPERDOC" height="56" loading="lazy"></li><li><img src="images/marcas/logo_icm.png" alt="Instituto de Calidad y Medioambiente de Chile" height="56" loading="lazy"></li><li><img src="images/marcas/logo_cft.png" alt="Centro de Formación Técnica San Agustín" height="56" loading="lazy"></li><li><img src="images/marcas/logo_educarchile.svg" alt="educarchile" height="56" loading="lazy"></li><li><img src="images/marcas/logo_altamira.png" alt="Altamira Capacitación" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_ucm.png" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_uchile_uperdoc.png" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_icm.png" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_cft.png" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_educarchile.svg" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_altamira.png" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_ucm.png" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_uchile_uperdoc.png" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_icm.png" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_cft.png" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_educarchile.svg" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_altamira.png" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_ucm.png" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_uchile_uperdoc.png" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_icm.png" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_cft.png" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_educarchile.svg" alt="" height="56" loading="lazy"></li><li aria-hidden="true"><img src="images/marcas/logo_altamira.png" alt="" height="56" loading="lazy"></li></ul>
+    </div>
+    <p class="instituciones">En la Universidad Católica del Maule: Facultad de Medicina, Dirección de Formación General, Dirección General de Docencia, Centro de Desarrollo e Innovación Docente y Vicerrectoría de Investigación y Postgrado.</p>
+  </section>
+
   <section class="ancho" id="piezas" aria-label="Piezas">
     <div class="filtros" role="group" aria-label="Filtrar piezas"><button type="button" data-f="todas" aria-pressed="true">Todas</button><button type="button" data-f="interactivos" aria-pressed="false">Interactivos</button><button type="button" data-f="videos" aria-pressed="false">Videos con IA</button><button type="button" data-f="capacitacion" aria-pressed="false">Capacitación</button><button type="button" data-f="difusion" aria-pressed="false">Difusión y documentos</button></div>
     <div class="grilla">
@@ -314,22 +342,10 @@
     <div class="casos"><a class="caso-tarjeta" href="casos/medicina.html"><img src="casos/medicina_poster.jpg" alt="" loading="lazy" width="1280" height="720"><span class="donde">Universidad Católica del Maule · Facultad de Medicina · 2025</span><strong>IA y codocencia para entrenar la comunicación clínica</strong><span class="ver">Ver el caso y su video de proceso</span></a><a class="caso-tarjeta" href="casos/otec.html"><img src="casos/otec_poster.jpg" alt="" loading="lazy" width="1280" height="720"><span class="donde">Organización de capacitación · Curso e-learning · 2023</span><strong>Un curso e-learning de 24 horas para profesores jefes</strong><span class="ver">Ver el caso y su video de proceso</span></a><a class="caso-tarjeta" href="casos/corporativo.html"><img src="casos/corporativo_poster.jpg" alt="" loading="lazy" width="1280" height="720"><span class="donde">Muestras propias · Capacitación corporativa · 2026</span><strong>Capacitación corporativa: un libro interactivo y un kit de taller</strong><span class="ver">Ver el caso y su video de proceso</span></a><a class="caso-tarjeta" href="casos/difusion.html"><img src="casos/difusion_poster.jpg" alt="" loading="lazy" width="1280" height="720"><span class="donde">Charlas, talleres y difusión · 2025 a 2026</span><strong>Difundir también es diseñar: charlas, talleres y reels</strong><span class="ver">Ver el caso y su video de proceso</span></a><a class="caso-tarjeta" href="casos/guiones.html"><img src="casos/guiones_poster.jpg" alt="" loading="lazy" width="1280" height="720"><span class="donde">Universidad Católica del Maule y cursos propios · 2023 a 2026</span><strong>Primero la palabra: guiones para video, podcast y casos</strong><span class="ver">Ver el caso y su video de proceso</span></a></div>
   </section>
 
-  <section class="ancho bloque dos" id="proyectos" aria-label="Forma de trabajo e instituciones">
-    <div>
-      <h2>He trabajado con</h2>
-      <div class="logos-inst">
-        <img src="images/logo_ucm.png" alt="Universidad Católica del Maule" loading="lazy">
-        <img src="images/logo_uchile_uperdoc.png" alt="Universidad de Chile, Departamento de Pregrado y UPERDOC" loading="lazy">
-        <img src="images/logo_icm.png" alt="Instituto de Calidad y Medioambiente de Chile" loading="lazy">
-        <img src="images/logo_cft.png" alt="Centro de Formación Técnica San Agustín" loading="lazy">
-      </div>
-      <p class="instituciones">También con educarchile y Altamira Capacitación Profesional.</p>
-    </div>
-    <div>
-      <h2>Cómo trabajo</h2>
-      <ol class="pasos"><li>Análisis del público y del contexto</li><li>Resultados de aprendizaje evaluables</li><li>Secuencia de actividades y evaluación</li><li>Guiones, videos y recursos interactivos</li><li>Montaje en Moodle</li><li>Evaluación de impacto y mejora</li></ol>
-      <p class="formacion">Formación continua en calidad: curso introductorio de Quality Matters (2024) y participación en el 3er Encuentro Iberoamericano de Instituciones Miembros de Quality Matters (2024). <a href="https://view.pok.tech/c/325a183e-26ce-4544-aaa1-b62cea0a6d86" target="_blank" rel="noopener">Ver credencial verificable<span class="sr"> (se abre en otra pestaña)</span></a></p>
-    </div>
+  <section class="ancho bloque" id="proyectos" aria-labelledby="t-metodo">
+    <h2 id="t-metodo">Cómo trabajo</h2>
+    <ol class="pasos"><li>Análisis del público y del contexto</li><li>Resultados de aprendizaje evaluables</li><li>Secuencia de actividades y evaluación</li><li>Guiones, videos y recursos interactivos</li><li>Montaje en Moodle</li><li>Evaluación de impacto y mejora</li></ol>
+    <p class="formacion">Formación continua en calidad: curso introductorio de Quality Matters (2024) y participación en el 3er Encuentro Iberoamericano de Instituciones Miembros de Quality Matters (2024). <a href="https://view.pok.tech/c/325a183e-26ce-4544-aaa1-b62cea0a6d86" target="_blank" rel="noopener">Ver credencial verificable<span class="sr"> (se abre en otra pestaña)</span></a></p>
   </section>
 </main>
 
@@ -424,6 +440,11 @@
   pausaC.addEventListener("click", () => { detenido = !detenido; pausaC.textContent = detenido ? "Reproducir" : "Pausar"; pausaC.setAttribute("aria-pressed", String(detenido)); mostrarLamina(actual); });
   if (!movimiento) { pausaC.textContent = "Reproducir"; pausaC.setAttribute("aria-pressed", "true"); }
   mostrarLamina(0);
+
+
+  // Franja de logos: se puede pausar; con «menos movimiento» queda estática
+  const marcasSec = document.getElementById("marcas"), marcasBtn = document.getElementById("marcas-pausa");
+  marcasBtn.addEventListener("click", () => { const d = marcasSec.classList.toggle("detenido"); marcasBtn.textContent = d ? "Reproducir" : "Pausar"; marcasBtn.setAttribute("aria-pressed", String(d)); });
 
   // Filtros
   const botonesFiltro = document.querySelectorAll(".filtros button"), piezas = document.querySelectorAll(".pieza");
