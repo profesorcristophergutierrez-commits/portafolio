@@ -25,19 +25,21 @@
 <style>
   /* Serie fotográfica: cada pieza real dentro de un objeto sobre el mismo escritorio. Tinta negra, un acento cobalto para las acciones. */
   :root {
-    --fondo: #FAFAF8;
-    --tinta: #141414;
-    --tinta-2: #3A3D42;
-    --gris: #5E6268;
-    --linea: #DDDDD8;
-    --cobalto: #141414;
+    --fondo: #F9FAFC;
+    --tinta: #0E1220;
+    --tinta-2: #3A4152;
+    --gris: #5A6173;
+    --linea: #DCE0E8;
+    --cobalto: #1740C4;
+    --sobre: #FFFFFF;
+    --banda: #E6E9F0;
     --letra: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --fondo: #131416; --tinta: #EDEDEA; --tinta-2: #C9CBCF; --gris: #A3A7AD; --linea: #2C2E32; --cobalto: #EDEDEA; color-scheme: dark; }
+    :root:not([data-theme="light"]) { --fondo: #0D1018; --tinta: #EEF1F8; --tinta-2: #C5CBD9; --gris: #98A1B5; --linea: #262C3A; --cobalto: #8FAEFF; --sobre: #0D1018; color-scheme: dark; }
   }
-  :root[data-theme="dark"] { --fondo: #131416; --tinta: #EDEDEA; --tinta-2: #C9CBCF; --gris: #A3A7AD; --linea: #2C2E32; --cobalto: #EDEDEA; color-scheme: dark; }
+  :root[data-theme="dark"] { --fondo: #0D1018; --tinta: #EEF1F8; --tinta-2: #C5CBD9; --gris: #98A1B5; --linea: #262C3A; --cobalto: #8FAEFF; --sobre: #0D1018; color-scheme: dark; }
 
   * { box-sizing: border-box; }
   [hidden] { display: none !important; }
@@ -70,8 +72,8 @@
   .marcas-cab { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 26px; }
   .marcas-cab h2 { margin: 0; font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 1.9rem); letter-spacing: -0.02em; line-height: 1.1; }
   .marcas-cab .accion { font-size: 0.92rem; }
-  .marcas-ventana { overflow: hidden; background: #E4E4E1; border-radius: 4px; padding: 22px 0; }
-  .marcas-pista { display: flex; align-items: center; gap: 0; width: max-content; margin: 0; padding: 0; list-style: none; background: #E4E4E1; animation: marcas-desfile 44s linear infinite; }
+  .marcas-ventana { overflow: hidden; background: var(--banda); border-radius: 4px; padding: 22px 0; }
+  .marcas-pista { display: flex; align-items: center; gap: 0; width: max-content; margin: 0; padding: 0; list-style: none; background: var(--banda); animation: marcas-desfile 44s linear infinite; }
   .marcas-pista li { flex: 0 0 auto; padding: 0 44px; display: flex; align-items: center; }
   .marcas-pista img { height: 52px; width: auto; max-width: 230px; object-fit: contain; filter: grayscale(1) contrast(1.3); mix-blend-mode: multiply; }
   .marcas-ventana:hover .marcas-pista, .marcas.detenido .marcas-pista { animation-play-state: paused; }
@@ -85,7 +87,7 @@
   @media (max-width: 639px) { .marcas-pista li { padding: 0 28px; } .marcas-pista img { height: 44px; } }
   .carrusel { margin: 0; }
   .sl { margin: 0; }
-  .sl img { width: 100%; height: auto; aspect-ratio: 16 / 9; background: #EFEFED; border-radius: 4px; }
+  .sl img { width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--banda); border-radius: 4px; }
   .sl figcaption { margin-top: 14px; }
   .sl strong { display: block; font-weight: 600; font-size: 1.12rem; }
   .sl span { display: block; color: var(--gris); font-size: 0.95rem; max-width: 46ch; margin-top: 2px; }
@@ -93,7 +95,7 @@
   .puntos { display: flex; gap: 8px; }
   .puntos button { width: 34px; height: 34px; padding: 0; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
   .puntos button::before { content: ""; width: 26px; height: 3px; background: var(--linea); transition: background .3s; }
-  .puntos button[aria-current="true"]::before { background: var(--tinta); }
+  .puntos button[aria-current="true"]::before { background: var(--cobalto); }
   .car-ctl .accion { font-size: 0.92rem; }
   .apertura .quien { display: flex; align-items: center; gap: 22px; margin: 0 0 40px; color: var(--tinta-2); font-size: 1.02rem; line-height: 1.4; }
   .quien img { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; }
@@ -101,14 +103,14 @@
   .apertura h1 { margin: 0; font-weight: 600; font-size: clamp(2.3rem, 6vw, 4.7rem); line-height: 1.02; letter-spacing: -0.032em; max-width: 15ch; }
   .apertura p { margin: 26px 0 0; max-width: 46ch; font-size: 1.16rem; line-height: 1.55; color: var(--tinta-2); }
   .vinculos { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; margin-top: 30px; }
-  .boton { display: inline-block; background: var(--tinta); color: var(--fondo); text-decoration: none; font-weight: 500; padding: 13px 22px; border-radius: 2px; }
+  .boton { display: inline-block; background: var(--cobalto); color: var(--sobre); text-decoration: none; font-weight: 500; padding: 13px 22px; border-radius: 2px; }
   .boton:hover { background: #3A3D42; color: #fff; }
   .vinculos a:not(.boton) { font-weight: 500; text-underline-offset: 4px; }
 
   /* Filtros */
   .filtros { display: flex; flex-wrap: wrap; gap: 6px 24px; margin: 0 0 30px; padding: 0; }
   .filtros button { background: none; border: 0; border-bottom: 2px solid transparent; padding: 6px 0; cursor: pointer; font-weight: 500; color: var(--gris); }
-  .filtros button[aria-pressed="true"] { color: var(--tinta); border-bottom-color: var(--tinta); }
+  .filtros button[aria-pressed="true"] { color: var(--tinta); border-bottom-color: var(--cobalto); }
   .filtros button:hover { color: var(--tinta); }
 
   /* Grilla de piezas */
@@ -205,7 +207,7 @@
   /* Animación 3: cifras con barra que crece y número que cuenta */
   .cifras { padding-top: 8px; padding-bottom: 80px; }
   .cifras ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-  .cifras b { display: block; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1; color: var(--tinta); font-variant-numeric: tabular-nums; }
+  .cifras b { color: var(--cobalto); display: block; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
   .cifras .barra { display: block; height: 3px; padding: 0; width: 0; margin: 14px 0 12px; background: var(--cobalto); transition: width 1.2s cubic-bezier(0.2, 0.7, 0.2, 1); }
   .cifras .visto .barra { width: 100%; }
   .cifras p { margin: 0; color: var(--tinta-2); font-size: 1.2rem; line-height: 1.4; max-width: 26ch; }
