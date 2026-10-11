@@ -70,7 +70,7 @@ def pagina():
     pasos = "".join(f"<li>{e(x)}</li>" for x in D["pasos"])
     inst = "".join(f"<li>{e(x)}</li>" for x in D["instituciones"])
     ld = json.dumps({"@context": "https://schema.org", "@type": "Person", "name": S["nombre"],
-                     "jobTitle": "Diseñador instruccional", "email": "mailto:" + S["correo"], "url": S["url"],
+                     "jobTitle": "Diseñador instruccional", "email": "mailto:" + S["correo"], "telephone": S["telefono"], "url": S["url"],
                      "address": {"@type": "PostalAddress", "addressLocality": "Talca", "addressCountry": "CL"},
                      "sameAs": [S["linkedin"]]}, ensure_ascii=False)
     plantilla = (RAIZ / "plantilla.html").read_text(encoding="utf-8")
@@ -78,7 +78,7 @@ def pagina():
         "{{TITULO_PAGINA}}": e(S["nombre"] + ", diseño instruccional"),
         "{{DESCRIPCION}}": e(S["descripcion"]), "{{URL}}": e(S["url"]), "{{NOMBRE}}": e(S["nombre"]),
         "{{TITULAR}}": e(S["titulo"]), "{{ROL}}": e(S["rol"]), "{{BAJADA}}": e(S["bajada"]), "{{CORREO}}": e(S["correo"]),
-        "{{LINKEDIN}}": e(S["linkedin"]), "{{CV}}": e(S["cv"]), "{{FILTROS}}": filtros, "{{PIEZAS}}": piezas, "{{CIFRAS}}": cifras, "{{CARRUSEL}}": carrusel, "{{PUNTOS}}": puntos, "{{CASOS}}": tarjetas_casos(LISTA_CASOS),
+        "{{LINKEDIN}}": e(S["linkedin"]), "{{TELEFONO}}": e(S["telefono"]), "{{TELEFONO_TEXTO}}": e(S["telefono_texto"]), "{{PRINCIPIOS}}": e(S["principios"]), "{{CV}}": e(S["cv"]), "{{FILTROS}}": filtros, "{{PIEZAS}}": piezas, "{{CIFRAS}}": cifras, "{{CARRUSEL}}": carrusel, "{{PUNTOS}}": puntos, "{{CASOS}}": tarjetas_casos(LISTA_CASOS),
         "{{MAS}}": mas, "{{PROYECTOS}}": proyectos, "{{PASOS}}": pasos, "{{INSTITUCIONES}}": inst, "{{LD}}": ld,
     }
     for k, v in reemplazos.items():

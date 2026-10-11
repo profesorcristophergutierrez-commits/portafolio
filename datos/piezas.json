@@ -2,13 +2,16 @@
   "sitio": {
     "url": "https://profesorcristophergutierrez-commits.github.io/portafolio/",
     "nombre": "Cristopher Gutiérrez González",
-    "titulo": "Cursos en línea, videos con IA y recursos interactivos.",
+    "titulo": "Cursos en línea, videos con IA y productos interactivos.",
     "bajada": "Producción de soluciones tecnopedagógicas para universidades, organismos de capacitación y empresas.",
     "descripcion": "Portafolio de diseño instruccional de Cristopher Gutiérrez González: cursos en línea, videos con IA, recursos interactivos H5P y materiales de capacitación.",
     "correo": "profesorcristophergutierrez@gmail.com",
     "linkedin": "https://www.linkedin.com/in/cristopher-guti%C3%A9rrez-gonz%C3%A1lez-b8936b148/",
     "cv": "files/CV_Cristopher_Gutierrez.pdf",
-    "rol": "Profesor de Castellano y Comunicación, diseñador instruccional y asesor educativo. Magíster en Ciencias de la Educación, mención Currículum y Evaluación."
+    "rol": "Profesor de Castellano y Comunicación, diseñador instruccional y asesor educativo. Magíster en Ciencias de la Educación, mención Currículum y Evaluación.",
+    "telefono": "+56981506236",
+    "telefono_texto": "+56 9 8150 6236",
+    "principios": "Etapas de mi producción"
   },
   "filtros": [
     [
@@ -417,29 +420,39 @@
   ],
   "carrusel": [
     {
+      "titulo": "Trabajo junto a especialistas de cada disciplina",
+      "texto": "El conocimiento de cada disciplina se convierte en aprendizaje.",
+      "alt": "Ilustración animada: tres especialistas aportan contenidos que se transforman en un curso con módulos completados"
+    },
+    {
       "titulo": "Curaduría desde la investigación",
-      "texto": "Selección de fuentes y evidencia que fundamentan cada contenido.",
+      "texto": "Cada contenido se apoya en fuentes y evidencia seleccionadas.",
       "alt": "Ilustración animada: documentos de investigación que se examinan, se seleccionan y se ordenan"
     },
     {
-      "titulo": "Coherencia con la identidad institucional",
-      "texto": "Cada recurso adopta la identidad visual de la empresa u organismo.",
-      "alt": "Ilustración animada: una misma pantalla de curso que adopta tres paletas de color e identidades distintas"
+      "titulo": "Alineamiento con la identidad institucional",
+      "texto": "Cada producto responde a la identidad y necesidades institucionales.",
+      "alt": "Ilustración animada: una misma pantalla de curso que adopta distintas paletas de color e identidades"
     },
     {
-      "titulo": "Mejora continua desde la evidencia",
-      "texto": "Seguimiento y retroalimentación constructiva para perfeccionar el diseño.",
-      "alt": "Ilustración animada: barras de datos que crecen y un ciclo de medición, retroalimentación y mejora"
+      "titulo": "Accesibilidad desde el diseño universal",
+      "texto": "Todas las personas pueden aprender con cada producto.",
+      "alt": "Ilustración animada: una pantalla de curso que suma subtítulos, texto ajustable, mayor contraste y navegación por teclado"
     },
     {
-      "titulo": "Diseño gráfico y audiovisual para el aprendizaje",
-      "texto": "Imágenes vectoriales, video y animación al servicio de la enseñanza.",
+      "titulo": "Producción gráfica y audiovisual para el aprendizaje",
+      "texto": "Imagen, video y animación al servicio de la enseñanza.",
       "alt": "Ilustración animada: formas vectoriales, una curva de Bézier y una línea de tiempo de montaje de video"
     },
     {
-      "titulo": "Informes y reportes periódicos",
-      "texto": "Informes de diseño y reportes de avance de cada participante.",
+      "titulo": "Aseguramiento de la calidad con tutorización y reportería",
+      "texto": "Seguimiento y reportes periódicos en cada etapa.",
       "alt": "Ilustración animada: informes periódicos con el avance de cada participante que sube periodo a periodo"
+    },
+    {
+      "titulo": "Mejora continua desde la evidencia",
+      "texto": "Los resultados orientan cada ajuste.",
+      "alt": "Ilustración animada: barras de datos que crecen y un ciclo de medición, retroalimentación y mejora"
     }
   ]
 }
