@@ -78,7 +78,7 @@ def pagina():
         "{{TITULO_PAGINA}}": e(S["nombre"] + ", diseño instruccional"),
         "{{DESCRIPCION}}": e(S["descripcion"]), "{{URL}}": e(S["url"]), "{{NOMBRE}}": e(S["nombre"]),
         "{{TITULAR}}": e(S["titulo"]), "{{ROL}}": e(S["rol"]), "{{BAJADA}}": e(S["bajada"]), "{{CORREO}}": e(S["correo"]),
-        "{{LINKEDIN}}": e(S["linkedin"]), "{{TELEFONO}}": e(S["telefono"]), "{{TELEFONO_TEXTO}}": e(S["telefono_texto"]), "{{PRINCIPIOS}}": e(S["principios"]), "{{CV}}": e(S["cv"]), "{{FILTROS}}": filtros, "{{PIEZAS}}": piezas, "{{CIFRAS}}": cifras, "{{CARRUSEL}}": carrusel, "{{PUNTOS}}": puntos, "{{CASOS}}": tarjetas_casos(LISTA_CASOS),
+        "{{LINKEDIN}}": e(S["linkedin"]), "{{TELEFONO}}": e(S["telefono"]), "{{TELEFONO_TEXTO}}": e(S["telefono_texto"]), "{{PRINCIPIOS}}": e(S["principios"]), "{{FORMACION}}": e(D["formacion_calidad"]["texto"]), "{{FORMACION_ENLACE}}": e(D["formacion_calidad"]["enlace"]), "{{FORMACION_ENLACE_TEXTO}}": e(D["formacion_calidad"]["enlace_texto"]), "{{CV}}": e(S["cv"]), "{{FILTROS}}": filtros, "{{PIEZAS}}": piezas, "{{CIFRAS}}": cifras, "{{CARRUSEL}}": carrusel, "{{PUNTOS}}": puntos, "{{CASOS}}": tarjetas_casos(LISTA_CASOS),
         "{{MAS}}": mas, "{{PROYECTOS}}": proyectos, "{{PASOS}}": pasos, "{{INSTITUCIONES}}": inst, "{{LD}}": ld,
     }
     for k, v in reemplazos.items():

@@ -401,17 +401,13 @@
   ],
   "cifras": [
     {
-      "valor": 7,
-      "texto": "cursos abiertos diseñados para la Universidad de Chile (2026)"
+      "valor": 20,
+      "sufijo": "+",
+      "texto": "cursos en línea diseñados para universidades y organismos de capacitación"
     },
     {
       "valor": 3,
       "texto": "diplomados de 120 horas en docencia universitaria"
-    },
-    {
-      "valor": 85,
-      "sufijo": " %",
-      "texto": "de desempeños en nivel alto con casos de IA en Medicina (82 estudiantes)"
     },
     {
       "valor": 6,
@@ -454,5 +450,10 @@
       "texto": "Los resultados orientan cada ajuste.",
       "alt": "Ilustración animada: barras de datos que crecen y un ciclo de medición, retroalimentación y mejora"
     }
-  ]
+  ],
+  "formacion_calidad": {
+    "texto": "Formación continua en calidad: curso introductorio de Quality Matters (2024) y participación en el 3er Encuentro Iberoamericano de Instituciones Miembros de Quality Matters (2024).",
+    "enlace": "https://view.pok.tech/c/325a183e-26ce-4544-aaa1-b62cea0a6d86",
+    "enlace_texto": "Ver credencial verificable"
+  }
 }

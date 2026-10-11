@@ -64,6 +64,8 @@
   /* Apertura */
   .apertura { padding-top: 72px; padding-bottom: 64px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: end; }
   .apertura .principios { margin: 0 0 16px; font-size: 1.12rem; font-weight: 600; line-height: 1.3; color: var(--tinta); }
+  .formacion { margin: -18px 0 0; max-width: 52ch; font-size: 0.98rem; line-height: 1.55; color: var(--tinta-2); }
+  .formacion a { white-space: nowrap; text-underline-offset: 3px; }
   .carrusel { margin: 0; }
   .sl { margin: 0; }
   .sl img { width: 100%; height: auto; aspect-ratio: 16 / 9; background: #EFEFED; border-radius: 4px; }
@@ -185,11 +187,11 @@
 
   /* Animación 3: cifras con barra que crece y número que cuenta */
   .cifras { padding-top: 8px; padding-bottom: 80px; }
-  .cifras ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .cifras ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
   .cifras b { display: block; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1; color: var(--tinta); font-variant-numeric: tabular-nums; }
-  .cifras .barra { display: block; height: 3px; width: 0; margin: 14px 0 12px; background: var(--cobalto); transition: width 1.2s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .cifras .barra { display: block; height: 3px; padding: 0; width: 0; margin: 14px 0 12px; background: var(--cobalto); transition: width 1.2s cubic-bezier(0.2, 0.7, 0.2, 1); }
   .cifras .visto .barra { width: 100%; }
-  .cifras p { margin: 0; color: var(--gris); font-size: 0.95rem; line-height: 1.4; max-width: 24ch; }
+  .cifras p { margin: 0; color: var(--tinta-2); font-size: 1.2rem; line-height: 1.4; max-width: 26ch; }
 
   @media (prefers-reduced-motion: reduce) {
     .js .anim { opacity: 1; transform: none; transition: none; }
@@ -199,7 +201,7 @@
 
   @media (max-width: 999px) {
     .apertura { grid-template-columns: 1fr; gap: 40px; }
-    .cifras ul { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+    .cifras ul { grid-template-columns: 1fr; gap: 28px; }
     .grilla { grid-template-columns: 1fr 1fr; }
     .mas { grid-template-columns: 1fr; }
     .dos { grid-template-columns: 1fr; gap: 56px; }
@@ -242,10 +244,9 @@
       <h1 id="titular">Cursos en línea, videos con IA y productos interactivos.</h1>
       <p>Soluciones tecnopedagógicas para universidades, organismos de capacitación y empresas.</p>
       <div class="vinculos">
-        <a class="boton" href="mailto:profesorcristophergutierrez@gmail.com">Contacto</a>
+        <a class="boton" href="#contacto">Contacto</a>
         <a href="files/CV_Cristopher_Gutierrez.pdf">Currículum en PDF</a>
         <a href="https://www.linkedin.com/in/cristopher-guti%C3%A9rrez-gonz%C3%A1lez-b8936b148/" rel="noopener">LinkedIn</a>
-        <a href="tel:+56981506236">+56 9 8150 6236</a>
       </div>
     </div>
     <div>
@@ -268,9 +269,8 @@
 
   <section class="ancho cifras" aria-label="Trayectoria en cifras">
     <ul>
-<li><b data-cuenta="7" data-sufijo="">7</b><span class="barra" aria-hidden="true"></span><p>cursos abiertos diseñados para la Universidad de Chile (2026)</p></li>
+<li><b data-cuenta="20" data-sufijo="+">20+</b><span class="barra" aria-hidden="true"></span><p>cursos en línea diseñados para universidades y organismos de capacitación</p></li>
 <li><b data-cuenta="3" data-sufijo="">3</b><span class="barra" aria-hidden="true"></span><p>diplomados de 120 horas en docencia universitaria</p></li>
-<li><b data-cuenta="85" data-sufijo=" %">85 %</b><span class="barra" aria-hidden="true"></span><p>de desempeños en nivel alto con casos de IA en Medicina (82 estudiantes)</p></li>
 <li><b data-cuenta="6" data-sufijo="">6</b><span class="barra" aria-hidden="true"></span><p>años diseñando formación en educación superior</p></li>
     </ul>
   </section>
@@ -328,6 +328,7 @@
     <div>
       <h2>Cómo trabajo</h2>
       <ol class="pasos"><li>Análisis del público y del contexto</li><li>Resultados de aprendizaje evaluables</li><li>Secuencia de actividades y evaluación</li><li>Guiones, videos y recursos interactivos</li><li>Montaje en Moodle</li><li>Evaluación de impacto y mejora</li></ol>
+      <p class="formacion">Formación continua en calidad: curso introductorio de Quality Matters (2024) y participación en el 3er Encuentro Iberoamericano de Instituciones Miembros de Quality Matters (2024). <a href="https://view.pok.tech/c/325a183e-26ce-4544-aaa1-b62cea0a6d86" target="_blank" rel="noopener">Ver credencial verificable<span class="sr"> (se abre en otra pestaña)</span></a></p>
     </div>
   </section>
 </main>
