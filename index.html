@@ -67,10 +67,47 @@
   .cabeza nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
   /* Apertura */
-  .apertura { padding-top: 72px; padding-bottom: 64px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: start; }
+  .apertura { padding-top: 72px; padding-bottom: 64px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; }
   .apertura .principios { margin: 0 0 16px; font-size: 1.12rem; font-weight: 600; line-height: 1.3; color: var(--tinta); }
   .formacion { margin: -18px 0 0; max-width: 52ch; font-size: 0.98rem; line-height: 1.55; color: var(--tinta-2); }
   .formacion a { white-space: nowrap; text-underline-offset: 3px; }
+  /* Carrusel de etapas con un camino que guía: la línea se rellena hasta la etapa actual */
+  .carrusel-etapas { padding-top: 24px; padding-bottom: 72px; }
+  .carrusel-etapas h2 { margin: 0 0 28px; font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 1.9rem); letter-spacing: -0.02em; line-height: 1.1; }
+  .camino-caja { position: relative; max-width: 760px; margin: 0 auto; }
+  .camino { list-style: none; margin: 0; padding: 0; display: flex; justify-content: space-between; position: relative; z-index: 1; }
+  .camino-linea { position: absolute; left: 22px; right: 22px; top: 50%; height: 3px; margin-top: -1.5px; background: var(--linea); }
+  .camino-avance { display: block; height: 100%; width: 0; background: var(--cobalto); transition: width .5s ease; }
+  .camino button { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--cobalto); background: var(--fondo); color: var(--cobalto); font: inherit; font-weight: 600; font-size: 1rem; font-variant-numeric: tabular-nums; cursor: pointer; transition: background .3s, color .3s, transform .2s; }
+  .camino button:hover { transform: scale(1.08); }
+  .camino button.visto { background: var(--cobalto); color: var(--sobre); }
+  .camino button[aria-current="step"] { background: var(--cobalto); color: var(--sobre); box-shadow: 0 0 0 5px var(--fondo), 0 0 0 7px var(--cobalto); }
+  /* El título de la etapa ya va dentro del video: aquí queda solo para lectores de pantalla */
+  .camino-caja { margin-bottom: 32px; }
+  .visor-etapas { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 16px; align-items: center; }
+  .flecha { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--linea); background: var(--fondo); color: var(--tinta); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: border-color .2s, color .2s; }
+  .flecha:hover { border-color: var(--cobalto); color: var(--cobalto); }
+  .flecha:disabled { opacity: .3; cursor: default; }
+  .lamina-etapa { position: relative; }
+  .lamina-etapa video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--banda); border-radius: 4px; box-shadow: 0 0 0 1px var(--linea); }
+  @media (prefers-reduced-motion: no-preference) { .lamina-etapa:not([hidden]) { animation: entra-lamina .45s ease; } }
+  @keyframes entra-lamina { from { opacity: 0; transform: translateX(var(--desde, 24px)); } to { opacity: 1; transform: none; } }
+  .carrusel-pie { display: flex; justify-content: flex-end; margin-top: 18px; }
+  .boton-siguiente[hidden] { display: none; }
+  @media (prefers-reduced-motion: no-preference) { .boton-siguiente.invita { animation: invita 1.4s ease-in-out infinite; } }
+  @keyframes invita { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+  /* Botón grande de «play» sobre el video: visible cuando está detenido, con un anillo que pulsa hacia afuera */
+  .play-grande { position: absolute; left: 50%; top: 50%; z-index: 2; width: 88px; height: 88px; margin: -44px 0 0 -44px; border: 0; border-radius: 50%; background: var(--cobalto); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 12px 30px rgba(14, 18, 32, .25); transition: opacity .3s, transform .2s; }
+  .play-grande svg { margin-left: 4px; }
+  .play-grande:hover, .play-grande:focus-visible { transform: scale(1.08); }
+  .play-grande::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 3px solid var(--cobalto); opacity: 0; }
+  .lamina-etapa.reproduciendo .play-grande { opacity: 0; pointer-events: none; transform: scale(.8); }
+  @media (prefers-reduced-motion: no-preference) { .play-grande::before { animation: anillo 1.8s ease-out infinite; } }
+  @keyframes anillo { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.7); opacity: 0; } }
+  .casos-linea { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0 32px; }
+  .casos-linea li { padding: 14px 0; border-top: 1px solid var(--linea); }
+  .casos-linea a { font-weight: 600; color: var(--tinta); }
+  .casos-linea span { display: block; color: var(--gris); font-size: 0.93rem; margin-top: 2px; }
   .marcas { padding-top: 8px; padding-bottom: 72px; }
   .marcas-cab { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 26px; }
   .marcas-cab h2 { margin: 0; font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 1.9rem); letter-spacing: -0.02em; line-height: 1.1; }
@@ -84,7 +121,7 @@
   .marcas-pista img { height: 52px; width: auto; }
   .marcas-ventana:hover .marcas-pista, .marcas.detenido .marcas-pista { animation-play-state: paused; }
   @keyframes marcas-desfile { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
-  .marcas .instituciones { margin: 22px 0 0; max-width: 72ch; }
+  .marcas .instituciones { margin: 22px 0 0; max-width: none; }
   .marcas .instituciones + .instituciones { margin-top: 6px; }
   @media (prefers-reduced-motion: reduce) {
     .marcas-pista { animation: none; width: auto; flex-wrap: wrap; gap: 18px 0; }
@@ -171,11 +208,13 @@
   @media (max-width: 639px) { .casos { grid-template-columns: 1fr; } .logos-inst img { height: 38px; } }
 
   /* Pie */
-  .pie { margin-top: 112px; border-top: 1px solid var(--linea); padding-top: 48px; padding-bottom: 56px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+  .pie { margin-top: 112px; border-top: 1px solid var(--linea); padding-top: 48px; padding-bottom: 56px; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; }
   .pie img { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; }
   .pie h2 { margin: 0 0 6px; font-weight: 600; font-size: 1.5rem; letter-spacing: -0.015em; }
   .pie p { margin: 0; }
-  .pie .vinculos { margin-top: 14px; }
+  .pie .vinculos { margin-top: 14px; justify-content: center; }
+  .pie .pie-logo { margin-bottom: 4px; }
+  .pie .pie-logo img { width: auto; height: 40px; border-radius: 0; object-fit: contain; }
   .pie small { grid-column: 1 / -1; color: var(--gris); font-size: 0.86rem; margin-top: 18px; }
 
   /* Visor y actividad */
@@ -232,6 +271,14 @@
     .apertura-der { display: contents; }
     .apertura .quien { order: -1; }
     .apertura .principios { margin-top: 40px; }
+    .visor-etapas { grid-template-columns: minmax(0, 1fr); }
+    .visor-etapas .flecha { display: none; }
+    .camino button { width: 36px; height: 36px; font-size: 0.9rem; }
+    .camino-linea { left: 18px; right: 18px; }
+    .play-grande { width: 64px; height: 64px; margin: -32px 0 0 -32px; }
+    .play-grande svg { width: 26px; height: 26px; }
+    .carrusel-pie { justify-content: stretch; }
+    .carrusel-pie .boton { width: 100%; text-align: center; }
     .cifras ul { grid-template-columns: 1fr; gap: 28px; }
     .grilla { grid-template-columns: 1fr 1fr; }
     .mas { grid-template-columns: 1fr; }
@@ -252,7 +299,7 @@
     .rotulo .tit { font-size: 1.6rem; }
     .bloque { padding-top: 80px; }
     .mas li { flex-direction: column; gap: 6px; }
-    .pie { grid-template-columns: 1fr; margin-top: 80px; }
+    .pie { margin-top: 80px; }
     .juego { padding: 24px 18px; }
   }
 </style>
@@ -263,8 +310,7 @@
 <header class="ancho cabeza">
   <a class="marca" href="#"><img src="images/logo_horizontal.png" width="1959" height="288" alt="Cristopher Gutiérrez, diseño instruccional. Ir al inicio"></a>
   <nav aria-label="Secciones">
-    <a href="#piezas">Piezas</a>
-    <a class="opcional" href="#casos">Casos</a>
+    <a href="#etapas">Etapas</a>
     <a href="#contacto">Contacto</a>
   </nav>
 </header>
@@ -282,21 +328,30 @@
     </div>
     <div class="apertura-der">
     <p class="quien"><img src="images/foto_linkedin.jpg" width="112" height="112" alt="Fotografía de Cristopher Gutiérrez González"><span><b>Cristopher Gutiérrez González</b>Profesor de Castellano y Comunicación, diseñador instruccional y asesor educativo. Magíster en Ciencias de la Educación, mención Currículum y Evaluación.</span></p>
-    <p class="principios">Etapas de mi producción</p>
-    <div class="carrusel" role="group" aria-roledescription="carrusel" aria-label="Competencias principales">
-      <figure class="sl activa"><img src="hero/hero_1.jpg" data-fijo="hero/hero_1.jpg" data-gif="hero/hero_1.gif" width="960" height="540" alt="Ilustración animada: tres especialistas aportan contenidos que se transforman en un curso con módulos completados"><figcaption class="sr">Trabajo junto a especialistas de cada disciplina. El conocimiento de cada disciplina se convierte en aprendizaje.</figcaption></figure>
-      <figure class="sl"><img src="hero/hero_2.jpg" data-fijo="hero/hero_2.jpg" data-gif="hero/hero_2.gif" width="960" height="540" alt="Ilustración animada: documentos de investigación que se examinan, se seleccionan y se ordenan"><figcaption class="sr">Curaduría desde la investigación. Cada contenido se apoya en fuentes y evidencia seleccionadas.</figcaption></figure>
-      <figure class="sl"><img src="hero/hero_3.jpg" data-fijo="hero/hero_3.jpg" data-gif="hero/hero_3.gif" width="960" height="540" alt="Ilustración animada: una misma pantalla de curso que adopta distintas paletas de color e identidades"><figcaption class="sr">Alineamiento con la identidad institucional. Cada producto responde a la identidad y necesidades institucionales.</figcaption></figure>
-      <figure class="sl"><img src="hero/hero_4.jpg" data-fijo="hero/hero_4.jpg" data-gif="hero/hero_4.gif" width="960" height="540" alt="Ilustración animada: una pantalla de curso que suma subtítulos, texto ajustable, mayor contraste y navegación por teclado"><figcaption class="sr">Accesibilidad desde el diseño universal. Todas las personas pueden aprender con cada producto.</figcaption></figure>
-      <figure class="sl"><img src="hero/hero_5.jpg" data-fijo="hero/hero_5.jpg" data-gif="hero/hero_5.gif" width="960" height="540" alt="Ilustración animada: formas vectoriales, una curva de Bézier y una línea de tiempo de montaje de video"><figcaption class="sr">Producción gráfica y audiovisual para el aprendizaje. Imagen, video y animación al servicio de la enseñanza.</figcaption></figure>
-      <figure class="sl"><img src="hero/hero_6.jpg" data-fijo="hero/hero_6.jpg" data-gif="hero/hero_6.gif" width="960" height="540" alt="Ilustración animada: informes periódicos con el avance de cada participante que sube periodo a periodo"><figcaption class="sr">Aseguramiento de la calidad con tutorización y reportería. Seguimiento y reportes periódicos en cada etapa.</figcaption></figure>
-      <figure class="sl"><img src="hero/hero_7.jpg" data-fijo="hero/hero_7.jpg" data-gif="hero/hero_7.gif" width="960" height="540" alt="Ilustración animada: barras de datos que crecen y un ciclo de medición, retroalimentación y mejora"><figcaption class="sr">Mejora continua desde la evidencia. Los resultados orientan cada ajuste.</figcaption></figure>
-      <div class="car-ctl">
-        <div class="puntos" role="group" aria-label="Elegir etapa"><button type="button" aria-label="Etapa 1: Trabajo junto a especialistas de cada disciplina"></button><button type="button" aria-label="Etapa 2: Curaduría desde la investigación"></button><button type="button" aria-label="Etapa 3: Alineamiento con la identidad institucional"></button><button type="button" aria-label="Etapa 4: Accesibilidad desde el diseño universal"></button><button type="button" aria-label="Etapa 5: Producción gráfica y audiovisual para el aprendizaje"></button><button type="button" aria-label="Etapa 6: Aseguramiento de la calidad con tutorización y reportería"></button><button type="button" aria-label="Etapa 7: Mejora continua desde la evidencia"></button></div>
-        <button type="button" class="accion" id="car-pausa" aria-pressed="false">Pausar</button>
+    </div>
+  </section>
+
+  <section class="ancho carrusel-etapas" id="etapas" aria-labelledby="t-etapas" aria-roledescription="carrusel">
+    <h2 id="t-etapas">Etapas de mi producción</h2>
+    <div class="camino-caja">
+      <span class="camino-linea" aria-hidden="true"><span class="camino-avance"></span></span>
+      <ol class="camino"><li><button type="button" data-etapa="0" aria-label="Etapa 1: Trabajo junto a especialistas">1</button></li><li><button type="button" data-etapa="1" aria-label="Etapa 2: Curaduría desde la investigación">2</button></li><li><button type="button" data-etapa="2" aria-label="Etapa 3: Alineamiento con la identidad institucional">3</button></li><li><button type="button" data-etapa="3" aria-label="Etapa 4: Accesibilidad desde el diseño universal">4</button></li><li><button type="button" data-etapa="4" aria-label="Etapa 5: Producción gráfica y audiovisual para el aprendizaje">5</button></li><li><button type="button" data-etapa="5" aria-label="Etapa 6: Aseguramiento de la calidad con tutorización y reportería">6</button></li><li><button type="button" data-etapa="6" aria-label="Etapa 7: Mejora continua desde la evidencia">7</button></li></ol>
+    </div>
+    <p class="camino-titulo sr" aria-live="polite"><b></b> <span></span></p>
+    <div class="visor-etapas">
+      <button type="button" class="flecha anterior-e" aria-label="Etapa anterior"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="laminas-etapas">
+<div class="lamina-etapa" data-titulo="Trabajo junto a especialistas" data-contexto="Curso de Formación Docente, Universidad de Chile"><button type="button" class="play-grande" aria-label="Reproducir el video de la etapa 1"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M8.5 5.5v13l10.5-6.5z" fill="currentColor"/></svg></button><video controls controlslist="nodownload" muted playsinline preload="none" poster="etapas/etapa_1.jpg" data-src="etapas/etapa_1.mp4" width="1280" height="720" aria-label="Video: la matriz de diseño instruccional de una docente se completa, se acuerda con la especialista y se convierte en una unidad del curso con ruta y pasos."></video></div>
+<div class="lamina-etapa" data-titulo="Curaduría desde la investigación" data-contexto="Curso e-learning para una OTEC con franquicia SENCE, 2023" hidden><button type="button" class="play-grande" aria-label="Reproducir el video de la etapa 2"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M8.5 5.5v13l10.5-6.5z" fill="currentColor"/></svg></button><video controls controlslist="nodownload" muted playsinline preload="none" poster="etapas/etapa_2.jpg" data-src="etapas/etapa_2.mp4" width="1280" height="720" aria-label="Video: se seleccionan fuentes con evidencia, se escribe una lectura maestra propia y la evidencia se convierte en un estudio de caso evaluado."></video></div>
+<div class="lamina-etapa" data-titulo="Alineamiento con la identidad institucional" data-contexto="Universidad Católica del Maule" hidden><button type="button" class="play-grande" aria-label="Reproducir el video de la etapa 3"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M8.5 5.5v13l10.5-6.5z" fill="currentColor"/></svg></button><video controls controlslist="nodownload" muted playsinline preload="none" poster="etapas/etapa_3.jpg" data-src="etapas/etapa_3.mp4" width="1280" height="720" aria-label="Video: la ficha de identidad de la universidad (logotipo, colores y tipografía) se aplica a un video informativo y a los reels de acreditación."></video></div>
+<div class="lamina-etapa" data-titulo="Accesibilidad desde el diseño universal" data-contexto="Libro interactivo H5P, capacitación corporativa" hidden><button type="button" class="play-grande" aria-label="Reproducir el video de la etapa 4"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M8.5 5.5v13l10.5-6.5z" fill="currentColor"/></svg></button><video controls controlslist="nodownload" muted playsinline preload="none" poster="etapas/etapa_4.jpg" data-src="etapas/etapa_4.mp4" width="1280" height="720" aria-label="Video: se mide el contraste de los colores del libro interactivo, se muestran los tamaños de letra y los subtítulos y textos alternativos; el texto principal alcanza un contraste de 21:1."></video></div>
+<div class="lamina-etapa" data-titulo="Producción gráfica y audiovisual para el aprendizaje" data-contexto="Facultad de Medicina, Universidad Católica del Maule" hidden><button type="button" class="play-grande" aria-label="Reproducir el video de la etapa 5"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M8.5 5.5v13l10.5-6.5z" fill="currentColor"/></svg></button><video controls controlslist="nodownload" muted playsinline preload="none" poster="etapas/etapa_5.jpg" data-src="etapas/etapa_5.mp4" width="1280" height="720" aria-label="Video: una médica virtual en un caso clínico, un escenario ramificado con el protocolo SPIKES y la actividad de práctica CICAA."></video></div>
+<div class="lamina-etapa" data-titulo="Aseguramiento de la calidad con tutorización y reportería" data-contexto="Diplomados del Centro de Desarrollo e Innovación Docente, Universidad Católica del Maule" hidden><button type="button" class="play-grande" aria-label="Reproducir el video de la etapa 6"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M8.5 5.5v13l10.5-6.5z" fill="currentColor"/></svg></button><video controls controlslist="nodownload" muted playsinline preload="none" poster="etapas/etapa_6.jpg" data-src="etapas/etapa_6.mp4" width="1280" height="720" aria-label="Video: mensajes de tutoría en el aula virtual, informes de resultados por unidad y la satisfacción con la relatoría y tutorización: 92 %, 94 % y 98 % en tres diplomados."></video></div>
+<div class="lamina-etapa" data-titulo="Mejora continua desde la evidencia" data-contexto="Modelo de Evaluación de Impacto, Centro de Desarrollo e Innovación Docente, Universidad Católica del Maule, 2024" hidden><button type="button" class="play-grande" aria-label="Reproducir el video de la etapa 7"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M8.5 5.5v13l10.5-6.5z" fill="currentColor"/></svg></button><video controls controlslist="nodownload" muted playsinline preload="none" poster="etapas/etapa_7.jpg" data-src="etapas/etapa_7.mp4" width="1280" height="720" aria-label="Video: un modelo que mide el impacto en cuatro niveles; el aprendizaje sube de 79 % a 95 % y los resultados llevan a indicadores por nivel y a un diplomado rediseñado."></video></div>
       </div>
+      <button type="button" class="flecha siguiente-e" aria-label="Etapa siguiente"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
-    </div>
+    <div class="carrusel-pie"><button type="button" class="boton boton-siguiente"></button></div>
   </section>
 
   <section class="ancho cifras" aria-label="Trayectoria en cifras">
@@ -318,60 +373,17 @@
     <p class="instituciones">En la Universidad Católica del Maule: Facultad de Medicina, Dirección de Formación General, Dirección General de Docencia, Centro de Desarrollo e Innovación Docente y Vicerrectoría de Investigación y Postgrado.</p>
   </section>
 
-  <section class="ancho" id="piezas" aria-label="Piezas">
-    <div class="filtros" role="group" aria-label="Filtrar piezas"><button type="button" data-f="todas" aria-pressed="true">Todas</button><button type="button" data-f="interactivos" aria-pressed="false">Interactivos</button><button type="button" data-f="videos" aria-pressed="false">Videos con IA</button><button type="button" data-f="capacitacion" aria-pressed="false">Capacitación</button><button type="button" data-f="difusion" aria-pressed="false">Difusión y documentos</button></div>
-    <div class="grilla">
-<article class="pieza" data-filtro="interactivos"><button class="lamina" type="button" data-iframe="h5p/libro.html" data-titulo="Retroalimentación efectiva para jefaturas"><picture><source type="image/webp" srcset="portadas_v2/libro_h5p-464.webp 464w, portadas_v2/libro_h5p-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/libro_h5p-928.jpg" width="928" height="1152" alt="Notebook sobre un escritorio con el libro interactivo abierto en el capítulo 1" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Libro interactivo H5P</span><span class="tit">Retroalimentación efectiva para jefaturas</span></span></button><p class="detalle">Capacitación corporativa con cuatro capítulos y tres preguntas de práctica.</p><button class="accion" type="button" data-iframe="h5p/libro.html" data-titulo="Retroalimentación efectiva para jefaturas">Probar el libro</button></article>
-<article class="pieza" data-filtro="interactivos"><a class="lamina" href="https://view.genially.com/68b9934c97d0232e2d37df1e" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="portadas_v2/spikes-464.webp 464w, portadas_v2/spikes-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/spikes-928.jpg" width="928" height="1152" alt="Tableta en un soporte de madera con la portada del escenario SPIKES" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Escenario ramificado</span><span class="tit">Comunicar una noticia difícil</span></span></a><p class="detalle">Diez decisiones y tres finales con el protocolo SPIKES, hecho en Genially.</p><a class="accion" href="https://view.genially.com/68b9934c97d0232e2d37df1e" target="_blank" rel="noopener">Jugar en Genially<span class="sr"> (se abre en otra pestaña)</span></a></article>
-<article class="pieza" data-filtro="interactivos"><button class="lamina" type="button" data-juego data-titulo="Ordena la entrevista clínica"><picture><source type="image/webp" srcset="portadas_v2/cicaa-464.webp 464w, portadas_v2/cicaa-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/cicaa-928.jpg" width="928" height="1152" alt="Teléfono en un soporte con la actividad de ordenar las etapas de la entrevista clínica" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Actividad interactiva</span><span class="tit">Ordena la entrevista clínica</span></span></button><p class="detalle">Práctica del modelo CICAA para el curso de Medicina, con retroalimentación inmediata.</p><button class="accion" type="button" data-juego data-titulo="Ordena la entrevista clínica">Probar la actividad</button></article>
-<article class="pieza" data-filtro="videos"><button class="lamina" type="button" data-video="muestras/reel_cna.mp4" data-titulo="El par evaluador pregunta"><picture><source type="image/webp" srcset="portadas_v2/reel_cna-464.webp 464w, portadas_v2/reel_cna-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/reel_cna-928.jpg" width="928" height="1152" alt="Teléfono sobre un escritorio reproduciendo el reel con un avatar" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Reel con avatares de IA</span><span class="tit">El par evaluador pregunta</span></span></button><p class="detalle">Serie de cuatro reels para preparar la acreditación institucional, 2026.</p><button class="accion" type="button" data-video="muestras/reel_cna.mp4" data-titulo="El par evaluador pregunta">Ver muestra de 18 s</button></article>
-<article class="pieza" data-filtro="videos"><button class="lamina" type="button" data-video="muestras/caso_medicina.mp4" data-titulo="Médica virtual para entrenar la comunicación"><picture><source type="image/webp" srcset="portadas_v2/medica-464.webp 464w, portadas_v2/medica-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/medica-928.jpg" width="928" height="1152" alt="Monitor de escritorio con la médica virtual del caso clínico" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Caso clínico con IA</span><span class="tit">Médica virtual para entrenar la comunicación</span></span></button><p class="detalle">Cuatro casos con pacientes y médicos virtuales para Medicina, 2025.</p><button class="accion" type="button" data-video="muestras/caso_medicina.mp4" data-titulo="Médica virtual para entrenar la comunicación">Ver muestra de 15 s</button></article>
-<article class="pieza" data-filtro="videos"><button class="lamina" type="button" data-video="muestras/caso_parvularia.mp4" data-titulo="La directora y la educadora"><picture><source type="image/webp" srcset="portadas_v2/parvularia-464.webp 464w, portadas_v2/parvularia-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/parvularia-928.jpg" width="928" height="1152" alt="Notebook con el video del caso, la directora Beatriz en una sala de clases" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Caso con IA</span><span class="tit">La directora y la educadora</span></span></button><p class="detalle">Caso de liderazgo pedagógico para Educación Parvularia, 2026.</p><button class="accion" type="button" data-video="muestras/caso_parvularia.mp4" data-titulo="La directora y la educadora">Ver muestra de 15 s</button></article>
-<article class="pieza" data-filtro="capacitacion"><button class="lamina" type="button" data-galeria="images/copilot_1.jpg::Portada del taller de Copilot|images/copilot_6.jpg::La herramienta responde; la decisión pedagógica es tuya|images/copilot_9.jpg::Copilot como laboratorio pedagógico|images/copilot_11.jpg::De la necesidad al prompt y al borrador|images/copilot_guia.jpg::Guía de modelaje para el facilitador|images/copilot_tarjetas.jpg::Tarjetas de práctica por nivel" data-titulo="Taller de Microsoft Copilot"><picture><source type="image/webp" srcset="portadas_v2/copilot-464.webp 464w, portadas_v2/copilot-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/copilot-928.jpg" width="928" height="1152" alt="Tableta sobre un escritorio con la guía del facilitador del taller" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Kit de capacitación</span><span class="tit">Taller de Microsoft Copilot</span></span></button><p class="detalle">Láminas, guía del facilitador y tarjetas de práctica por nivel.</p><button class="accion" type="button" data-galeria="images/copilot_1.jpg::Portada del taller de Copilot|images/copilot_6.jpg::La herramienta responde; la decisión pedagógica es tuya|images/copilot_9.jpg::Copilot como laboratorio pedagógico|images/copilot_11.jpg::De la necesidad al prompt y al borrador|images/copilot_guia.jpg::Guía de modelaje para el facilitador|images/copilot_tarjetas.jpg::Tarjetas de práctica por nivel" data-titulo="Taller de Microsoft Copilot">Ver las seis piezas</button></article>
-<article class="pieza" data-filtro="capacitacion"><button class="lamina" type="button" data-galeria="images/ddu_unidad.jpg::Unidad del diplomado con video y banners|images/ddu_sintesis.jpg::Síntesis interactiva de la semana|images/ddu_h5p.jpg::Actividad formativa H5P" data-titulo="Diplomado en Docencia Universitaria"><picture><source type="image/webp" srcset="portadas_v2/diplomado-464.webp 464w, portadas_v2/diplomado-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/diplomado-928.jpg" width="928" height="1152" alt="Computador de escritorio con una unidad del diplomado en Moodle" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Curso en Moodle</span><span class="tit">Diplomado en Docencia Universitaria</span></span></button><p class="detalle">Coordinación y diseño de un diplomado de 120 horas, 2023 a 2024.</p><button class="accion" type="button" data-galeria="images/ddu_unidad.jpg::Unidad del diplomado con video y banners|images/ddu_sintesis.jpg::Síntesis interactiva de la semana|images/ddu_h5p.jpg::Actividad formativa H5P" data-titulo="Diplomado en Docencia Universitaria">Ver tres pantallas</button></article>
-<article class="pieza" data-filtro="capacitacion"><button class="lamina" type="button" data-galeria="images/pj_ruta.jpg::Ruta de aprendizaje por módulo|images/pj_problema.jpg::Problema que aborda el curso|images/pj_modelo_addie.jpg::Modelo de diseño instruccional|images/pj_aplicacion_addie.jpg::Aplicación de ADDIE|images/pj_planificacion.jpg::Carta Gantt del desarrollo" data-titulo="Del problema a la ruta de aprendizaje"><picture><source type="image/webp" srcset="portadas_v2/ruta-464.webp 464w, portadas_v2/ruta-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/ruta-928.jpg" width="928" height="1152" alt="Hoja impresa con la ruta de aprendizaje del curso sobre un escritorio" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Diseño de curso</span><span class="tit">Del problema a la ruta de aprendizaje</span></span></button><p class="detalle">Planificación de un curso e-learning de 24 horas con ADDIE y carta Gantt, 2023.</p><button class="accion" type="button" data-galeria="images/pj_ruta.jpg::Ruta de aprendizaje por módulo|images/pj_problema.jpg::Problema que aborda el curso|images/pj_modelo_addie.jpg::Modelo de diseño instruccional|images/pj_aplicacion_addie.jpg::Aplicación de ADDIE|images/pj_planificacion.jpg::Carta Gantt del desarrollo" data-titulo="Del problema a la ruta de aprendizaje">Ver cinco láminas</button></article>
-<article class="pieza" data-filtro="difusion"><button class="lamina" type="button" data-galeria="charlas/afiche_taller_ia.jpg::Afiche del taller|charlas/historia_taller_ia.jpg::Historia para Instagram" data-titulo="IA generativa para docentes"><picture><source type="image/webp" srcset="portadas_v2/afiche_ia-464.webp 464w, portadas_v2/afiche_ia-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/afiche_ia-928.jpg" width="928" height="1152" alt="Afiche enmarcado del taller apoyado en la pared" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Difusión</span><span class="tit">IA generativa para docentes</span></span></button><p class="detalle">Taller propio, con afiche e historia para Instagram.</p><button class="accion" type="button" data-galeria="charlas/afiche_taller_ia.jpg::Afiche del taller|charlas/historia_taller_ia.jpg::Historia para Instagram" data-titulo="IA generativa para docentes">Ver las dos piezas</button></article>
-<article class="pieza" data-filtro="difusion"><button class="lamina" type="button" data-galeria="charlas/charla_1.jpg::Portada: Un día de clases con IA|charlas/charla_3.jpg::Línea de tiempo de la jornada|charlas/charla_4.jpg::Prompt para planificar|charlas/charla_11.jpg::Respuesta de la IA comentada" data-titulo="Un día de clases con IA"><picture><source type="image/webp" srcset="portadas_v2/charla_ia-464.webp 464w, portadas_v2/charla_ia-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/charla_ia-928.jpg" width="928" height="1152" alt="Notebook con la portada de la charla Un día de clases con IA" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Charla</span><span class="tit">Un día de clases con IA</span></span></button><p class="detalle">Charla sobre inteligencia artificial en el sistema escolar, con ejemplos para planificar.</p><button class="accion" type="button" data-galeria="charlas/charla_1.jpg::Portada: Un día de clases con IA|charlas/charla_3.jpg::Línea de tiempo de la jornada|charlas/charla_4.jpg::Prompt para planificar|charlas/charla_11.jpg::Respuesta de la IA comentada" data-titulo="Un día de clases con IA">Ver cuatro láminas</button></article>
-<article class="pieza" data-filtro="difusion"><button class="lamina" type="button" data-galeria="images/pj_guion.jpg::Guion del video de presentación|images/med_rubrica.jpg::Evaluación de noticias difíciles|images/pj_estudio_caso.jpg::Evaluación con estudio de caso|images/pj_lectura.jpg::Lectura maestra de autoría propia" data-titulo="Guiones, casos y rúbricas"><picture><source type="image/webp" srcset="portadas_v2/guion-464.webp 464w, portadas_v2/guion-928.webp 928w" sizes="(min-width: 1000px) 31vw, (min-width: 640px) 46vw, 92vw"><img src="portadas_v2/guion-928.jpg" width="928" height="1152" alt="Hoja impresa con el guion sobre un escritorio, junto a unos lentes y un lápiz" loading="lazy" decoding="async"></picture><span class="rotulo"><span class="cat">Documentos de diseño</span><span class="tit">Guiones, casos y rúbricas</span></span></button><p class="detalle">Lo que hay detrás de un curso: guion de video, evaluación auténtica y lectura propia.</p><button class="accion" type="button" data-galeria="images/pj_guion.jpg::Guion del video de presentación|images/med_rubrica.jpg::Evaluación de noticias difíciles|images/pj_estudio_caso.jpg::Evaluación con estudio de caso|images/pj_lectura.jpg::Lectura maestra de autoría propia" data-titulo="Guiones, casos y rúbricas">Ver cuatro documentos</button></article>
-    </div>
-  </section>
 
-  <section class="ancho bloque" id="mas" aria-labelledby="t-mas">
-    <h2 id="t-mas">Más trabajos</h2>
-    <ul class="mas">
-<li><span><strong>Navegando el cambio: innovación educativa en la era digital</strong>Panelista internacional, Universidad de Panamá</span><button class="accion" type="button" data-galeria="charlas/afiche_panama.jpg::Afiche del conversatorio" data-titulo="Navegando el cambio: innovación educativa en la era digital">Ver afiche</button></li>
-<li><span><strong>Plan de Formación Docente</strong>Relator de tres talleres, Centro de Formación Técnica San Agustín</span><button class="accion" type="button" data-galeria="charlas/afiche_cft_innovacion.jpg::Estrategias innovativas en el aprendizaje|charlas/afiche_cft_acompanamiento.jpg::Monitoreo y acompañamiento del aprendizaje|charlas/afiche_cft_pensamiento.jpg::Estrategias para el desarrollo del pensamiento" data-titulo="Plan de Formación Docente">Ver afiches</button></li>
-<li><span><strong>Curso e-learning para profesores jefes</strong>Diseño ADDIE de un curso de 24 horas, 2023</span><button class="accion" type="button" data-video="muestras/curso_pj.mp4" data-titulo="Curso e-learning para profesores jefes">Ver muestra</button></li>
-<li><span><strong>El modelo CICAA en tres minutos</strong>Video explicativo para Medicina, 2025</span><button class="accion" type="button" data-video="muestras/cicaa.mp4" data-titulo="El modelo CICAA en tres minutos">Ver muestra</button></li>
-<li><span><strong>Evaluar por resultados de aprendizaje</strong>Video con avatar para Inglés de Formación General, 2026</span><button class="accion" type="button" data-video="muestras/rda.mp4" data-titulo="Evaluar por resultados de aprendizaje">Ver muestra</button></li>
-<li><span><strong>Lineamientos curriculares</strong>Video institucional de Formación General, 2026</span><button class="accion" type="button" data-video="muestras/informativo_dfg.mp4" data-titulo="Lineamientos curriculares">Ver muestra</button></li>
-<li><span><strong>IA generativa y codocencia en Medicina</strong>Ponencia en congreso iberoamericano, 2026</span><button class="accion" type="button" data-galeria="images/med_secuencia.jpg::Secuencia didáctica|images/med_resultado.jpg::Resultado de aprendizaje y objetivos|images/med_caso.jpg::Descripción de la experiencia" data-titulo="IA generativa y codocencia en Medicina">Ver láminas</button></li>
-<li><span><strong>Cuento ilustrado creado con IA</strong>Recurso de la charla para docentes de educación básica</span><button class="accion" type="button" data-video="muestras/charla_cuento.mp4" data-titulo="Cuento ilustrado creado con IA">Ver muestra</button></li>
-<li><span><strong>Juego de tablas de multiplicar creado con IA</strong>Recurso de la misma charla</span><button class="accion" type="button" data-video="muestras/charla_juego.mp4" data-titulo="Juego de tablas de multiplicar creado con IA">Ver muestra</button></li>
-    </ul>
-  </section>
-
-  <section class="ancho bloque" id="casos" aria-labelledby="t-casos">
-    <h2 id="t-casos">Estudios de caso</h2>
-    <p class="intro-casos">Cinco proyectos contados de principio a fin: el problema, el diseño, los recursos, la evaluación y el resultado. Cada uno abre con un video de proceso de un minuto.</p>
-    <div class="casos"><a class="caso-tarjeta" href="casos/medicina.html"><img src="casos/medicina_poster.jpg" alt="" loading="lazy" width="1280" height="720"><span class="donde">Universidad Católica del Maule · Facultad de Medicina · 2025</span><strong>IA y codocencia para entrenar la comunicación clínica</strong><span class="ver">Ver el caso y su video de proceso</span></a><a class="caso-tarjeta" href="casos/otec.html"><img src="casos/otec_poster.jpg" alt="" loading="lazy" width="1280" height="720"><span class="donde">Organización de capacitación · Curso e-learning · 2023</span><strong>Un curso e-learning de 24 horas para profesores jefes</strong><span class="ver">Ver el caso y su video de proceso</span></a><a class="caso-tarjeta" href="casos/corporativo.html"><img src="casos/corporativo_poster.jpg" alt="" loading="lazy" width="1280" height="720"><span class="donde">Muestras propias · Capacitación corporativa · 2026</span><strong>Capacitación corporativa: un libro interactivo y un kit de taller</strong><span class="ver">Ver el caso y su video de proceso</span></a><a class="caso-tarjeta" href="casos/difusion.html"><img src="casos/difusion_poster.jpg" alt="" loading="lazy" width="1280" height="720"><span class="donde">Charlas, talleres y difusión · 2025 a 2026</span><strong>Difundir también es diseñar: charlas, talleres y reels</strong><span class="ver">Ver el caso y su video de proceso</span></a><a class="caso-tarjeta" href="casos/guiones.html"><img src="casos/guiones_poster.jpg" alt="" loading="lazy" width="1280" height="720"><span class="donde">Universidad Católica del Maule y cursos propios · 2023 a 2026</span><strong>Primero la palabra: guiones para video, podcast y casos</strong><span class="ver">Ver el caso y su video de proceso</span></a></div>
-  </section>
-
-  <section class="ancho bloque" id="proyectos" aria-labelledby="t-metodo">
-    <h2 id="t-metodo">Cómo trabajo</h2>
-    <ol class="pasos"><li>Análisis del público y del contexto</li><li>Resultados de aprendizaje evaluables</li><li>Secuencia de actividades y evaluación</li><li>Guiones, videos y recursos interactivos</li><li>Montaje en Moodle</li><li>Evaluación de impacto y mejora</li></ol>
-    <p class="formacion">Formación continua en calidad: curso introductorio de Quality Matters (2024) y participación en el 3er Encuentro Iberoamericano de Instituciones Miembros de Quality Matters (2024). <a href="https://view.pok.tech/c/325a183e-26ce-4544-aaa1-b62cea0a6d86" target="_blank" rel="noopener">Ver credencial verificable<span class="sr"> (se abre en otra pestaña)</span></a></p>
-  </section>
 </main>
 
 <footer class="ancho pie" id="contacto">
+  <a class="marca pie-logo" href="#"><img src="images/logo_horizontal.png" width="1959" height="288" alt="Cristopher Gutiérrez, diseño instruccional. Volver al inicio" loading="lazy"></a>
   <img src="images/foto_cristopher.jpg" width="104" height="104" alt="Fotografía de Cristopher Gutiérrez González" loading="lazy">
   <div>
     <h2>¿Diseñamos tu próximo curso?</h2>
     <p>Escríbeme a <a href="mailto:profesorcristophergutierrez@gmail.com">profesorcristophergutierrez@gmail.com</a></p>
     <div class="vinculos"><a href="files/CV_Cristopher_Gutierrez.pdf">Currículum en PDF</a><a href="https://www.linkedin.com/in/cristopher-guti%C3%A9rrez-gonz%C3%A1lez-b8936b148/" rel="noopener">LinkedIn</a><a href="tel:+56981506236">+56 9 8150 6236</a></div>
   </div>
-  <small>«Germina la vida en el surco», Jorge González Bastías, poeta del Maule (<i>Vera rústica</i>, 1933, dominio público). Escenas fotográficas generadas con IA; las pantallas muestran piezas reales.</small>
 </footer>
 
 <dialog id="visor" aria-label="Visor de piezas">
@@ -414,13 +426,13 @@
 
   // Animación 1a: entrada en secuencia al cargar
   let indice = 0;
-  document.querySelectorAll(".cabeza, .apertura p, .apertura .vinculos, .carrusel, .cifras li, .filtros, .grilla .pieza:nth-child(-n+3)").forEach(el => {
+  document.querySelectorAll(".cabeza, .apertura p, .apertura .vinculos, .cifras li").forEach(el => {
     el.classList.add("anim"); el.dataset.entra = ""; el.style.setProperty("--n", indice++);
   });
   requestAnimationFrame(() => requestAnimationFrame(() => document.querySelectorAll("[data-entra]").forEach(el => el.classList.add("visto"))));
 
   // Animación 1b: aparición suave al hacer scroll, una sola vez por bloque
-  const alScroll = document.querySelectorAll(".grilla .pieza:nth-child(n+4), .bloque, .pie");
+  const alScroll = document.querySelectorAll(".bloque, .pie");
   alScroll.forEach(el => el.classList.add("anim"));
   if (movimiento && "IntersectionObserver" in window) {
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visto"); io.unobserve(e.target); } }), { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
@@ -441,48 +453,67 @@
     io.observe(b);
   });
 
-  // Carrusel de la portada: ilustraciones animadas (GIF); se detiene si la persona prefiere menos movimiento
-  const laminas = [...document.querySelectorAll(".sl")], puntosC = [...document.querySelectorAll(".puntos button")], pausaC = document.getElementById("car-pausa");
-  let actual = 0, detenido = !movimiento, reloj = null, turno = 0;
-  // Cada GIF se descarga una sola vez; para reiniciarlo se crea una URL nueva del mismo archivo, sin pasar por la red
-  const gifs = {}, urls = new Map();
-  const cargarGif = src => gifs[src] || (gifs[src] = fetch(src).then(r => r.blob()).catch(() => null));
-  async function prepararImagen(l, animar) {
-    const im = l.querySelector("img");
-    let src = im.dataset.fijo;
-    if (animar) { const b = await cargarGif(im.dataset.gif); if (b) src = URL.createObjectURL(b); }
-    const pre = new Image(); pre.src = src;
-    try { await pre.decode(); } catch (_) {}
-    if (urls.has(im)) URL.revokeObjectURL(urls.get(im));
-    if (src.startsWith("blob:")) urls.set(im, src); else urls.delete(im);
-    im.src = src;
+  // Carrusel de etapas: un video a la vez; solo se reproduce cuando la persona lo pide.
+  // El camino marca la etapa actual y las ya vistas; al terminar un video, el botón «Siguiente» invita a seguir.
+  // En el sitio el video parte en el contenido (desde el segundo 4): su portada repetiría el título.
+  const laminasE = [...document.querySelectorAll(".lamina-etapa")], pasosE = [...document.querySelectorAll(".camino button")];
+  const avanceE = document.querySelector(".camino-avance"), tituloE = document.querySelector(".camino-titulo");
+  const antE = document.querySelector(".anterior-e"), sigE = document.querySelector(".siguiente-e"), botonSig = document.querySelector(".boton-siguiente");
+  const vistos = new Set(), INICIO = 4;
+  let actualE = 0;
+  function prepararVideo(v) {
+    if (v.src) return;
+    v.src = v.dataset.src; v.preload = "auto";
+    v.addEventListener("loadedmetadata", () => { if (v.currentTime < INICIO) v.currentTime = INICIO; }, { once: true });
   }
-  async function mostrarLamina(i) {
-    const sig = (i + laminas.length) % laminas.length, mio = ++turno, animar = movimiento && !detenido;
-    clearTimeout(reloj);
-    await prepararImagen(laminas[sig], animar);
-    if (mio !== turno) return;
-    actual = sig;
-    laminas.forEach((l, k) => { const v = k === actual; l.classList.toggle("activa", v); l.setAttribute("aria-hidden", String(!v)); l.inert = !v; });
-    puntosC.forEach((b, k) => { if (k === actual) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); });
-    if (animar) { cargarGif(laminas[(actual + 1) % laminas.length].querySelector("img").dataset.gif); reloj = setTimeout(() => mostrarLamina(actual + 1), 6200); }
+  laminasE.forEach((l, k) => {
+    const v = l.querySelector("video");
+    l.querySelector(".play-grande").addEventListener("click", () => { prepararVideo(v); v.play().catch(() => {}); });
+    v.addEventListener("play", () => prepararVideo(v));
+    v.addEventListener("playing", () => { l.classList.add("reproduciendo"); vistos.add(k); pintarCamino(); });
+    v.addEventListener("pause", () => l.classList.remove("reproduciendo"));
+    // Al terminar, el video vuelve a su imagen de portada (el último cuadro es un fundido vacío)
+    v.addEventListener("ended", () => { l.classList.remove("reproduciendo"); v.removeAttribute("src"); v.load(); if (k < laminasE.length - 1) botonSig.classList.add("invita"); });
+  });
+  function pintarCamino() {
+    pasosE.forEach((b, k) => {
+      b.classList.toggle("visto", vistos.has(k) && k !== actualE);
+      if (k === actualE) b.setAttribute("aria-current", "step"); else b.removeAttribute("aria-current");
+    });
+    avanceE.style.width = (actualE / (laminasE.length - 1) * 100) + "%";
   }
-  puntosC.forEach((b, k) => b.addEventListener("click", () => mostrarLamina(k)));
-  pausaC.addEventListener("click", () => { detenido = !detenido; pausaC.textContent = detenido ? "Reproducir" : "Pausar"; pausaC.setAttribute("aria-pressed", String(detenido)); mostrarLamina(actual); });
-  if (!movimiento) { pausaC.textContent = "Reproducir"; pausaC.setAttribute("aria-pressed", "true"); }
-  mostrarLamina(0);
-
+  function irEtapa(k, desde) {
+    if (k < 0 || k >= laminasE.length) return;
+    const v0 = laminasE[actualE].querySelector("video"); if (!v0.paused) v0.pause();
+    laminasE[actualE].hidden = true;
+    const l = laminasE[k]; l.style.setProperty("--desde", (desde || (k > actualE ? 1 : -1)) * 24 + "px"); l.hidden = false;
+    actualE = k;
+    tituloE.querySelector("b").textContent = `Etapa ${k + 1}: ${l.dataset.titulo}`;
+    tituloE.querySelector("span").textContent = l.dataset.contexto;
+    antE.disabled = k === 0; sigE.disabled = k === laminasE.length - 1;
+    const sig = laminasE[k + 1];
+    botonSig.hidden = !sig; botonSig.classList.remove("invita");
+    if (sig) botonSig.textContent = `Siguiente: ${k + 2}. ${sig.dataset.titulo} ›`;
+    pintarCamino();
+  }
+  pasosE.forEach((b, k) => b.addEventListener("click", () => irEtapa(k)));
+  antE.addEventListener("click", () => irEtapa(actualE - 1));
+  sigE.addEventListener("click", () => irEtapa(actualE + 1));
+  botonSig.addEventListener("click", () => irEtapa(actualE + 1));
+  document.getElementById("etapas").addEventListener("keydown", ev => {
+    if (ev.target.closest("video")) return;
+    if (ev.key === "ArrowRight") irEtapa(actualE + 1); if (ev.key === "ArrowLeft") irEtapa(actualE - 1);
+  });
+  // Deslizar con el dedo en el celular
+  let x0 = null;
+  const zona = document.querySelector(".laminas-etapas");
+  zona.addEventListener("touchstart", ev => { x0 = ev.touches[0].clientX; }, { passive: true });
+  zona.addEventListener("touchend", ev => { if (x0 === null) return; const dx = ev.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 50) irEtapa(actualE + (dx < 0 ? 1 : -1)); });
+  irEtapa(0);
 
   // Franja de logos: se puede pausar; con «menos movimiento» queda estática
   const marcasSec = document.getElementById("marcas"), marcasBtn = document.getElementById("marcas-pausa");
   marcasBtn.addEventListener("click", () => { const d = marcasSec.classList.toggle("detenido"); marcasBtn.textContent = d ? "Reproducir" : "Pausar"; marcasBtn.setAttribute("aria-pressed", String(d)); });
-
-  // Filtros
-  const botonesFiltro = document.querySelectorAll(".filtros button"), piezas = document.querySelectorAll(".pieza");
-  botonesFiltro.forEach(b => b.addEventListener("click", () => {
-    botonesFiltro.forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-    piezas.forEach(p => { p.hidden = b.dataset.f !== "todas" && p.dataset.filtro !== b.dataset.f; });
-  }));
 
   // Visor
   const visor = document.getElementById("visor"), vImg = document.getElementById("v-img"), vVid = document.getElementById("v-video"),

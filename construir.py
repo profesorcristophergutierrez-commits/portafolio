@@ -59,6 +59,19 @@ def pagina():
     cifras = "\n".join(
         f'<li><b data-cuenta="{c["valor"]}" data-sufijo="{e(c.get("sufijo", ""))}">{c["valor"]}{e(c.get("sufijo", ""))}</b><span class="barra" aria-hidden="true"></span><p>{e(c["texto"])}</p></li>'
         for c in D["cifras"])
+    # Etapas de la producción: ruta en la portada y un carrusel con un video por etapa (solo se reproduce si la persona lo pide)
+    etapas_indice = "".join(
+        f'<li style="--i: {i - 1}"><a href="#etapas" data-etapa="{i - 1}"><span class="n" aria-hidden="true">{i}</span><span class="txt">{e(x["titulo"])}</span>'
+        f'<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="10.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 8.2v7.6l6-3.8z" fill="currentColor"/></svg></span>'
+        f'<span class="sr"> (ver el video)</span></a></li>' for i, x in enumerate(D["etapas"], 1))
+    camino = "".join(
+        f'<li><button type="button" data-etapa="{i - 1}" aria-label="Etapa {i}: {e(x["titulo"])}">{i}</button></li>' for i, x in enumerate(D["etapas"], 1))
+    etapas = "\n".join(
+        f'<div class="lamina-etapa" data-titulo="{e(x["titulo"])}" data-contexto="{e(x["contexto"])}"{"" if i == 1 else " hidden"}>'
+        f'<button type="button" class="play-grande" aria-label="Reproducir el video de la etapa {i}"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M8.5 5.5v13l10.5-6.5z" fill="currentColor"/></svg></button>'
+        f'<video controls controlslist="nodownload" muted playsinline preload="none" poster="etapas/etapa_{i}.jpg" data-src="etapas/etapa_{i}.mp4" width="1280" height="720" aria-label="{e(x["alt"])}"></video></div>'
+        for i, x in enumerate(D["etapas"], 1))
+    casos_linea = "".join(f'<li><a href="casos/{c["id"]}.html">{e(c["titulo"])}</a><span>{e(c["contexto"])}</span></li>' for c in LISTA_CASOS)
     carrusel = "\n".join(
         f'      <figure class="sl{"" if i else " activa"}"><img src="hero/hero_{i + 1}.jpg" data-fijo="hero/hero_{i + 1}.jpg" data-gif="hero/hero_{i + 1}.gif" width="960" height="540" alt="{e(x["alt"])}"><figcaption class="sr">{e(x["titulo"])}. {e(x["texto"])}</figcaption></figure>'
         for i, x in enumerate(D["carrusel"]))
@@ -86,7 +99,7 @@ def pagina():
         "{{TITULO_PAGINA}}": e(S["nombre"] + ", diseño instruccional"),
         "{{DESCRIPCION}}": e(S["descripcion"]), "{{URL}}": e(S["url"]), "{{NOMBRE}}": e(S["nombre"]),
         "{{TITULAR}}": e(S["titulo"]), "{{ROL}}": e(S["rol"]), "{{BAJADA}}": e(S["bajada"]), "{{CORREO}}": e(S["correo"]),
-        "{{LINKEDIN}}": e(S["linkedin"]), "{{TELEFONO}}": e(S["telefono"]), "{{TELEFONO_TEXTO}}": e(S["telefono_texto"]), "{{PRINCIPIOS}}": e(S["principios"]), "{{FORMACION}}": e(D["formacion_calidad"]["texto"]), "{{FORMACION_ENLACE}}": e(D["formacion_calidad"]["enlace"]), "{{FORMACION_ENLACE_TEXTO}}": e(D["formacion_calidad"]["enlace_texto"]), "{{CV}}": e(S["cv"]), "{{FILTROS}}": filtros, "{{PIEZAS}}": piezas, "{{CIFRAS}}": cifras, "{{CARRUSEL}}": carrusel, "{{PUNTOS}}": puntos, "{{CASOS}}": tarjetas_casos(LISTA_CASOS),
+        "{{LINKEDIN}}": e(S["linkedin"]), "{{TELEFONO}}": e(S["telefono"]), "{{TELEFONO_TEXTO}}": e(S["telefono_texto"]), "{{PRINCIPIOS}}": e(S["principios"]), "{{FORMACION}}": e(D["formacion_calidad"]["texto"]), "{{FORMACION_ENLACE}}": e(D["formacion_calidad"]["enlace"]), "{{FORMACION_ENLACE_TEXTO}}": e(D["formacion_calidad"]["enlace_texto"]), "{{CV}}": e(S["cv"]), "{{FILTROS}}": filtros, "{{PIEZAS}}": piezas, "{{CIFRAS}}": cifras, "{{CARRUSEL}}": carrusel, "{{PUNTOS}}": puntos, "{{CASOS}}": tarjetas_casos(LISTA_CASOS), "{{ETAPAS_INDICE}}": etapas_indice, "{{ETAPAS}}": etapas, "{{CAMINO}}": camino, "{{CASOS_LINEA}}": casos_linea,
         "{{MAS}}": mas, "{{MARCAS}}": marcas, "{{MARCAS_UCM}}": e(D["marcas_ucm"]), "{{PROYECTOS}}": proyectos, "{{PASOS}}": pasos, "{{INSTITUCIONES}}": inst, "{{LD}}": ld,
     }
     for k, v in reemplazos.items():

@@ -14,3 +14,6 @@ images/poster_medicina.jpg
 GUION_SITIO.md
 maquetas_paleta/
 herramientas/
+
+# Caché de Python
+__pycache__/

@@ -67,10 +67,47 @@
   .cabeza nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
   /* Apertura */
-  .apertura { padding-top: 72px; padding-bottom: 64px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: start; }
+  .apertura { padding-top: 72px; padding-bottom: 64px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; }
   .apertura .principios { margin: 0 0 16px; font-size: 1.12rem; font-weight: 600; line-height: 1.3; color: var(--tinta); }
   .formacion { margin: -18px 0 0; max-width: 52ch; font-size: 0.98rem; line-height: 1.55; color: var(--tinta-2); }
   .formacion a { white-space: nowrap; text-underline-offset: 3px; }
+  /* Carrusel de etapas con un camino que guía: la línea se rellena hasta la etapa actual */
+  .carrusel-etapas { padding-top: 24px; padding-bottom: 72px; }
+  .carrusel-etapas h2 { margin: 0 0 28px; font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 1.9rem); letter-spacing: -0.02em; line-height: 1.1; }
+  .camino-caja { position: relative; max-width: 760px; margin: 0 auto; }
+  .camino { list-style: none; margin: 0; padding: 0; display: flex; justify-content: space-between; position: relative; z-index: 1; }
+  .camino-linea { position: absolute; left: 22px; right: 22px; top: 50%; height: 3px; margin-top: -1.5px; background: var(--linea); }
+  .camino-avance { display: block; height: 100%; width: 0; background: var(--cobalto); transition: width .5s ease; }
+  .camino button { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--cobalto); background: var(--fondo); color: var(--cobalto); font: inherit; font-weight: 600; font-size: 1rem; font-variant-numeric: tabular-nums; cursor: pointer; transition: background .3s, color .3s, transform .2s; }
+  .camino button:hover { transform: scale(1.08); }
+  .camino button.visto { background: var(--cobalto); color: var(--sobre); }
+  .camino button[aria-current="step"] { background: var(--cobalto); color: var(--sobre); box-shadow: 0 0 0 5px var(--fondo), 0 0 0 7px var(--cobalto); }
+  /* El título de la etapa ya va dentro del video: aquí queda solo para lectores de pantalla */
+  .camino-caja { margin-bottom: 32px; }
+  .visor-etapas { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 16px; align-items: center; }
+  .flecha { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--linea); background: var(--fondo); color: var(--tinta); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: border-color .2s, color .2s; }
+  .flecha:hover { border-color: var(--cobalto); color: var(--cobalto); }
+  .flecha:disabled { opacity: .3; cursor: default; }
+  .lamina-etapa { position: relative; }
+  .lamina-etapa video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--banda); border-radius: 4px; box-shadow: 0 0 0 1px var(--linea); }
+  @media (prefers-reduced-motion: no-preference) { .lamina-etapa:not([hidden]) { animation: entra-lamina .45s ease; } }
+  @keyframes entra-lamina { from { opacity: 0; transform: translateX(var(--desde, 24px)); } to { opacity: 1; transform: none; } }
+  .carrusel-pie { display: flex; justify-content: flex-end; margin-top: 18px; }
+  .boton-siguiente[hidden] { display: none; }
+  @media (prefers-reduced-motion: no-preference) { .boton-siguiente.invita { animation: invita 1.4s ease-in-out infinite; } }
+  @keyframes invita { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+  /* Botón grande de «play» sobre el video: visible cuando está detenido, con un anillo que pulsa hacia afuera */
+  .play-grande { position: absolute; left: 50%; top: 50%; z-index: 2; width: 88px; height: 88px; margin: -44px 0 0 -44px; border: 0; border-radius: 50%; background: var(--cobalto); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 12px 30px rgba(14, 18, 32, .25); transition: opacity .3s, transform .2s; }
+  .play-grande svg { margin-left: 4px; }
+  .play-grande:hover, .play-grande:focus-visible { transform: scale(1.08); }
+  .play-grande::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 3px solid var(--cobalto); opacity: 0; }
+  .lamina-etapa.reproduciendo .play-grande { opacity: 0; pointer-events: none; transform: scale(.8); }
+  @media (prefers-reduced-motion: no-preference) { .play-grande::before { animation: anillo 1.8s ease-out infinite; } }
+  @keyframes anillo { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.7); opacity: 0; } }
+  .casos-linea { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0 32px; }
+  .casos-linea li { padding: 14px 0; border-top: 1px solid var(--linea); }
+  .casos-linea a { font-weight: 600; color: var(--tinta); }
+  .casos-linea span { display: block; color: var(--gris); font-size: 0.93rem; margin-top: 2px; }
   .marcas { padding-top: 8px; padding-bottom: 72px; }
   .marcas-cab { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 26px; }
   .marcas-cab h2 { margin: 0; font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 1.9rem); letter-spacing: -0.02em; line-height: 1.1; }
@@ -84,7 +121,7 @@
   .marcas-pista img { height: 52px; width: auto; }
   .marcas-ventana:hover .marcas-pista, .marcas.detenido .marcas-pista { animation-play-state: paused; }
   @keyframes marcas-desfile { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
-  .marcas .instituciones { margin: 22px 0 0; max-width: 72ch; }
+  .marcas .instituciones { margin: 22px 0 0; max-width: none; }
   .marcas .instituciones + .instituciones { margin-top: 6px; }
   @media (prefers-reduced-motion: reduce) {
     .marcas-pista { animation: none; width: auto; flex-wrap: wrap; gap: 18px 0; }
@@ -171,11 +208,13 @@
   @media (max-width: 639px) { .casos { grid-template-columns: 1fr; } .logos-inst img { height: 38px; } }
 
   /* Pie */
-  .pie { margin-top: 112px; border-top: 1px solid var(--linea); padding-top: 48px; padding-bottom: 56px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+  .pie { margin-top: 112px; border-top: 1px solid var(--linea); padding-top: 48px; padding-bottom: 56px; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; }
   .pie img { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; }
   .pie h2 { margin: 0 0 6px; font-weight: 600; font-size: 1.5rem; letter-spacing: -0.015em; }
   .pie p { margin: 0; }
-  .pie .vinculos { margin-top: 14px; }
+  .pie .vinculos { margin-top: 14px; justify-content: center; }
+  .pie .pie-logo { margin-bottom: 4px; }
+  .pie .pie-logo img { width: auto; height: 40px; border-radius: 0; object-fit: contain; }
   .pie small { grid-column: 1 / -1; color: var(--gris); font-size: 0.86rem; margin-top: 18px; }
 
   /* Visor y actividad */
@@ -232,6 +271,14 @@
     .apertura-der { display: contents; }
     .apertura .quien { order: -1; }
     .apertura .principios { margin-top: 40px; }
+    .visor-etapas { grid-template-columns: minmax(0, 1fr); }
+    .visor-etapas .flecha { display: none; }
+    .camino button { width: 36px; height: 36px; font-size: 0.9rem; }
+    .camino-linea { left: 18px; right: 18px; }
+    .play-grande { width: 64px; height: 64px; margin: -32px 0 0 -32px; }
+    .play-grande svg { width: 26px; height: 26px; }
+    .carrusel-pie { justify-content: stretch; }
+    .carrusel-pie .boton { width: 100%; text-align: center; }
     .cifras ul { grid-template-columns: 1fr; gap: 28px; }
     .grilla { grid-template-columns: 1fr 1fr; }
     .mas { grid-template-columns: 1fr; }
@@ -252,7 +299,7 @@
     .rotulo .tit { font-size: 1.6rem; }
     .bloque { padding-top: 80px; }
     .mas li { flex-direction: column; gap: 6px; }
-    .pie { grid-template-columns: 1fr; margin-top: 80px; }
+    .pie { margin-top: 80px; }
     .juego { padding: 24px 18px; }
   }
 </style>
@@ -263,8 +310,7 @@
 <header class="ancho cabeza">
   <a class="marca" href="#"><img src="images/logo_horizontal.png" width="1959" height="288" alt="Cristopher Gutiérrez, diseño instruccional. Ir al inicio"></a>
   <nav aria-label="Secciones">
-    <a href="#piezas">Piezas</a>
-    <a class="opcional" href="#casos">Casos</a>
+    <a href="#etapas">Etapas</a>
     <a href="#contacto">Contacto</a>
   </nav>
 </header>
@@ -282,15 +328,24 @@
     </div>
     <div class="apertura-der">
     <p class="quien"><img src="images/foto_linkedin.jpg" width="112" height="112" alt="Fotografía de {{NOMBRE}}"><span><b>{{NOMBRE}}</b>{{ROL}}</span></p>
-    <p class="principios">{{PRINCIPIOS}}</p>
-    <div class="carrusel" role="group" aria-roledescription="carrusel" aria-label="Competencias principales">
-{{CARRUSEL}}
-      <div class="car-ctl">
-        <div class="puntos" role="group" aria-label="Elegir etapa">{{PUNTOS}}</div>
-        <button type="button" class="accion" id="car-pausa" aria-pressed="false">Pausar</button>
+    </div>
+  </section>
+
+  <section class="ancho carrusel-etapas" id="etapas" aria-labelledby="t-etapas" aria-roledescription="carrusel">
+    <h2 id="t-etapas">{{PRINCIPIOS}}</h2>
+    <div class="camino-caja">
+      <span class="camino-linea" aria-hidden="true"><span class="camino-avance"></span></span>
+      <ol class="camino">{{CAMINO}}</ol>
+    </div>
+    <p class="camino-titulo sr" aria-live="polite"><b></b> <span></span></p>
+    <div class="visor-etapas">
+      <button type="button" class="flecha anterior-e" aria-label="Etapa anterior"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="laminas-etapas">
+{{ETAPAS}}
       </div>
+      <button type="button" class="flecha siguiente-e" aria-label="Etapa siguiente"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
-    </div>
+    <div class="carrusel-pie"><button type="button" class="boton boton-siguiente"></button></div>
   </section>
 
   <section class="ancho cifras" aria-label="Trayectoria en cifras">
@@ -310,41 +365,17 @@
     <p class="instituciones">{{MARCAS_UCM}}</p>
   </section>
 
-  <section class="ancho" id="piezas" aria-label="Piezas">
-    <div class="filtros" role="group" aria-label="Filtrar piezas">{{FILTROS}}</div>
-    <div class="grilla">
-{{PIEZAS}}
-    </div>
-  </section>
 
-  <section class="ancho bloque" id="mas" aria-labelledby="t-mas">
-    <h2 id="t-mas">Más trabajos</h2>
-    <ul class="mas">
-{{MAS}}
-    </ul>
-  </section>
-
-  <section class="ancho bloque" id="casos" aria-labelledby="t-casos">
-    <h2 id="t-casos">Estudios de caso</h2>
-    <p class="intro-casos">Cinco proyectos contados de principio a fin: el problema, el diseño, los recursos, la evaluación y el resultado. Cada uno abre con un video de proceso de un minuto.</p>
-    <div class="casos">{{CASOS}}</div>
-  </section>
-
-  <section class="ancho bloque" id="proyectos" aria-labelledby="t-metodo">
-    <h2 id="t-metodo">Cómo trabajo</h2>
-    <ol class="pasos">{{PASOS}}</ol>
-    <p class="formacion">{{FORMACION}} <a href="{{FORMACION_ENLACE}}" target="_blank" rel="noopener">{{FORMACION_ENLACE_TEXTO}}<span class="sr"> (se abre en otra pestaña)</span></a></p>
-  </section>
 </main>
 
 <footer class="ancho pie" id="contacto">
+  <a class="marca pie-logo" href="#"><img src="images/logo_horizontal.png" width="1959" height="288" alt="Cristopher Gutiérrez, diseño instruccional. Volver al inicio" loading="lazy"></a>
   <img src="images/foto_cristopher.jpg" width="104" height="104" alt="Fotografía de {{NOMBRE}}" loading="lazy">
   <div>
     <h2>¿Diseñamos tu próximo curso?</h2>
     <p>Escríbeme a <a href="mailto:{{CORREO}}">{{CORREO}}</a></p>
     <div class="vinculos"><a href="{{CV}}">Currículum en PDF</a><a href="{{LINKEDIN}}" rel="noopener">LinkedIn</a><a href="tel:{{TELEFONO}}">{{TELEFONO_TEXTO}}</a></div>
   </div>
-  <small>«Germina la vida en el surco», Jorge González Bastías, poeta del Maule (<i>Vera rústica</i>, 1933, dominio público). Escenas fotográficas generadas con IA; las pantallas muestran piezas reales.</small>
 </footer>
 
 <dialog id="visor" aria-label="Visor de piezas">
@@ -387,13 +418,13 @@
 
   // Animación 1a: entrada en secuencia al cargar
   let indice = 0;
-  document.querySelectorAll(".cabeza, .apertura p, .apertura .vinculos, .carrusel, .cifras li, .filtros, .grilla .pieza:nth-child(-n+3)").forEach(el => {
+  document.querySelectorAll(".cabeza, .apertura p, .apertura .vinculos, .cifras li").forEach(el => {
     el.classList.add("anim"); el.dataset.entra = ""; el.style.setProperty("--n", indice++);
   });
   requestAnimationFrame(() => requestAnimationFrame(() => document.querySelectorAll("[data-entra]").forEach(el => el.classList.add("visto"))));
 
   // Animación 1b: aparición suave al hacer scroll, una sola vez por bloque
-  const alScroll = document.querySelectorAll(".grilla .pieza:nth-child(n+4), .bloque, .pie");
+  const alScroll = document.querySelectorAll(".bloque, .pie");
   alScroll.forEach(el => el.classList.add("anim"));
   if (movimiento && "IntersectionObserver" in window) {
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visto"); io.unobserve(e.target); } }), { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
@@ -414,48 +445,67 @@
     io.observe(b);
   });
 
-  // Carrusel de la portada: ilustraciones animadas (GIF); se detiene si la persona prefiere menos movimiento
-  const laminas = [...document.querySelectorAll(".sl")], puntosC = [...document.querySelectorAll(".puntos button")], pausaC = document.getElementById("car-pausa");
-  let actual = 0, detenido = !movimiento, reloj = null, turno = 0;
-  // Cada GIF se descarga una sola vez; para reiniciarlo se crea una URL nueva del mismo archivo, sin pasar por la red
-  const gifs = {}, urls = new Map();
-  const cargarGif = src => gifs[src] || (gifs[src] = fetch(src).then(r => r.blob()).catch(() => null));
-  async function prepararImagen(l, animar) {
-    const im = l.querySelector("img");
-    let src = im.dataset.fijo;
-    if (animar) { const b = await cargarGif(im.dataset.gif); if (b) src = URL.createObjectURL(b); }
-    const pre = new Image(); pre.src = src;
-    try { await pre.decode(); } catch (_) {}
-    if (urls.has(im)) URL.revokeObjectURL(urls.get(im));
-    if (src.startsWith("blob:")) urls.set(im, src); else urls.delete(im);
-    im.src = src;
+  // Carrusel de etapas: un video a la vez; solo se reproduce cuando la persona lo pide.
+  // El camino marca la etapa actual y las ya vistas; al terminar un video, el botón «Siguiente» invita a seguir.
+  // En el sitio el video parte en el contenido (desde el segundo 4): su portada repetiría el título.
+  const laminasE = [...document.querySelectorAll(".lamina-etapa")], pasosE = [...document.querySelectorAll(".camino button")];
+  const avanceE = document.querySelector(".camino-avance"), tituloE = document.querySelector(".camino-titulo");
+  const antE = document.querySelector(".anterior-e"), sigE = document.querySelector(".siguiente-e"), botonSig = document.querySelector(".boton-siguiente");
+  const vistos = new Set(), INICIO = 4;
+  let actualE = 0;
+  function prepararVideo(v) {
+    if (v.src) return;
+    v.src = v.dataset.src; v.preload = "auto";
+    v.addEventListener("loadedmetadata", () => { if (v.currentTime < INICIO) v.currentTime = INICIO; }, { once: true });
   }
-  async function mostrarLamina(i) {
-    const sig = (i + laminas.length) % laminas.length, mio = ++turno, animar = movimiento && !detenido;
-    clearTimeout(reloj);
-    await prepararImagen(laminas[sig], animar);
-    if (mio !== turno) return;
-    actual = sig;
-    laminas.forEach((l, k) => { const v = k === actual; l.classList.toggle("activa", v); l.setAttribute("aria-hidden", String(!v)); l.inert = !v; });
-    puntosC.forEach((b, k) => { if (k === actual) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); });
-    if (animar) { cargarGif(laminas[(actual + 1) % laminas.length].querySelector("img").dataset.gif); reloj = setTimeout(() => mostrarLamina(actual + 1), 6200); }
+  laminasE.forEach((l, k) => {
+    const v = l.querySelector("video");
+    l.querySelector(".play-grande").addEventListener("click", () => { prepararVideo(v); v.play().catch(() => {}); });
+    v.addEventListener("play", () => prepararVideo(v));
+    v.addEventListener("playing", () => { l.classList.add("reproduciendo"); vistos.add(k); pintarCamino(); });
+    v.addEventListener("pause", () => l.classList.remove("reproduciendo"));
+    // Al terminar, el video vuelve a su imagen de portada (el último cuadro es un fundido vacío)
+    v.addEventListener("ended", () => { l.classList.remove("reproduciendo"); v.removeAttribute("src"); v.load(); if (k < laminasE.length - 1) botonSig.classList.add("invita"); });
+  });
+  function pintarCamino() {
+    pasosE.forEach((b, k) => {
+      b.classList.toggle("visto", vistos.has(k) && k !== actualE);
+      if (k === actualE) b.setAttribute("aria-current", "step"); else b.removeAttribute("aria-current");
+    });
+    avanceE.style.width = (actualE / (laminasE.length - 1) * 100) + "%";
   }
-  puntosC.forEach((b, k) => b.addEventListener("click", () => mostrarLamina(k)));
-  pausaC.addEventListener("click", () => { detenido = !detenido; pausaC.textContent = detenido ? "Reproducir" : "Pausar"; pausaC.setAttribute("aria-pressed", String(detenido)); mostrarLamina(actual); });
-  if (!movimiento) { pausaC.textContent = "Reproducir"; pausaC.setAttribute("aria-pressed", "true"); }
-  mostrarLamina(0);
-
+  function irEtapa(k, desde) {
+    if (k < 0 || k >= laminasE.length) return;
+    const v0 = laminasE[actualE].querySelector("video"); if (!v0.paused) v0.pause();
+    laminasE[actualE].hidden = true;
+    const l = laminasE[k]; l.style.setProperty("--desde", (desde || (k > actualE ? 1 : -1)) * 24 + "px"); l.hidden = false;
+    actualE = k;
+    tituloE.querySelector("b").textContent = `Etapa ${k + 1}: ${l.dataset.titulo}`;
+    tituloE.querySelector("span").textContent = l.dataset.contexto;
+    antE.disabled = k === 0; sigE.disabled = k === laminasE.length - 1;
+    const sig = laminasE[k + 1];
+    botonSig.hidden = !sig; botonSig.classList.remove("invita");
+    if (sig) botonSig.textContent = `Siguiente: ${k + 2}. ${sig.dataset.titulo} ›`;
+    pintarCamino();
+  }
+  pasosE.forEach((b, k) => b.addEventListener("click", () => irEtapa(k)));
+  antE.addEventListener("click", () => irEtapa(actualE - 1));
+  sigE.addEventListener("click", () => irEtapa(actualE + 1));
+  botonSig.addEventListener("click", () => irEtapa(actualE + 1));
+  document.getElementById("etapas").addEventListener("keydown", ev => {
+    if (ev.target.closest("video")) return;
+    if (ev.key === "ArrowRight") irEtapa(actualE + 1); if (ev.key === "ArrowLeft") irEtapa(actualE - 1);
+  });
+  // Deslizar con el dedo en el celular
+  let x0 = null;
+  const zona = document.querySelector(".laminas-etapas");
+  zona.addEventListener("touchstart", ev => { x0 = ev.touches[0].clientX; }, { passive: true });
+  zona.addEventListener("touchend", ev => { if (x0 === null) return; const dx = ev.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 50) irEtapa(actualE + (dx < 0 ? 1 : -1)); });
+  irEtapa(0);
 
   // Franja de logos: se puede pausar; con «menos movimiento» queda estática
   const marcasSec = document.getElementById("marcas"), marcasBtn = document.getElementById("marcas-pausa");
   marcasBtn.addEventListener("click", () => { const d = marcasSec.classList.toggle("detenido"); marcasBtn.textContent = d ? "Reproducir" : "Pausar"; marcasBtn.setAttribute("aria-pressed", String(d)); });
-
-  // Filtros
-  const botonesFiltro = document.querySelectorAll(".filtros button"), piezas = document.querySelectorAll(".pieza");
-  botonesFiltro.forEach(b => b.addEventListener("click", () => {
-    botonesFiltro.forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-    piezas.forEach(p => { p.hidden = b.dataset.f !== "todas" && p.dataset.filtro !== b.dataset.f; });
-  }));
 
   // Visor
   const visor = document.getElementById("visor"), vImg = document.getElementById("v-img"), vVid = document.getElementById("v-video"),

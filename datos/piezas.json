@@ -259,7 +259,7 @@
           "Evaluación de noticias difíciles"
         ],
         [
-          "images/pj_estudio_caso.jpg",
+          "images/pj_estudio_caso_sin_logo.jpg",
           "Evaluación con estudio de caso"
         ],
         [
@@ -482,5 +482,42 @@
       "Altamira Capacitación"
     ]
   ],
-  "marcas_ucm": "En la Universidad Católica del Maule: Facultad de Medicina, Dirección de Formación General, Dirección General de Docencia, Centro de Desarrollo e Innovación Docente y Vicerrectoría de Investigación y Postgrado."
+  "marcas_ucm": "En la Universidad Católica del Maule: Facultad de Medicina, Dirección de Formación General, Dirección General de Docencia, Centro de Desarrollo e Innovación Docente y Vicerrectoría de Investigación y Postgrado.",
+  "etapas": [
+    {
+      "titulo": "Trabajo junto a especialistas",
+      "contexto": "Curso de Formación Docente, Universidad de Chile",
+      "alt": "Video: la matriz de diseño instruccional de una docente se completa, se acuerda con la especialista y se convierte en una unidad del curso con ruta y pasos."
+    },
+    {
+      "titulo": "Curaduría desde la investigación",
+      "contexto": "Curso e-learning para una OTEC con franquicia SENCE, 2023",
+      "alt": "Video: se seleccionan fuentes con evidencia, se escribe una lectura maestra propia y la evidencia se convierte en un estudio de caso evaluado."
+    },
+    {
+      "titulo": "Alineamiento con la identidad institucional",
+      "contexto": "Universidad Católica del Maule",
+      "alt": "Video: la ficha de identidad de la universidad (logotipo, colores y tipografía) se aplica a un video informativo y a los reels de acreditación."
+    },
+    {
+      "titulo": "Accesibilidad desde el diseño universal",
+      "contexto": "Libro interactivo H5P, capacitación corporativa",
+      "alt": "Video: se mide el contraste de los colores del libro interactivo, se muestran los tamaños de letra y los subtítulos y textos alternativos; el texto principal alcanza un contraste de 21:1."
+    },
+    {
+      "titulo": "Producción gráfica y audiovisual para el aprendizaje",
+      "contexto": "Facultad de Medicina, Universidad Católica del Maule",
+      "alt": "Video: una médica virtual en un caso clínico, un escenario ramificado con el protocolo SPIKES y la actividad de práctica CICAA."
+    },
+    {
+      "titulo": "Aseguramiento de la calidad con tutorización y reportería",
+      "contexto": "Diplomados del Centro de Desarrollo e Innovación Docente, Universidad Católica del Maule",
+      "alt": "Video: mensajes de tutoría en el aula virtual, informes de resultados por unidad y la satisfacción con la relatoría y tutorización: 92 %, 94 % y 98 % en tres diplomados."
+    },
+    {
+      "titulo": "Mejora continua desde la evidencia",
+      "contexto": "Modelo de Evaluación de Impacto, Centro de Desarrollo e Innovación Docente, Universidad Católica del Maule, 2024",
+      "alt": "Video: un modelo que mide el impacto en cuatro niveles; el aprendizaje sube de 79 % a 95 % y los resultados llevan a indicadores por nivel y a un diplomado rediseñado."
+    }
+  ]
 }
