@@ -57,14 +57,17 @@
   .ancho { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
 
   /* Cabecera */
-  .cabeza { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-top: 28px; }
+  .cabeza { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 28px; }
   .marca { font-weight: 600; font-size: 1.02rem; color: var(--tinta); text-decoration: none; }
+  .marca img { display: block; height: 44px; width: auto; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .marca img { filter: invert(1); } }
+  :root[data-theme="dark"] .marca img { filter: invert(1); }
   .cabeza nav { display: flex; gap: 22px; }
   .cabeza nav a { color: var(--tinta); text-decoration: none; font-weight: 500; font-size: 0.98rem; }
   .cabeza nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
   /* Apertura */
-  .apertura { padding-top: 72px; padding-bottom: 64px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: end; }
+  .apertura { padding-top: 72px; padding-bottom: 64px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: start; }
   .apertura .principios { margin: 0 0 16px; font-size: 1.12rem; font-weight: 600; line-height: 1.3; color: var(--tinta); }
   .formacion { margin: -18px 0 0; max-width: 52ch; font-size: 0.98rem; line-height: 1.55; color: var(--tinta-2); }
   .formacion a { white-space: nowrap; text-underline-offset: 3px; }
@@ -224,7 +227,11 @@
   }
 
   @media (max-width: 999px) {
-    .apertura { grid-template-columns: 1fr; gap: 40px; }
+    /* En una columna, la foto y la presentación van primero */
+    .apertura { display: flex; flex-direction: column; gap: 0; }
+    .apertura-der { display: contents; }
+    .apertura .quien { order: -1; }
+    .apertura .principios { margin-top: 40px; }
     .cifras ul { grid-template-columns: 1fr; gap: 28px; }
     .grilla { grid-template-columns: 1fr 1fr; }
     .mas { grid-template-columns: 1fr; }
@@ -234,6 +241,7 @@
     body { font-size: 16.5px; }
     .ancho { padding-left: 18px; padding-right: 18px; }
     .cabeza { padding-top: 18px; }
+    .marca img { height: 34px; }
     .cabeza nav { gap: 16px; }
     .cabeza nav a.opcional { display: none; }
     .apertura { padding-top: 44px; padding-bottom: 44px; }
@@ -253,7 +261,7 @@
 <a class="saltar" href="#piezas">Saltar a las piezas</a>
 
 <header class="ancho cabeza">
-  <a class="marca" href="#">Portafolio</a>
+  <a class="marca" href="#"><img src="images/logo_horizontal.png" width="1959" height="288" alt="Cristopher Gutiérrez, diseño instruccional. Ir al inicio"></a>
   <nav aria-label="Secciones">
     <a href="#piezas">Piezas</a>
     <a class="opcional" href="#casos">Casos</a>
@@ -264,7 +272,6 @@
 <main>
   <section class="ancho apertura" aria-labelledby="titular">
     <div>
-      <p class="quien"><img src="images/foto_linkedin.jpg" width="112" height="112" alt="Fotografía de {{NOMBRE}}"><span><b>{{NOMBRE}}</b>{{ROL}}</span></p>
       <h1 id="titular">{{TITULAR}}</h1>
       <p>{{BAJADA}}</p>
       <div class="vinculos">
@@ -273,7 +280,8 @@
         <a href="{{LINKEDIN}}" rel="noopener">LinkedIn</a>
       </div>
     </div>
-    <div>
+    <div class="apertura-der">
+    <p class="quien"><img src="images/foto_linkedin.jpg" width="112" height="112" alt="Fotografía de {{NOMBRE}}"><span><b>{{NOMBRE}}</b>{{ROL}}</span></p>
     <p class="principios">{{PRINCIPIOS}}</p>
     <div class="carrusel" role="group" aria-roledescription="carrusel" aria-label="Competencias principales">
 {{CARRUSEL}}

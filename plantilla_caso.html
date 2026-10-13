@@ -33,8 +33,11 @@
   button { font: inherit; color: inherit; }
   :focus-visible { outline: 2px solid var(--cobalto); outline-offset: 3px; }
   .ancho { max-width: 1280px; margin: 0 auto; padding-left: 40px; padding-right: 40px; }
-  .cabeza { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-top: 28px; }
+  .cabeza { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 28px; }
   .marca { font-weight: 600; font-size: 1.02rem; color: var(--tinta); text-decoration: none; }
+  .marca img { display: block; height: 44px; width: auto; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .marca img { filter: invert(1); } }
+  :root[data-theme="dark"] .marca img { filter: invert(1); }
   .cabeza nav { display: flex; gap: 22px; }
   .cabeza nav a { color: var(--tinta); text-decoration: none; font-weight: 500; font-size: 0.98rem; }
   .cabeza nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
@@ -114,6 +117,7 @@
     .etapas, .cifras { grid-template-columns: 1fr; gap: 22px; }
   }
   @media (max-width: 639px) {
+    .marca img { height: 34px; }
     body { font-size: 16.5px; }
     .ancho { padding-left: 18px; padding-right: 18px; }
     .cabeza { padding-top: 18px; }
@@ -125,7 +129,7 @@
 </head>
 <body>
 <header class="ancho cabeza">
-  <a class="marca" href="../">Cristopher Gutiérrez González</a>
+  <a class="marca" href="../"><img src="../images/logo_horizontal.png" width="1959" height="288" alt="Cristopher Gutiérrez, diseño instruccional. Ir al inicio"></a>
   <nav aria-label="Secciones"><a href="../#piezas">Piezas</a><a href="../#casos">Casos</a><a href="../#contacto">Contacto</a></nav>
 </header>
 
