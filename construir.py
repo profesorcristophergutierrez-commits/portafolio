@@ -70,9 +70,13 @@ def pagina():
     pasos = "".join(f"<li>{e(x)}</li>" for x in D["pasos"])
     inst = "".join(f"<li>{e(x)}</li>" for x in D["instituciones"])
     # Franja de logos: la secuencia se repite para que el desfile no tenga cortes; las copias se ocultan a lectores de pantalla
+    # Se usan los logos ya en gris de images/marcas/franja/ (herramientas/hornear_marcas.py), a doble resolución
+    def logo_franja(src):
+        ruta = "images/marcas/franja/" + Path(src).stem + ".png"; w, h = Image.open(RAIZ / ruta).size
+        return ruta, round(w * 52 / h), 52
     marcas = "".join(
-        f'<li{"" if k == 0 else " aria-hidden=" + chr(34) + "true" + chr(34)}><img src="{e(src)}" alt="{e(alt) if k == 0 else ""}" height="56" loading="lazy"></li>'
-        for k in range(4) for src, alt in D["marcas"])
+        f'<li{"" if k == 0 else " aria-hidden=" + chr(34) + "true" + chr(34)}><img src="{r}" alt="{e(alt) if k == 0 else ""}" width="{w}" height="{h}" decoding="async"></li>'
+        for k in range(4) for src, alt in D["marcas"] for r, w, h in [logo_franja(src)])
     ld = json.dumps({"@context": "https://schema.org", "@type": "Person", "name": S["nombre"],
                      "jobTitle": "Diseñador instruccional", "email": "mailto:" + S["correo"], "telephone": S["telefono"], "url": S["url"],
                      "address": {"@type": "PostalAddress", "addressLocality": "Talca", "addressCountry": "CL"},
