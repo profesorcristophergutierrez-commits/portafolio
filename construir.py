@@ -77,7 +77,7 @@ def pagina():
         f'<figure class="reco"><blockquote><p>“{e(r["cita"])}”</p></blockquote><figcaption><b>{e(r["nombre"])}</b>'
         f'<span>{e(r["cargo"])}</span><small>{e(r["contexto"])}</small></figcaption></figure>' for r in recos)
     seccion_recos = (f'<section class="ancho bloque recomendaciones" id="recomendaciones" aria-labelledby="t-recos"><h2 id="t-recos">Recomendaciones</h2>'
-                     f'<div class="recos">{recomendaciones}</div><p class="respaldos">{e(D.get("respaldos", ""))}</p></section>') if recos else ""
+                     f'<div class="recos">{recomendaciones}</div></section>') if recos else ""
     casos_linea = "".join(f'<li><a href="casos/{c["id"]}.html">{e(c["titulo"])}</a><span>{e(c["contexto"])}</span></li>' for c in LISTA_CASOS)
     carrusel = "\n".join(
         f'      <figure class="sl{"" if i else " activa"}"><img src="hero/hero_{i + 1}.jpg" data-fijo="hero/hero_{i + 1}.jpg" data-gif="hero/hero_{i + 1}.gif" width="960" height="540" alt="{e(x["alt"])}"><figcaption class="sr">{e(x["titulo"])}. {e(x["texto"])}</figcaption></figure>'
