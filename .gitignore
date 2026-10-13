@@ -17,3 +17,6 @@ herramientas/
 
 # Caché de Python
 __pycache__/
+
+# Original con logo de la OTEC: solo local, no se publica
+images/pj_estudio_caso.jpg
