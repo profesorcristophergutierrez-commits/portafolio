@@ -60,9 +60,9 @@ def pagina():
         f'<li><b data-cuenta="{c["valor"]}" data-sufijo="{e(c.get("sufijo", ""))}">{c["valor"]}{e(c.get("sufijo", ""))}</b><span class="barra" aria-hidden="true"></span><p>{e(c["texto"])}</p></li>'
         for c in D["cifras"])
     carrusel = "\n".join(
-        f'      <figure class="sl"{" hidden" if i else ""}><img src="hero/hero_{i + 1}.jpg" data-fijo="hero/hero_{i + 1}.jpg" data-gif="hero/hero_{i + 1}.gif" width="960" height="540" alt="{e(x["alt"])}"><figcaption class="sr">{e(x["titulo"])}. {e(x["texto"])}</figcaption></figure>'
+        f'      <figure class="sl{"" if i else " activa"}"><img src="hero/hero_{i + 1}.jpg" data-fijo="hero/hero_{i + 1}.jpg" data-gif="hero/hero_{i + 1}.gif" width="960" height="540" alt="{e(x["alt"])}"><figcaption class="sr">{e(x["titulo"])}. {e(x["texto"])}</figcaption></figure>'
         for i, x in enumerate(D["carrusel"]))
-    puntos = "".join(f'<button type="button" aria-label="Lámina {i + 1}: {e(x["titulo"])}"></button>' for i, x in enumerate(D["carrusel"]))
+    puntos = "".join(f'<button type="button" aria-label="Etapa {i + 1}: {e(x["titulo"])}"></button>' for i, x in enumerate(D["carrusel"]))
     filtros = "".join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if k == "todas" else "false"}">{e(v)}</button>' for k, v in D["filtros"])
     piezas = "\n".join(tarjeta(p) for p in D["destacadas"])
     mas = "\n".join(fila_mas(p) for p in D["mas"])

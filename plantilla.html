@@ -85,8 +85,10 @@
     .marcas-pista li[aria-hidden="true"], #marcas-pausa { display: none; }
   }
   @media (max-width: 639px) { .marcas-pista li { padding: 0 28px; } .marcas-pista img { height: 44px; } }
-  .carrusel { margin: 0; }
-  .sl { margin: 0; }
+  .carrusel { margin: 0; display: grid; }
+  .sl { margin: 0; grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity .6s ease, visibility 0s linear .6s; }
+  .sl.activa { opacity: 1; visibility: visible; transition: opacity .6s ease; }
+  .car-ctl { grid-area: 2 / 1; }
   .sl img { width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--banda); border-radius: 4px; }
   .sl figcaption { margin-top: 14px; }
   .sl strong { display: block; font-weight: 600; font-size: 1.12rem; }
@@ -273,7 +275,7 @@
     <div class="carrusel" role="group" aria-roledescription="carrusel" aria-label="Competencias principales">
 {{CARRUSEL}}
       <div class="car-ctl">
-        <div class="puntos" role="group" aria-label="Elegir lámina">{{PUNTOS}}</div>
+        <div class="puntos" role="group" aria-label="Elegir etapa">{{PUNTOS}}</div>
         <button type="button" class="accion" id="car-pausa" aria-pressed="false">Pausar</button>
       </div>
     </div>
@@ -403,13 +405,29 @@
 
   // Carrusel de la portada: ilustraciones animadas (GIF); se detiene si la persona prefiere menos movimiento
   const laminas = [...document.querySelectorAll(".sl")], puntosC = [...document.querySelectorAll(".puntos button")], pausaC = document.getElementById("car-pausa");
-  let actual = 0, detenido = !movimiento, reloj = null;
-  function mostrarLamina(i) {
-    actual = (i + laminas.length) % laminas.length;
-    laminas.forEach((l, k) => { l.hidden = k !== actual; });
+  let actual = 0, detenido = !movimiento, reloj = null, turno = 0;
+  // Cada GIF se descarga una sola vez; para reiniciarlo se crea una URL nueva del mismo archivo, sin pasar por la red
+  const gifs = {}, urls = new Map();
+  const cargarGif = src => gifs[src] || (gifs[src] = fetch(src).then(r => r.blob()).catch(() => null));
+  async function prepararImagen(l, animar) {
+    const im = l.querySelector("img");
+    let src = im.dataset.fijo;
+    if (animar) { const b = await cargarGif(im.dataset.gif); if (b) src = URL.createObjectURL(b); }
+    const pre = new Image(); pre.src = src;
+    try { await pre.decode(); } catch (_) {}
+    if (urls.has(im)) URL.revokeObjectURL(urls.get(im));
+    if (src.startsWith("blob:")) urls.set(im, src); else urls.delete(im);
+    im.src = src;
+  }
+  async function mostrarLamina(i) {
+    const sig = (i + laminas.length) % laminas.length, mio = ++turno, animar = movimiento && !detenido;
+    clearTimeout(reloj);
+    await prepararImagen(laminas[sig], animar);
+    if (mio !== turno) return;
+    actual = sig;
+    laminas.forEach((l, k) => { const v = k === actual; l.classList.toggle("activa", v); l.setAttribute("aria-hidden", String(!v)); l.inert = !v; });
     puntosC.forEach((b, k) => { if (k === actual) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); });
-    const im = laminas[actual].querySelector("img"); im.src = movimiento && !detenido ? im.dataset.gif + "?r=" + Date.now() : im.dataset.fijo;
-    clearTimeout(reloj); if (!detenido) reloj = setTimeout(() => mostrarLamina(actual + 1), 10500);
+    if (animar) { cargarGif(laminas[(actual + 1) % laminas.length].querySelector("img").dataset.gif); reloj = setTimeout(() => mostrarLamina(actual + 1), 6200); }
   }
   puntosC.forEach((b, k) => b.addEventListener("click", () => mostrarLamina(k)));
   pausaC.addEventListener("click", () => { detenido = !detenido; pausaC.textContent = detenido ? "Reproducir" : "Pausar"; pausaC.setAttribute("aria-pressed", String(detenido)); mostrarLamina(actual); });
