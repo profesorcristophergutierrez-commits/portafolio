@@ -104,6 +104,15 @@
   .lamina-etapa.reproduciendo .play-grande { opacity: 0; pointer-events: none; transform: scale(.8); }
   @media (prefers-reduced-motion: no-preference) { .play-grande::before { animation: anillo 1.8s ease-out infinite; } }
   @keyframes anillo { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.7); opacity: 0; } }
+  /* Recomendaciones: cita, nombre, cargo y contexto */
+  .recos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+  .reco { margin: 0; padding: 22px 0 0; border-top: 3px solid var(--cobalto); display: flex; flex-direction: column; justify-content: space-between; gap: 22px; }
+  .reco blockquote { margin: 0; }
+  .reco blockquote p { margin: 0; font-size: 1.08rem; line-height: 1.55; color: var(--tinta); }
+  .reco figcaption b { display: block; font-weight: 600; color: var(--tinta); }
+  .reco figcaption span { display: block; color: var(--tinta-2); font-size: 0.93rem; margin-top: 2px; }
+  .reco figcaption small { display: block; color: var(--gris); font-size: 0.86rem; margin-top: 6px; }
+  .respaldos { margin: 22px 0 0; color: var(--gris); font-size: 0.95rem; }
   .casos-linea { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0 32px; }
   .casos-linea li { padding: 14px 0; border-top: 1px solid var(--linea); }
   .casos-linea a { font-weight: 600; color: var(--tinta); }
@@ -366,6 +375,7 @@
   </section>
 
 
+{{RECOMENDACIONES}}
 </main>
 
 <footer class="ancho pie" id="contacto">

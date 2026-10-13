@@ -71,6 +71,13 @@ def pagina():
         f'<button type="button" class="play-grande" aria-label="Reproducir el video de la etapa {i}"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M8.5 5.5v13l10.5-6.5z" fill="currentColor"/></svg></button>'
         f'<video controls controlslist="nodownload" muted playsinline preload="none" poster="etapas/etapa_{i}.jpg" data-src="etapas/etapa_{i}.mp4" width="1280" height="720" aria-label="{e(x["alt"])}"></video></div>'
         for i, x in enumerate(D["etapas"], 1))
+    # Recomendaciones: solo se muestran las marcadas para publicar (cita comparada con el documento firmado)
+    recos = [r for r in D.get("recomendaciones", []) if r.get("publicar")]
+    recomendaciones = "".join(
+        f'<figure class="reco"><blockquote><p>“{e(r["cita"])}”</p></blockquote><figcaption><b>{e(r["nombre"])}</b>'
+        f'<span>{e(r["cargo"])}</span><small>{e(r["contexto"])}</small></figcaption></figure>' for r in recos)
+    seccion_recos = (f'<section class="ancho bloque recomendaciones" id="recomendaciones" aria-labelledby="t-recos"><h2 id="t-recos">Recomendaciones</h2>'
+                     f'<div class="recos">{recomendaciones}</div><p class="respaldos">{e(D.get("respaldos", ""))}</p></section>') if recos else ""
     casos_linea = "".join(f'<li><a href="casos/{c["id"]}.html">{e(c["titulo"])}</a><span>{e(c["contexto"])}</span></li>' for c in LISTA_CASOS)
     carrusel = "\n".join(
         f'      <figure class="sl{"" if i else " activa"}"><img src="hero/hero_{i + 1}.jpg" data-fijo="hero/hero_{i + 1}.jpg" data-gif="hero/hero_{i + 1}.gif" width="960" height="540" alt="{e(x["alt"])}"><figcaption class="sr">{e(x["titulo"])}. {e(x["texto"])}</figcaption></figure>'
@@ -99,7 +106,7 @@ def pagina():
         "{{TITULO_PAGINA}}": e(S["nombre"] + ", diseño instruccional"),
         "{{DESCRIPCION}}": e(S["descripcion"]), "{{URL}}": e(S["url"]), "{{NOMBRE}}": e(S["nombre"]),
         "{{TITULAR}}": e(S["titulo"]), "{{ROL}}": e(S["rol"]), "{{BAJADA}}": e(S["bajada"]), "{{CORREO}}": e(S["correo"]),
-        "{{LINKEDIN}}": e(S["linkedin"]), "{{TELEFONO}}": e(S["telefono"]), "{{TELEFONO_TEXTO}}": e(S["telefono_texto"]), "{{PRINCIPIOS}}": e(S["principios"]), "{{FORMACION}}": e(D["formacion_calidad"]["texto"]), "{{FORMACION_ENLACE}}": e(D["formacion_calidad"]["enlace"]), "{{FORMACION_ENLACE_TEXTO}}": e(D["formacion_calidad"]["enlace_texto"]), "{{CV}}": e(S["cv"]), "{{FILTROS}}": filtros, "{{PIEZAS}}": piezas, "{{CIFRAS}}": cifras, "{{CARRUSEL}}": carrusel, "{{PUNTOS}}": puntos, "{{CASOS}}": tarjetas_casos(LISTA_CASOS), "{{ETAPAS_INDICE}}": etapas_indice, "{{ETAPAS}}": etapas, "{{CAMINO}}": camino, "{{CASOS_LINEA}}": casos_linea,
+        "{{LINKEDIN}}": e(S["linkedin"]), "{{TELEFONO}}": e(S["telefono"]), "{{TELEFONO_TEXTO}}": e(S["telefono_texto"]), "{{PRINCIPIOS}}": e(S["principios"]), "{{FORMACION}}": e(D["formacion_calidad"]["texto"]), "{{FORMACION_ENLACE}}": e(D["formacion_calidad"]["enlace"]), "{{FORMACION_ENLACE_TEXTO}}": e(D["formacion_calidad"]["enlace_texto"]), "{{CV}}": e(S["cv"]), "{{FILTROS}}": filtros, "{{PIEZAS}}": piezas, "{{CIFRAS}}": cifras, "{{CARRUSEL}}": carrusel, "{{PUNTOS}}": puntos, "{{CASOS}}": tarjetas_casos(LISTA_CASOS), "{{ETAPAS_INDICE}}": etapas_indice, "{{ETAPAS}}": etapas, "{{CAMINO}}": camino, "{{RECOMENDACIONES}}": seccion_recos, "{{CASOS_LINEA}}": casos_linea,
         "{{MAS}}": mas, "{{MARCAS}}": marcas, "{{MARCAS_UCM}}": e(D["marcas_ucm"]), "{{PROYECTOS}}": proyectos, "{{PASOS}}": pasos, "{{INSTITUCIONES}}": inst, "{{LD}}": ld,
     }
     for k, v in reemplazos.items():
